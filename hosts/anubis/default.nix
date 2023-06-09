@@ -6,17 +6,17 @@
   pkgs,
   ...
 }:
-let
-  fetchKeys = username:
-    (builtins.fetchurl {
-      url = "https://github.com/${username}.keys";
-      sha256 = "sha256:7765f8a5cc3c8741b8f313b2eb1a067e817b8100a09fbe6523f4bc8f2fc21390";
-      }
-    );
-in
+#let
+#  fetchKeys = username:
+#    (builtins.fetchurl {
+#      url = "https://github.com/${username}.keys";
+#      sha256 = "sha256:7765f8a5cc3c8741b8f313b2eb1a067e817b8100a09fbe6523f4bc8f2fc21390";
+#      }
+#    );
+#in
   {
   imports = [
-    ../common
+    ../../common
     ./hardware-configuration.nix
     ./users.nix
   ];
@@ -47,7 +47,7 @@ in
     enable = true;
     settings.PasswordAuthentication = false;
     settings.PermitRootLogin = "no";
-    kbdInteractiveAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
     openFirewall = true;
     extraConfig = ''
       AllowTcpForwarding yes
