@@ -8,7 +8,7 @@
     impermanence.nixosModule
   ];
 
-  # filesystems
+#  filesystems
 #  fileSystems."/".options = ["compress=zstd" "noatime"];
 #  fileSystems."/home".options = ["compress=zstd" "noatime"];
 #  fileSystems."/nix".options = ["compress=zstd" "noatime"];
@@ -17,7 +17,18 @@
 #  fileSystems."/var/log".options = ["compress=zstd" "noatime"];
 #  fileSystems."/var/log".neededForBoot = true;
 
-  # always persist these
+### TODO - break these security settings into seperate module
+
+  fileSystems."/".options = [ "noexec" ];
+  fileSystems."/etc/nixos".options = [ "noexec" ];
+  fileSystems."/var/log".options = [ "noexec" ];
+  
+  nix.settings.allowed-users = [ "@wheel" ];
+
+###
+
+
+# always persist these
   environment.persistence."/persist" = {
     directories = [
       "/etc/nixos"

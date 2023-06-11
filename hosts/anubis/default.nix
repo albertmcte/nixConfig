@@ -6,25 +6,17 @@
   pkgs,
   ...
 }:
-#let
-#  fetchKeys = username:
-#    (builtins.fetchurl {
-#      url = "https://github.com/${username}.keys";
-#      sha256 = "sha256:7765f8a5cc3c8741b8f313b2eb1a067e817b8100a09fbe6523f4bc8f2fc21390";
-#      }
-#    );
-#in
   {
   imports = [
     ../../common
     ./hardware-configuration.nix
-    ./users.nix
+    ../../users/wash
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  # Because I messed up install
+  # Possibly just use 'nixos-install --no-root-passwd'
   users.users.root.hashedPassword = "!";
   
   # Use the systemd-boot EFI boot loader.
@@ -39,10 +31,11 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
-    htop
-    kitty
   ];
 
+  programs.fish.enable = true;
+  environment.shells = with pkgs; [ fish ];
+  
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;

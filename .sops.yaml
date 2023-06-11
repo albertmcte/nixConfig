@@ -1,0 +1,11 @@
+keys:
+  - &anubis age1hh5aug7aqa2pru9zvgw3f08mjqlp4td4s7gaht7tgxnysykajpzs72w63q
+creation_rules:
+  - path_regex: hosts/anubis/secrets.yaml$
+    key_groups:
+      - age:
+        - *anubis
+  - path_regex: common/secrets.yaml$
+    key_groups:
+      - age:
+        - *anubis
