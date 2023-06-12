@@ -7,6 +7,7 @@
   ...
 }: {
   imports = [
+    ./sys-default.nix
     ./impermanence.nix
     ./hm.nix
 #    ./noexec.nix

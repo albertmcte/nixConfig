@@ -1,4 +1,14 @@
 { inputs, pkgs, lib, config, ... }:
+#let
+#  inherit (lib) mkIf;
+#  hasPackage = pname: lib.any (p: p ? pname && p.pname == pname) config.home.packages;
+#  hasRipgrep = hasPackage "ripgrep";
+#  hasExa = hasPackage "exa";
+#  hasNeovim = config.programs.neovim.enable;
+#  hasShellColor = config.programs.shellcolor.enable;
+#  hasKitty = config.programs.kitty.enable;
+#  shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
+#in
 {
 programs.fish = {
   enable = true;
@@ -26,6 +36,18 @@ programs.fish = {
   functions = {
       # Disable greeting
       fish_greeting = "";
+ #     # Integrate ssh with shellcolord
+ #     ssh = mkIf hasShellColor ''
+ #       ${shellcolor} disable $fish_pid
+ #       # Check if kitty is available
+ #       if set -q KITTY_PID && set -q KITTY_WINDOW_ID && type -q -f kitty
+ #         kitty +kitten ssh $argv
+ #       else
+ #         command ssh $argv
+ #       end
+ #       ${shellcolor} enable $fish_pid
+ #       ${shellcolor} apply $fish_pid
+ #       '';
     };
   interactiveShellInit =
     # kitty integration
