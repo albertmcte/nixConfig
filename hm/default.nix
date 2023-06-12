@@ -4,8 +4,9 @@
   ...
 }: {
   imports = [
-    ./common/cli.nix
-    ./common/fish
+    ./cli.nix
+    ./fish
+    ./nvim
   ];
 }
 
