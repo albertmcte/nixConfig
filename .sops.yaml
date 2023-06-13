@@ -3,9 +3,9 @@ keys:
 creation_rules:
   - path_regex: hosts/anubis/secrets.yaml$
     key_groups:
-      - age:
-        - *anubis
-  - path_regex: common/secrets.yaml$
+    - age:
+      - *anubis
+  - path_regex: hosts/common/secrets.yaml$
     key_groups:
-      - age:
-        - *anubis
+    - age:
+      - *anubis

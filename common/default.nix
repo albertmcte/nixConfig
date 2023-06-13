@@ -11,7 +11,8 @@
     ./impermanence.nix
     ./hm.nix
 #    ./noexec.nix
-#    ./sops.nix
-#    ./tailscale.nix
+    ./sops.nix
+    ./agenix.nix
+    ./tailscale.nix
   ];
 }

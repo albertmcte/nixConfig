@@ -24,6 +24,20 @@
           ./hosts/anubis
         ];
       };
+      neptune = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+        modules = [
+          ./hosts/neptune
+        ];
+      };
+      zelda = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+        modules = [
+          ./hosts/zelda
+        ];
+      };
     };
   };
 }

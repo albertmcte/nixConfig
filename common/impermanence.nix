@@ -19,9 +19,10 @@
 
 ### TODO - break these security settings into seperate module
 
-  fileSystems."/".options = [ "noexec" ];
-  fileSystems."/etc/nixos".options = [ "noexec" ];
-  fileSystems."/var/log".options = [ "noexec" ];
+### are these causing my error?
+#  fileSystems."/".options = [ "noexec" ];
+#  fileSystems."/etc/nixos".options = [ "noexec" ];
+#  fileSystems."/var/log".options = [ "noexec" ];
   
   nix.settings.allowed-users = [ "@wheel" ];
 

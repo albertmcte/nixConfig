@@ -13,6 +13,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = false;
 
   networking.networkmanager.enable = true;
   
@@ -22,11 +24,9 @@
   ];
 
   programs.fish.enable = true;
-  programs.zsh.enable = true;
 
   environment.shells = with pkgs; [
     fish
-    zsh
   ];
 
   services.openssh = {

@@ -28,7 +28,7 @@
       fi
 
       # otherwise authenticate with tailscale
-      ${tailscale}/bin/tailscale up --authkey $(cat ${config.sops.secrets.tailscale_key.path}) --login-server https://headscale.ozeliurs.com --advertise-exit-node
+      ${tailscale}/bin/tailscale up --authkey $(cat ${config.sops.secrets.tailscale_key.path}) --advertise-exit-node
     '';
   };
 
@@ -51,7 +51,7 @@
   boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
 
   sops.secrets.tailscale_key = {
-    sopsFile = ./secrets.yaml;
+    sopsFile = ../hosts/common/secrets.yaml;
   };
 
   environment.persistence = {
