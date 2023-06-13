@@ -5,7 +5,7 @@
 }: {
   # enable the tailscale service
   services.tailscale.enable = true;
-
+  
   # create a oneshot job to authenticate to Tailscale
   systemd.services.tailscale-autoconnect = {
     description = "Automatic connection to Tailscale";
@@ -28,7 +28,7 @@
       fi
 
       # otherwise authenticate with tailscale
-      ${tailscale}/bin/tailscale up --authkey $(cat ${config.sops.secrets.tailscale_key.path}) --advertise-exit-node
+      ${tailscale}/bin/tailscale up --authkey $(cat ${config.age.secrets.tailscale_key.path}) --advertise-exit-node
     '';
   };
 
@@ -50,9 +50,11 @@
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
   boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
 
-  sops.secrets.tailscale_key = {
-    sopsFile = ../hosts/common/secrets.yaml;
-  };
+#  sops.secrets.tailscale_key = {
+#    sopsFile = ../hosts/common/secrets.yaml;
+#  };
+
+  age.secrets.tailscale_key.file = ../secrets/tailscale_key.age;
 
   environment.persistence = {
     "/persist".directories = ["/var/lib/tailscale"];
