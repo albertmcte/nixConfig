@@ -54,7 +54,6 @@
   programs = {
     bat = {
       enable = true;
-#      config.theme = "gruvbox-dark";
     };
     fzf = {
       enable = true;
@@ -69,7 +68,6 @@
     git = {
       enable = true;
       lfs.enable = true;
-      # Default configs
       extraConfig = {
         commit.gpgSign = false;
         user.name = "Nordyun";

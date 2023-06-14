@@ -9,6 +9,10 @@
 
   # Possibly just use 'nixos-install --no-root-passwd'
   users.users.root.hashedPassword = "!";
+
+  # Security
+  security.sudo.extraConfig = "Defaults lecture = never";
+  nix.settings.allowed-users = [ "@wheel" ];
   
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -47,7 +51,7 @@
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [22];
+    allowedTCPPorts = [];
     allowedUDPPorts = [];
   };
 }
