@@ -4,9 +4,7 @@
   ...
 }: {
   imports = [
-    common/cli.nix
-    common/fish
-    common/nvim
+    ./hyprwm.nix
   ];
 }
 

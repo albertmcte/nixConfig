@@ -32,6 +32,7 @@
     '';
   };
 
+#   above --^    ${tailscale}/bin/tailscale up --authkey $(cat ${config.sops.secrets.tailscale_key.path}) --advertise-exit-node
   environment.systemPackages = with pkgs; [
     tailscale
   ];
@@ -51,11 +52,13 @@
   boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
 
 #  sops.secrets.tailscale_key = {
-#    sopsFile = ../hosts/common/secrets.yaml;
+#    sopsFile = ../../hosts/common/secrets.yaml;
 #  };
 
-  age.secrets.tailscale_key.file = ../secrets/tailscale_key.age;
+# don't know if this works yet
+  age.secrets.tailscale_key.file = ../../secrets/tailscale_key.age;
 
+# redundant
   environment.persistence = {
     "/persist".directories = ["/var/lib/tailscale"];
   };

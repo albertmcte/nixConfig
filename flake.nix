@@ -2,6 +2,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
     impermanence.url = "github:nix-community/impermanence";
+    hyprland.url = "github:hyprwm/hyprland";
+    hyprwm-contrib.url = "github:hyprwm/contrib";
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";

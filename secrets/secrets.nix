@@ -12,4 +12,5 @@ in
 #  "secret1.age".publicKeys = [ wash anubis ];
 "secrets.age".publicKeys = users ++ systems;
 "tailscale_key.age".publicKeys = users ++ systems;
+"washpw.age".publicKeys = [ wash ] ++ systems;
 }

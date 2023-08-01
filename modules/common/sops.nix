@@ -11,8 +11,9 @@ in {
   imports = [
     sops-nix.nixosModules.sops
   ];
-
   sops = {
     age.sshKeyPaths = map getKeyPath keys;
+#    defaultSopsFile = ../secrets/secrets.yaml;
+#    secrets.wash_pw.neededForUsers = true;
   };
 }

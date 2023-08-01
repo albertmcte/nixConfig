@@ -48,6 +48,8 @@
     '';
   };
 
+#  sops.secrets.wash_pw.neededForUsers = true;
+
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;

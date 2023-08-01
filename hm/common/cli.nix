@@ -1,7 +1,6 @@
 { inputs, config, lib, pkgs, ... }:
 {
   home.file.".config/kitty".source = ./kitty;
-#  home.file.".config/fish/fish_variables".source = ./fish/fish_variables;
   home.packages = with pkgs; [
     kitty
     bat

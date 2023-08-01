@@ -8,9 +8,10 @@
 }:
   {
   imports = [
-    ../../common
+    ../../modules/common
     ./hardware-configuration.nix
     ../../users/wash
+    ../../modules/desktop
   ];
 
   networking.hostName = "anubis";

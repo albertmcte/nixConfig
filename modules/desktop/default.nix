@@ -4,9 +4,9 @@
   ...
 }: {
   imports = [
-    common/cli.nix
-    common/fish
-    common/nvim
+#    ./kodi.nix
+#    ./wayland.nix
+    ./x.nix
   ];
 }
 
