@@ -18,7 +18,7 @@
   time.timeZone = "Europe/Amsterdam";
 
   #For ZFS support
-#  networking.hostId = "fd91c922";
+  networking.hostId = "134d7ce5";
 
   system.stateVersion = "23.05";
 }
