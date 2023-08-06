@@ -44,6 +44,13 @@
           ./hosts/zelda
         ];
       };
+      nixmacVM = nixpkgs.lib.nixosSystem {
+        system = "aarch-64-linux";
+        specialArgs = inputs;
+        modules = [
+          ./hosts/nixmacVM
+        ];
+      };
     };
   };
 }
