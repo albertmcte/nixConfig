@@ -9,6 +9,14 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    eww = {
+      url = "github:elkowar/eww";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    agenix-rekey = {
+      url = "github:oddlama/agenix-rekey";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,7 +53,7 @@
         ];
       };
       nixmacVM = nixpkgs.lib.nixosSystem {
-        system = "aarch-64-linux";
+        system = "aarch64-linux";
         specialArgs = inputs;
         modules = [
           ./hosts/nixmacVM

@@ -10,10 +10,13 @@
     cinnamon.nemo
     pywal
     dunst
-    polybar
+#    polybar
     firefox
-    picom
+#    picom
     _1password-gui
+  ];
+  imports = [
+    ./bspwm
   ];
 }
 
