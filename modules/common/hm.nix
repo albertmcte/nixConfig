@@ -1,10 +1,10 @@
 {
+  inputs,
   config,
   pkgs,
-  home-manager,
   ...
 }: {
   imports = [
-    home-manager.nixosModule
+    inputs.home-manager.nixosModule
   ];
 }

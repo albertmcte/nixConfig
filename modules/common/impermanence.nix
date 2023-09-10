@@ -1,11 +1,11 @@
 {
+  inputs,
   config,
   pkgs,
-  impermanence,
   ...
 }: {
   imports = [
-    impermanence.nixosModule
+    inputs.impermanence.nixosModules.impermanence
   ];
 
 #  filesystems

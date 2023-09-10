@@ -54,8 +54,6 @@
 #  sops.secrets.tailscale_key = {
 #    sopsFile = ../../hosts/common/secrets.yaml;
 #  };
-
-# don't know if this works yet
   age.secrets.tailscale_key.file = ../../secrets/tailscale_key.age;
 
 # redundant
