@@ -21,6 +21,14 @@
     source = ./wallpapers;
     recursive = true;
   };
+  home.file.".xinitrc" = {
+    source = ./xinitrc;
+    recursive = true;
+  };
+  home.file.".Xresources" = {
+    source = ./Xresources;
+    recursive = true;
+  };
   imports = [
     ./bspwm
   ];
