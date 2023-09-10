@@ -13,11 +13,11 @@
     firefox
     _1password-gui
   ];
-  home.file."${config.xdg.configHome}".ricerscripts = {
-    source = ./ricerscripts;
+  home.file."${config.xdg.configHome}/ricescripts" = {
+    source = ./ricescripts;
     recursive = true;
   };
-  home.file."${config.xdg.configHome}".wallpapers = {
+  home.file."${config.xdg.configHome}/wallpapers" = {
     source = ./wallpapers;
     recursive = true;
   };
