@@ -28,8 +28,8 @@ in
       extraGroups = [ "wheel" "networkmanager" ];
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
       # passwordFile needs to be in a volume marked with `neededForBoot = true`
-      passwordFile = "/persist/passwords/wash";
-#      passwordFile = config.age.secrets.washpw.path;
+#      passwordFile = "/persist/passwords/wash";
+      passwordFile = config.age.secrets.washpw.path;
 #      passwordFile = "config.sops.secrets.wash_pw.path";
       shell = pkgs.fish;
     };
