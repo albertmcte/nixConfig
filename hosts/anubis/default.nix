@@ -12,6 +12,7 @@
   imports = [
     ../../modules/common
     ./hardware-configuration.nix
+    ./impermanence.nix  
     ../../users/wash
     ../../modules/desktop
   ];
