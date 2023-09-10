@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ inputs, outputs, pkgs, config, ... }:
 
 let
   fetchKeys = username:

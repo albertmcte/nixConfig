@@ -30,37 +30,35 @@
     };
   };
 
-  outputs = inputs:
+  outputs = {nixpkgs, ...} @inputs:
   with inputs;
   let
+    system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
     specialArgs = { inherit self inputs; };
     extraSpecialArgs = specialArgs;
   in
   {
     nixosConfigurations = {
-      anubis = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        inherit specialArgs;
+      "anubis" = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
         modules = [
           ./hosts/anubis
         ];
       };
-      neptune = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        inherit specialArgs;
+      "neptune" = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
         modules = [
           ./hosts/neptune
         ];
       };
-      zelda = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        inherit specialArgs;
+      "zelda" = nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
         modules = [
           ./hosts/zelda
         ];
       };
-      nixmacVM = nixpkgs.lib.nixosSystem {
+      "nixmacVM" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         inherit specialArgs;
         modules = [
