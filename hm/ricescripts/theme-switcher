@@ -1,7 +1,7 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i bash -p bash
 
-WALLPAPER_DIR=~/.wallpapers
+WALLPAPER_DIR=~/.config/wallpapers
 
 SELECTED_THEME=$(ls $WALLPAPER_DIR | rofi -dmenu -p "theme")
 
@@ -10,7 +10,7 @@ if [ "current theme" = "$SELECTED_THEME" ]; then
   exit 0
 elif [ ! -z $SELECTED_THEME ]; then
   echo "changing theme"
-  ~/.scripts/load-theme $WALLPAPER_DIR/$SELECTED_THEME > /dev/null
+  ~/.config/ricescripts/load-theme $WALLPAPER_DIR/$SELECTED_THEME > /dev/null
   exit 0
 fi
 echo "theme not selected"
