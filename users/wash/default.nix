@@ -19,7 +19,7 @@ in
     nixpkgs.config.allowUnfree = true;
     imports = [
       ../../hm
-      ../../hm/anubis.nix
+      ../../hm/desktop.nix
     ];
   };
   users.users = {
