@@ -55,9 +55,4 @@
 #    sopsFile = ../../hosts/common/secrets.yaml;
 #  };
   age.secrets.tailscale_key.file = ../../secrets/tailscale_key.age;
-
-# redundant
-  environment.persistence = {
-    "/persist".directories = ["/var/lib/tailscale"];
-  };
 }
