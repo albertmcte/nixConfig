@@ -1,0 +1,5 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p pywal bash
+wal -i $1
+~/.scripts/refresh
+

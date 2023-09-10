@@ -1,0 +1,5 @@
+#!/bin/bash
+cat ~/.config/alacritty/ala-template.yml ~/.cache/wal/colors.yml > ~/.config/alacritty/ala-output.yml
+sed -e '/colors/ d' -e 's/special/colors/g' -e '/colors/ a \ \ primary:' -e '/cursor/ c \ \ normal:' -e 's/color0/black/g' -e 's/color1:/red:/g' -e 's/color2/yellow/g' -e 's/color3/green/g' -e 's/color4/blue/g' -e 's/color5/magenta/g' -e 's/color6/cyan/g' -e 's/color7/white/g' -e '/white/ a \ \ bright:' -e 's/color8/black/g' -e 's/color9/red/g' -e 's/color10/yellow/g' -e 's/color11/green/g' -e 's/color12/blue/g' -e 's/color13/magenta/g' -e 's/color14/cyan/g' -e 's/color15/white/g' ~/.config/alacritty/ala-output.yml > ~/.config/alacritty/alacritty.yml
+
+exit 0

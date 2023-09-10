@@ -1,0 +1,11 @@
+#!/bin/bash
+cb="$(xrandr --verbose | grep -i brightness | cut -f2 -d ' ')"
+cbd="$(echo "$cb - 0.1" | bc)"
+if [ "$cb" == 0.10 ]
+then
+  :
+else
+  xrandr --output eDP-1 --brightness $cbd
+fi
+echo $cbd
+exit 0

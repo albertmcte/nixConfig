@@ -10,11 +10,17 @@
     cinnamon.nemo
     pywal
     dunst
-#    polybar
     firefox
-#    picom
     _1password-gui
   ];
+  home.file."${config.xdg.configHome}" = {
+    source = ./ricerscripts;
+    recursive = true;
+  };
+  home.file."${config.xdg.configHome}" = {
+    source = ./wallpapers;
+    recursive = true;
+  };
   imports = [
     ./bspwm
   ];

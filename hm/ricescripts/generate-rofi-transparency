@@ -1,0 +1,3 @@
+#!/usr/bin/env nix-shell
+#!nix-shell -i bash -p bash
+sed 's/background:\ #....../&66/g' ~/.cache/wal/colors-rofi-dark.rasi > ~/.cache/wal/colors-rofi-dark-trans.rasi
