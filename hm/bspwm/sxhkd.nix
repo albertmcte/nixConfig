@@ -6,7 +6,7 @@
       "super + Return" = "kitty";
       "super + p" = "rofi -show drun -theme $HOME/.cache/wal/colors-rofi-dark-trans.rasi -show-icons";
       "super + @space" = "sh $HOME/.config/rofi/powermenu.sh";
-      "ctrl + super + alt + u" = "kitty sudo nixos-rebuild switch";
+#      "ctrl + super + alt + u" = "kitty sudo nixos-rebuild switch";
       "Print" = "flameshot gui";
       "XF86AudioRaiseVolume" = "pamixer -i 1";
       "XF86AudioLowerVolume" = "pamixer -d 1";
@@ -21,7 +21,7 @@
       # Apps
       "super + g" = "nemo --no-desktop";
       "super + m" = "mailspring";
-      "super + 0" = "~/.scripts/theme-switcher";
+      "super + 0" = "~/.config/ricescripts/theme-switcher";
       "super + o" = "/home/wash/.local/share/tresorit/tresorit";
       # State/flags
       "super + {t,shift + t,f,m}" = "bspc node -t {tiled,pseudo_tiled,floating,fullscreen}";
