@@ -18,7 +18,7 @@ in
     nixpkgs.config.allowUnfree = true;
     imports = [
       ../../hm
-      ../../hm/desktop.nix
+      ../../hm/gnome.nix
     ];
   };
   users.users = {
@@ -28,6 +28,13 @@ in
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
       passwordFile = config.age.secrets.wyattpw.path;
       shell = pkgs.fish;
+      packages = with pkgs; [
+        firefox
+        tree
+        kodi
+        _1password-gui
+        skypeforlinux
+        mailspring
     };
   };
   age.secrets.wyattpw.file = ../../secrets/wyattpw.age;
