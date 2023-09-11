@@ -1,21 +1,34 @@
+{ inputs, outputs, pkgs, config, ... }:
+
 let
   fetchKeys = username:
     (builtins.fetchurl {
       url = "https://github.com/${username}.keys";
-      sha256 = "sha256:07k9wwxmdjhc0gz1277qa3k3g3ld0c1r3iy99bpkfaa5zk5b259v";
+      sha256 = "sha256:04yk4aarf64q3iv61rnnz1kyj2ggsnsydknp4xrr1ia8956rzlgh";
       }
-    );
+  );
 in
 {
   users.mutableUsers = false;
+  home-manager.users.wyatt = {
+    home.username = "wyatt";
+    home.homeDirectory = "/home/wyatt";
+    programs.home-manager.enable = true;
+    home.stateVersion = "23.05";
+    nixpkgs.config.allowUnfree = true;
+    imports = [
+      ../../hm
+      ../../hm/desktop.nix
+    ];
+  };
   users.users = {
-    wash = {
+    wyatt = {
       isNormalUser = true;
-      home = "/home/wash";
-      extraGroups = ["wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" ];
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
-      # passwordFile needs to be in a volume marked with `neededForBoot = true`
-      passwordFile = "/persist/passwords/wash";
+      passwordFile = config.age.secrets.wyattpw.path;
+      shell = pkgs.fish;
     };
   };
+  age.secrets.wyattpw.file = ../../secrets/wyattpw.age;
 }
