@@ -14,8 +14,6 @@
   fileSystems."/etc/nixos".options = [ "noexec" ];
   fileSystems."/var/log".options = [ "noexec" ];
 
-#  nix.settings.allowed-users = [ "@wheel" ];
-
 # always persist these
   environment.persistence."/persist" = {
     directories = [
