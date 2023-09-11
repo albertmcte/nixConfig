@@ -35,6 +35,7 @@ in
         _1password-gui
         skypeforlinux
         mailspring
+      ];
     };
   };
   age.secrets.wyattpw.file = ../../secrets/wyattpw.age;
