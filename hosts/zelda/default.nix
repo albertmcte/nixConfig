@@ -18,9 +18,10 @@
 
   networking.hostName = "zelda";
   time.timeZone = "Europe/Amsterdam";
+  security.sudo.wheelNeedsPassword = false;
 
-  #For ZFS support
-#  networking.hostId = "fd91c922";
+#For ZFS support
+  networking.hostId = "dc0145aa";
 
   system.stateVersion = "23.05";
 }
