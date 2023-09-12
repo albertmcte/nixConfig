@@ -9,10 +9,8 @@
 }: {
   imports = [
     ./sys-default.nix
-#    ./impermanence.nix
     ./hm.nix
 #    ./noexec.nix
-    ./sops.nix
     ./agenix.nix
     ./tailscale.nix
   ];

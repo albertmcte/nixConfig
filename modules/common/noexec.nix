@@ -1,13 +1,8 @@
 {
   config,
   pkgs,
-  impermenance,
   ...
 }: {
-  imports = [
-    impermanence.nixosModule
-  ];
-
   fileSystems."/".options = [ "noexec" ];
   fileSystems."/etc/nixos".options = [ "noexec" ];
   fileSystems."/srv".options = [ "noexec" ];

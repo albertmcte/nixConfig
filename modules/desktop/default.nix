@@ -4,9 +4,8 @@
   ...
 }: {
   imports = [
-#    ./kodi.nix
 #    ./wayland.nix
-    ./x.nix
+    ./bspwm.nix
   ];
 }
 
