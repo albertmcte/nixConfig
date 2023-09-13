@@ -59,33 +59,6 @@ programs.fish = {
     '' +
     # Use terminal colors
     ''
-#      set -U fish_color_autosuggestion      brblack
-#      set -U fish_color_cancel              -r
-#      set -U fish_color_command             brgreen
-#      set -U fish_color_comment             brmagenta
-#      set -U fish_color_cwd                 green
-#      set -U fish_color_cwd_root            red
-#      set -U fish_color_end                 brmagenta
-#      set -U fish_color_error               brred
-#      set -U fish_color_escape              brcyan
-#      set -U fish_color_history_current     --bold
-#      set -U fish_color_host                normal
-#      set -U fish_color_match               --background=brblue
-#      set -U fish_color_normal              normal
-#      set -U fish_color_operator            cyan
-#      set -U fish_color_param               brblue
-#      set -U fish_color_quote               yellow
-#      set -U fish_color_redirection         bryellow
-#      set -U fish_color_search_match        'bryellow' '--background=brblack'
-#      set -U fish_color_selection           'white' '--bold' '--background=brblack'
-#      set -U fish_color_status              red
-#      set -U fish_color_user                brgreen
-#      set -U fish_color_valid_path          --underline
-#      set -U fish_pager_color_completion    normal
-#      set -U fish_pager_color_description   yellow
-#      set -U fish_pager_color_prefix        'white' '--bold' '--underline'
-#      set -U fish_pager_color_progress      'brwhite' '--background=cyan'
-
       set -U _tide_left_items               os\x1epwd\x1egit\x1echaracter
       set -U _tide_prompt_10737             \x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\uf313\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x40PWD\x40\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b76m\uf1d3\x20\x1b\x5b37m\x1b\x5b38\x3b5\x3b76mmaster\x1b\x5b38\x3b5\x3b196m\x1b\x5b38\x3b5\x3b76m\x1b\x5b38\x3b5\x3b76m\x1b\x5b38\x3b5\x3b196m\x1b\x5b38\x3b5\x3b178m\x20\x2b18\x1b\x5b38\x3b5\x3b178m\x20\x211\x1b\x5b38\x3b5\x3b39m\x1b\x5b38\x3b5\x3b76m\x20\u276f\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b101m\uf252\x2031s\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b180mwash\x40anubis\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b66m21\x3a14\x3a15\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm
       set -U _tide_prompt_12861             \x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm
@@ -253,5 +226,8 @@ programs.fish = {
       set -U tide_virtual_env_color                     00AFAF
       set -U tide_virtual_env_icon          \ue73c
     '';
+#      ++ lib.mkIf pkgs.stdenv.isDarwin ''
+#      set -U tide_os_icon                               \uf179
+#    '';
   };
 }

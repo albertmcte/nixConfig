@@ -1,5 +1,6 @@
 { inputs, outputs, pkgs, config, ... }:
 {
+  environment.shells = [ pkgs.fish ];
   users.users = {
     wash = {
       name = "wash";

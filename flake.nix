@@ -68,11 +68,13 @@
       };
     };
     darwinConfigurations = {
-      "io" = nixpkgs.lib.nixosSystem {
+      "io" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         inherit specialArgs;
         modules = [
           ./hosts/io
+          inputs.agenix.darwinModules.age
+          home-manager.darwinModules.home-manager
         ];
       };
     };
