@@ -37,6 +37,7 @@
           fzfWrapper
           vim-devicons
           toggleterm-nvim
+          copilot-lua
         ]);
     };
 }

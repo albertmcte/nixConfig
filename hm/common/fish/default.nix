@@ -1,6 +1,7 @@
 { inputs, pkgs, lib, config, ... }:
-#let
-#  inherit (lib) mkIf;
+let
+  inherit (lib) mkIf;
+  inherit (pkgs) stdenv;
 #  hasPackage = pname: lib.any (p: p ? pname && p.pname == pname) config.home.packages;
 #  hasRipgrep = hasPackage "ripgrep";
 #  hasExa = hasPackage "exa";
@@ -8,7 +9,8 @@
 #  hasShellColor = config.programs.shellcolor.enable;
 #  hasKitty = config.programs.kitty.enable;
 #  shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
-#in
+  osIcon = (if stdenv.isDarwin then "\\uf179" else "\\uf313");
+in
 {
 programs.fish = {
   enable = true;
@@ -48,15 +50,17 @@ programs.fish = {
  #       ${shellcolor} enable $fish_pid
  #       ${shellcolor} apply $fish_pid
  #       '';
-    };
+  };
+#  osIcon = mkIf stdenv.isDarwin { "\u179"; };
+
   interactiveShellInit =
-    # kitty integration
-    ''
-      set --global KITTY_INSTALLATION_DIR "${pkgs.kitty}/lib/kitty"
-      set --global KITTY_SHELL_INTEGRATION enabled
-      source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
-      set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
-    '' +
+    # kitty integration only currently working on linux
+#    ''
+#      set --global KITTY_INSTALLATION_DIR "${pkgs.kitty}/lib/kitty"
+#      set --global KITTY_SHELL_INTEGRATION enabled
+#      source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
+#      set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
+#    '' +
     # Use terminal colors
     ''
       set -U _tide_left_items               os\x1epwd\x1egit\x1echaracter
@@ -161,7 +165,7 @@ programs.fish = {
       set -U tide_node_icon                 \u2b22
       set -U tide_os_bg_color               normal
       set -U tide_os_color                  normal
-      set -U tide_os_icon                   \uf313
+      set -U tide_os_icon                   ${osIcon}
       set -U tide_php_bg_color              normal
       set -U tide_php_color                 617CBE
       set -U tide_php_icon                  \ue608
