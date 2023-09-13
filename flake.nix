@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
     impermanence.url = "github:nix-community/impermanence";
     hyprland.url = "github:hyprwm/hyprland";
     hyprwm-contrib.url = "github:hyprwm/contrib";
@@ -22,6 +24,10 @@
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    darwin = {
+      url = "github:lnl7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
   };
 
@@ -58,6 +64,15 @@
         inherit specialArgs;
         modules = [
           ./hosts/nixmacVM
+        ];
+      };
+    };
+    darwinConfigurations = {
+      "io" = nixpkgs.lib.nixosSystem {
+        system = "aarch64-darwin";
+        inherit specialArgs;
+        modules = [
+          ./hosts/io
         ];
       };
     };

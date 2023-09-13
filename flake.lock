@@ -64,6 +64,27 @@
         "type": "github"
       }
     },
+    "darwin_2": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1694497842,
+        "narHash": "sha256-z03v/m0OwcLBok97KcUgMl8ZFw5Xwsi2z+n6nL7JdXY=",
+        "owner": "lnl7",
+        "repo": "nix-darwin",
+        "rev": "4496ab26628c5f43d2a5c577a06683c753e32fe2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lnl7",
+        "ref": "master",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "eww": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -93,11 +114,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1694468995,
-        "narHash": "sha256-9aTw6oP0dgBb7Y+Yav/bWJDJ+BvRPKxruKIerAnaZfs=",
+        "lastModified": 1694585600,
+        "narHash": "sha256-X+3lxErOk5DNuyJZM7dNAaIpxadv8wMjj6pYxwpjPkc=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "e9fcff30e85945573480de9ad004a5552185898c",
+        "rev": "1d028825099440cd83f934967dd20cf1f0a453f5",
         "type": "gitlab"
       },
       "original": {
@@ -204,11 +225,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1694472057,
-        "narHash": "sha256-cakXoF6TtgRSHDwFQ9x7jeTbhdKH+EN7aw2mt2r0QkM=",
+        "lastModified": 1694554628,
+        "narHash": "sha256-ZqTV9cyrlGWLPl/fEEN1iaQ6ioSSTOiMCshgIpRSfuM=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "ed51fe7bac76248933c71d3958fdb9a973066dfd",
+        "rev": "b0d5e4008b96f2cdbb6f6c2449c790d921d1546b",
         "type": "github"
       },
       "original": {
@@ -291,6 +312,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-darwin": {
+      "locked": {
+        "lastModified": 1694526311,
+        "narHash": "sha256-Y9LCYQBNX7McW0o8x6wT9tx2qy9TVuF84fe62zrQzyA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "36bee398beca22e2428074e0a2e068d87f801718",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-23.05-darwin",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1693844670,
@@ -325,11 +362,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1694304580,
-        "narHash": "sha256-5tIpNodDpEKT8mM/F5zCzWEAnidOg8eb1/x3SRaaBLs=",
+        "lastModified": 1694499547,
+        "narHash": "sha256-R7xMz1Iia6JthWRHDn36s/E248WB1/je62ovC/dUVKI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "4c8cf44c5b9481a4f093f1df3b8b7ba997a7c760",
+        "rev": "e5f018cf150e29aac26c61dac0790ea023c46b24",
         "type": "github"
       },
       "original": {
@@ -343,13 +380,15 @@
       "inputs": {
         "agenix": "agenix",
         "agenix-rekey": "agenix-rekey",
+        "darwin": "darwin_2",
         "eww": "eww",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager_2",
         "hyprland": "hyprland",
         "hyprwm-contrib": "hyprwm-contrib",
         "impermanence": "impermanence",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_4",
+        "nixpkgs-darwin": "nixpkgs-darwin"
       }
     },
     "rust-overlay": {
