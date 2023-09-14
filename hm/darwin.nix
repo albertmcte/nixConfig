@@ -7,5 +7,6 @@
   };
   home.packages = with pkgs; [
     mosh
+    nodejs_20
   ];
 }
