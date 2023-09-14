@@ -7,7 +7,6 @@
   };
   home.packages = with pkgs; [
     mosh
-    nodejs_20  #for github copilot
     nmap
     rclone
     rsync
