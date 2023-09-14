@@ -42,13 +42,14 @@
     sshceres="ssh wash@ceres";
     moshceres="mosh wash@ceres";
     sshmini="ssh -p 36767 10.0.0.1";
-    sshminiclear="ssh -p 36767 207.254.46.173";
+    sshminiclear="ssh -p 36767 ${config.age.secrets.miniIp.path}";
     sshandromeda="TERM=xterm-256color ssh -p 31225 wash@10.0.0.6";
     androsync="TERM=xterm-256color ssh -p 31225 -L 9999:localhost:8384 wash@10.0.0.6";
     ".." = "cd ../";
     "..." = "cd ../..";
     "...." = "cd ../../..";
   };
+  age.secrets.miniIp.file = ../../secrets/miniIp.age;
 
   programs = {
     bat = {

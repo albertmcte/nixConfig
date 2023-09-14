@@ -13,4 +13,5 @@ in
 "tailscale_key.age".publicKeys = users ++ systems;
 "washpw.age".publicKeys = [ wash ] ++ systems;
 "wyattpw.age".publicKeys = users ++ systems;
+"miniIp.age".publicKeys = users ++ systems;
 }
