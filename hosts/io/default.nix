@@ -11,10 +11,6 @@
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
     brews = [
-      "mas"
-      "rsync"
-      "rclone"
-      "openssh"
     ];
     casks = [
       "font-hack-nerd-font"

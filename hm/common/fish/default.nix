@@ -10,6 +10,7 @@ let
 #  hasKitty = config.programs.kitty.enable;
 #  shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
   osIcon = (if stdenv.isDarwin then "\\uf179" else "\\uf313");
+  brew = (if stdenv.isDarwin then "set -U fish_user_paths /opt/homebrew/bin $fish_user_paths" else " ");
 in
 {
 programs.fish = {
@@ -29,8 +30,8 @@ programs.fish = {
     src = pkgs.fetchFromGitHub {
       owner = "IlanCosman";
       repo = "tide";
-      rev = "6833806ba2eaa1a2d72a5015f59c284f06c1d2db";
-      sha256 = "1qqkxpi4pl0s507gj4xv7b58ykbqzxbhxmw949ja3srph9i2qbmy";
+      rev = "51b0f37307c7bcfa38089c2eddaad0bbb2e20c64";
+      sha256 = "1cnnm0cs5spq2ir7vsb62blgyddjmzspgm2kpmsknskg78a3a8kh";
       };
     }
     { name = "grc"; src = pkgs.fishPlugins.grc; }
@@ -51,7 +52,6 @@ programs.fish = {
  #       ${shellcolor} apply $fish_pid
  #       '';
   };
-#  osIcon = mkIf stdenv.isDarwin { "\u179"; };
 
   interactiveShellInit =
     # kitty integration only currently working on linux
@@ -61,7 +61,15 @@ programs.fish = {
 #      source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
 #      set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
 #    '' +
-    # Use terminal colors
+### Add nix binary paths to the PATH
+# Perhaps someday will be fixed in nix or nix-darwin itself
+    ''
+      if test (uname) = Darwin
+        fish_add_path --prepend --global "$HOME/.nix-profile/bin" /nix/var/nix/profiles/default/bin /run/current-system/sw/bin
+      end
+
+      # Use terminal colors
+    '' +
     ''
       set -U _tide_left_items               os\x1epwd\x1egit\x1echaracter
       set -U _tide_prompt_10737             \x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\uf313\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x40PWD\x40\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b76m\uf1d3\x20\x1b\x5b37m\x1b\x5b38\x3b5\x3b76mmaster\x1b\x5b38\x3b5\x3b196m\x1b\x5b38\x3b5\x3b76m\x1b\x5b38\x3b5\x3b76m\x1b\x5b38\x3b5\x3b196m\x1b\x5b38\x3b5\x3b178m\x20\x2b18\x1b\x5b38\x3b5\x3b178m\x20\x211\x1b\x5b38\x3b5\x3b39m\x1b\x5b38\x3b5\x3b76m\x20\u276f\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b101m\uf252\x2031s\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b180mwash\x40anubis\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b66m21\x3a14\x3a15\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm
@@ -229,9 +237,7 @@ programs.fish = {
       set -U tide_virtual_env_bg_color                  normal
       set -U tide_virtual_env_color                     00AFAF
       set -U tide_virtual_env_icon          \ue73c
+#      ${brew}
     '';
-#      ++ lib.mkIf pkgs.stdenv.isDarwin ''
-#      set -U tide_os_icon                               \uf179
-#    '';
   };
 }
