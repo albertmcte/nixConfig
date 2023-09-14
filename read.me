@@ -1,16 +1,7 @@
-# sops-implement
-
-nix-shell -p ssh-to-age --run 'cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age'
-
-
-#in .config dir, outside of git
-nix-shell -p ssh-to-age --run "sudo ssh-to-age -private-key -i /etc/ssh/ssh_host_ed25519_key | install -D -m 400 /dev/stdin ~/.config/sops/age/keys.txt"
-
-nix-shell -p sops --run "sops hosts/anubis/secrets.yaml"
-
-
 TODO
 
  - break security noexec into different file
  - hide mounts
- - bring in cli help common
+
+ - fonts from casks to common for darwin (et linux?)
+ - fix agenix for darwin

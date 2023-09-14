@@ -16,15 +16,6 @@ in
 programs.fish = {
   enable = true;
   plugins = [
-#    {
-#    name = "z";
-#    src = pkgs.fetchFromGitHub {
-#      owner = "jethrokuan";
-#      repo = "z";
-#      rev = "e0e1b9dfdba362f8ab1ae8c1afc7ccf62b89f7eb";
-#      sha256 = null;
-#    };
-#    }
     {
     name = "tide";
     src = pkgs.fetchFromGitHub {
@@ -37,20 +28,20 @@ programs.fish = {
     { name = "grc"; src = pkgs.fishPlugins.grc; }
   ];
   functions = {
+
       # Disable greeting
       fish_greeting = "";
- #     # Integrate ssh with shellcolord
- #     ssh = mkIf hasShellColor ''
- #       ${shellcolor} disable $fish_pid
- #       # Check if kitty is available
- #       if set -q KITTY_PID && set -q KITTY_WINDOW_ID && type -q -f kitty
- #         kitty +kitten ssh $argv
- #       else
- #         command ssh $argv
- #       end
- #       ${shellcolor} enable $fish_pid
- #       ${shellcolor} apply $fish_pid
- #       '';
+      # Allow sudo !!
+      sudo = ''
+        function sudo --description "Replacement for Bash 'sudo !!' command"
+        if test "$argv" = !!
+        echo sudo $history[1]
+        eval command sudo $history[1]
+        else
+        command sudo $argv
+        end
+        end;
+        '';
   };
 
   interactiveShellInit =

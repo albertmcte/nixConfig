@@ -5,6 +5,14 @@
     ../../users/darwin-wash
   ];
   environment.shells = [ pkgs.fish ];
+  environment.systemPackages = with pkgs; [
+    python3
+  ];
+#  fonts.fonts = with pkgs; [
+#     recursive
+#     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+#   ];
+
 # these should probably be under home manager
   homebrew = {
     enable = true;
