@@ -19,6 +19,6 @@
       ../../hm/darwin.nix
     ];
   };
-  age.secrets.washpw.file = ../../secrets/washpw.age;
+#  age.secrets.washpw.file = ../../secrets/washpw.age;
 
 }

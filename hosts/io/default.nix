@@ -1,12 +1,17 @@
-{ pkgs, inputs, outputs, config, ... }:
+{ pkgs, inputs, outputs, config, lib, ... }:
+with pkgs.stdenv;
+with lib;
 {
   imports = [
     ../../modules/common/darwin-common.nix
     ../../users/darwin-wash
+    inputs.agenix.darwinModules.age
+    inputs.home-manager.darwinModules.home-manager
   ];
   environment.shells = [ pkgs.fish ];
   environment.systemPackages = with pkgs; [
     python3
+    inputs.agenix.packages.${pkgs.system}.default
   ];
 #  fonts.fonts = with pkgs; [
 #     recursive

@@ -73,8 +73,6 @@
         inherit specialArgs;
         modules = [
           ./hosts/io
-          inputs.agenix.darwinModules.age
-          home-manager.darwinModules.home-manager
         ];
       };
     };
