@@ -36,7 +36,8 @@
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs { inherit system; };
-    specialArgs = { inherit self inputs; };
+    unstable = import nixpkgs-unstable {inherit system;};
+    specialArgs = { inherit self inputs unstable; };
     extraSpecialArgs = specialArgs;
   in
   {

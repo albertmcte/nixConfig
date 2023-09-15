@@ -1,4 +1,4 @@
-{ inputs, outputs, config, pkgs, ... }:
+{ inputs, outputs, config, pkgs, unstable, ... }:
 {
   config = {
     home.file.".config/kitty".source = ./kitty;
@@ -6,7 +6,7 @@
       kitty
       bat
       htop
-      eza
+      unstable.eza
       curl
       fd
       file
@@ -21,6 +21,7 @@
       meslo-lgs-nf
       nodejs_20     #required for copilot
     ];
+    
     home.shellAliases = {
       v = "nvim";
       vim = "nvim";
