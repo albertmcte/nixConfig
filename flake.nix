@@ -31,47 +31,57 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @inputs:
-  with inputs;
+  outputs = {self, darwin, nixpkgs, home-manager, ...} @inputs:
   let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
-    unstable = import nixpkgs-unstable {inherit system;};
-    specialArgs = { inherit self inputs unstable; };
-    extraSpecialArgs = specialArgs;
+    inherit (self) outputs;
+    lib = nixpkgs.lib // home-manager.lib // darwin.lib;
+    systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
+
+    forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
+    pkgsFor = nixpkgs.legacyPackages;
+
+#    unstableFor = nixpkgs-unstable.legacyPackages;
+#    forEachUnstable = f: lib.genAttrs systems (sys: f unstableFor.${sys});
   in
+#  let
+#    system = "x86_64-linux";
+#    pkgs = import nixpkgs { inherit system; };
+#    unstable = import nixpkgs-unstable { inherit system; };
+#    specialArgs = { inherit self inputs unstable; };
+#    extraSpecialArgs = specialArgs;
+#  in
   {
+    inherit lib;
     nixosConfigurations = {
-      "anubis" = nixpkgs.lib.nixosSystem {
-        inherit system specialArgs;
+      anubis = lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
         modules = [
           ./hosts/anubis
         ];
       };
-      "neptune" = nixpkgs.lib.nixosSystem {
-        inherit system specialArgs;
-        modules = [
-          ./hosts/neptune
-        ];
-      };
-      "zelda" = nixpkgs.lib.nixosSystem {
-        inherit system specialArgs;
-        modules = [
-          ./hosts/zelda
-        ];
-      };
-      "nixmacVM" = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        inherit specialArgs;
-        modules = [
-          ./hosts/nixmacVM
-        ];
-      };
+#      "neptune" = nixpkgs.lib.nixosSystem {
+#        inherit system specialArgs;
+#        modules = [
+#          ./hosts/neptune
+#        ];
+#      };
+#      "zelda" = nixpkgs.lib.nixosSystem {
+#        inherit system specialArgs;
+#        modules = [
+#          ./hosts/zelda
+#        ];
+#      };
+#      "nixmacVM" = nixpkgs.lib.nixosSystem {
+#        system = "aarch64-linux";
+#        inherit specialArgs;
+#        modules = [
+#          ./hosts/nixmacVM
+#        ];
+#      };
     };
     darwinConfigurations = {
-      "io" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        inherit specialArgs;
+      io = lib.darwinSystem {
+        specialArgs = { inherit inputs outputs; };
         modules = [
           ./hosts/io
         ];

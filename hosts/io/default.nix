@@ -10,6 +10,7 @@ with lib;
     inputs.home-manager.darwinModules.home-manager
   ];
   config = {
+    nixpkgs.hostPlatform = "aarch64-darwin";
     environment.shells = [ pkgs.fish ];
     environment.systemPackages = with pkgs; [
       python3
@@ -19,7 +20,7 @@ with lib;
 #       recursive
 #       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 #     ];
-
+# extra comment
 # these should probably be under home manager
     homebrew = {
       enable = true;

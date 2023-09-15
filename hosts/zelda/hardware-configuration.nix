@@ -4,7 +4,7 @@
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
-
+  nixpkgs.hostPlatform = "x86_64-linux";
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];

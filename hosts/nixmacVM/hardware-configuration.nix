@@ -2,7 +2,7 @@
 
 {
   imports = [ ];
-
+  nixpkgs.hostPlatform = "aarch64-linux";
   boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
