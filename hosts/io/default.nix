@@ -1,6 +1,4 @@
-{ pkgs, inputs, outputs, config, lib, ... }:
-with pkgs.stdenv;
-with lib;
+{ pkgs, inputs, ...}:
 {
   imports = [
     ../../modules/common/darwin-common.nix
@@ -20,7 +18,6 @@ with lib;
 #       recursive
 #       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 #     ];
-# extra comment
 # these should probably be under home manager
     homebrew = {
       enable = true;
