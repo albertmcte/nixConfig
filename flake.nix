@@ -59,25 +59,24 @@
           ./hosts/anubis
         ];
       };
-#      "neptune" = nixpkgs.lib.nixosSystem {
-#        inherit system specialArgs;
-#        modules = [
-#          ./hosts/neptune
-#        ];
-#      };
-#      "zelda" = nixpkgs.lib.nixosSystem {
-#        inherit system specialArgs;
-#        modules = [
-#          ./hosts/zelda
-#        ];
-#      };
-#      "nixmacVM" = nixpkgs.lib.nixosSystem {
-#        system = "aarch64-linux";
-#        inherit specialArgs;
-#        modules = [
-#          ./hosts/nixmacVM
-#        ];
-#      };
+      neptune = lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./hosts/neptune
+        ];
+      };
+      zelda = lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./hosts/zelda
+        ];
+      };
+      nixmacVM = lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./hosts/nixmacVM
+        ];
+      };
     };
     darwinConfigurations = {
       io = lib.darwinSystem {
