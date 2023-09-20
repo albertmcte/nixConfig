@@ -35,11 +35,11 @@
   let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib // darwin.lib;
-    systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
+#    systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
 
-    forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
-    pkgsFor = nixpkgs.legacyPackages;
-
+#    forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
+#    pkgsFor = nixpkgs.legacyPackages;
+    
 #    unstableFor = nixpkgs-unstable.legacyPackages;
 #    forEachUnstable = f: lib.genAttrs systems (sys: f unstableFor.${sys});
   in

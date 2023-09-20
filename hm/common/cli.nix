@@ -1,4 +1,4 @@
-{ inputs, outputs, config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   config = {
     home.file.".config/kitty".source = ./kitty;
@@ -6,8 +6,6 @@
       kitty
       bat
       htop
-#      unstable.eza
-#      exa
       eza
       curl
       fd

@@ -1,13 +1,16 @@
+{ inputs, config, pkgs, ... }:
+#let
+#  unstable = import inputs.nixpkgs-unstable {
+#    system = pkgs.system;
+    # Uncomment this if you need an unfree package from unstable.
+    #config.allowUnfree = true;
+#  };
+#in
 {
-  inputs,
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
     inputs.home-manager.nixosModule
   ];
 #  config = {
-#    home-manager.extraSpecialArgs = { inherit unstable; };
+#    home-manager.SpecialArgs = { inherit unstable; };
 #  };
 }
