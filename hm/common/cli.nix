@@ -2,11 +2,10 @@
 {
   config = {
     home.file.".config/kitty".source = ./kitty;
-    home.packages = with pkgs; [
+    home.packages =  with pkgs; [
       kitty
       bat
       htop
-      eza
       curl
       fd
       file

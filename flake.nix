@@ -31,7 +31,7 @@
     };
   };
 
-  outputs = {self, darwin, nixpkgs, home-manager, ...} @inputs:
+  outputs = {self, darwin, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
   let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib // darwin.lib;
