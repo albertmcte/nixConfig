@@ -1,9 +1,5 @@
+{ inputs, config, pkgs, ... }: 
 {
-  inputs,
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
     inputs.agenix.nixosModules.age
   ];
