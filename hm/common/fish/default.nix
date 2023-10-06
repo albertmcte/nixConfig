@@ -31,17 +31,17 @@ programs.fish = {
 
       # Disable greeting
       fish_greeting = "";
-      # Allow sudo !!
-      sudo = ''
-        function sudo --description "Replacement for Bash 'sudo !!' command"
-        if test "$argv" = !!
-        echo sudo $history[1]
-        eval command sudo $history[1]
-        else
-        command sudo $argv
-        end
-        end;
-        '';
+      # Allow sudo !!  ### Causes sudo first time in terminal not to work
+#      sudo = ''
+#        function sudo --description "Replacement for Bash 'sudo !!' command"
+#        if test "$argv" = !!
+#        echo sudo $history[1]
+#        eval command sudo $history[1]
+#        else
+#        command sudo $argv
+#        end
+#        end;
+#        '';
   };
 
   interactiveShellInit =
