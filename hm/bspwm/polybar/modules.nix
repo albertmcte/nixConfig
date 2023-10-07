@@ -21,7 +21,7 @@
       type = "internal/cpu";
       interval = 1;
       format = "<label>";
-      format-prefix = "%{T3}%{T-}";
+      format-prefix = "%{T3}󰻠%{T-}";
       format-prefix-foreground = "\${colors.dRed}";
       label = " %percentage%%";
       label-font = 0;
@@ -32,7 +32,7 @@
       interval = 360;
       date = "%a %h %e";
       format = "<label>";
-      format-prefix = "%{T3}%{T-}";
+      format-prefix = "%{T3}󰃭%{T-}";
       format-prefix-foreground = "\${colors.dMag}";
       label = " %date%";
       label-font = 0;
@@ -59,7 +59,7 @@
       type = "internal/memory";
       interval = 1;
       format = "<label>";
-      format-prefix = "%{T2}%{T-}";
+      format-prefix = "%{T2}󰍛%{T-}";
       format-prefix-foreground = "\${colors.dGre}";
       label = " %percentage_used%%";
       label-font = 0;
@@ -84,7 +84,7 @@
       interval = 5;
       time = "%I:%M %p";
       format = "<label>";
-      format-prefix = "%{T3}%{T-}";
+      format-prefix = "%{T3}%{T-}";
       format-prefix-foreground = "\${colors.dYel}";
       label = " %time%";
       label-font = 0;
