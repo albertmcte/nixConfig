@@ -1,10 +1,16 @@
 { pkgs, inputs, ...}:
+let
+  unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     ../../modules/common/darwin-common.nix
     ../../users/darwin-wash
     inputs.agenix.darwinModules.default
-#    inputs.agenix.homeManagerModules.default
+    #    inputs.agenix.homeManagerModules.default
     inputs.home-manager.darwinModules.home-manager
   ];
   config = {
@@ -13,6 +19,8 @@
     environment.systemPackages = with pkgs; [
       python3
       inputs.agenix.packages.${pkgs.system}.default
+      unstable.eza
+      unstable.pyenv
     ];
 #    fonts.fonts = with pkgs; [
 #       recursive

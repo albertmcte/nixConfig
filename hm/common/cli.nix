@@ -3,7 +3,6 @@
   config = {
     home.file.".config/kitty".source = ./kitty;
     home.packages =  with pkgs; [
-      exa
       kitty
       bat
       htop
@@ -33,10 +32,10 @@
       gs = "git status -v";
       gfc = "git fetch && git checkout";
       gl = "git log --graph";
-      l = "exa -la --git";
-      la = "exa -la --git";
-      ls = "exa";
-      ll = "exa -l --git";
+      l = "eza -la --git";
+      la = "eza -la --git";
+      ls = "eza";
+      ll = "eza -l --git";
       cat = "bat";
       sshubu="TERM=xterm-256color ssh -p 31225 washatka@neptune";
       sshneptune="TERM=xterm-256color ssh -p 31225 washatka@neptune";

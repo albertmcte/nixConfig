@@ -1,8 +1,10 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ inputs, config, pkgs, ... }:
+let
+  unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.system;
+    config.allowUnfree = true;
+  };
+in
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
@@ -25,6 +27,7 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
+    unstable.eza
   ];
   
   programs.fish.enable = true;
