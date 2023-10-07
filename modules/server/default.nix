@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-#    ./resilio.nix
+    ./resilio.nix
 #    ./monit.nix
 #    ./syncoid.nix
 #    ./wireguard.nix

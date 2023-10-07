@@ -4,4 +4,5 @@
     useUpnp = true;
     enableWebUI = false;
 
+  };
 }

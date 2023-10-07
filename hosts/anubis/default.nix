@@ -6,6 +6,7 @@
     ./impermanence.nix  
     ../../users/wash
     ../../modules/desktop
+    ../../modules/server
   ];
 
   networking.hostName = "anubis";
