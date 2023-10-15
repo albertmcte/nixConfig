@@ -12,8 +12,8 @@
     rsync
     stow
     openssh
-#    pyenv            #only in unstable, hm problems, moved to system
     mas
+#    pyenv            #only in unstable, hm problems, moved to system
 #    jq               #don't think i need this
 #    youtube-dl
 #    media-downloader #gui haven't tried it
