@@ -32,6 +32,7 @@ in
       onActivation.autoUpdate = true;
       onActivation.upgrade = true;
       brews = [
+        "cloudflare/cloudflare/cloudflared"
       ];
       casks = [
         "font-hack-nerd-font"
@@ -39,6 +40,7 @@ in
         "sf-symbols"
         "karabiner-elements"
         "hiddenbar"
+        "bluebubbles"
       ];
     };
     services.yabai = {
@@ -76,9 +78,9 @@ in
           yabai -m rule --add app=Chrome space=2
           yabai -m rule --add app=Firefox space=2
 
-          yabai -m rule --add app=Mailspring space=4 opacity=0.9
-          yabai -m rule --add app=Edison space=4 opacity=0.90
-          yabai -m rule --add app=Spark space=4 opacity=0.96
+          yabai -m rule --add app=Mailspring space=4 opacity=0.95
+          yabai -m rule --add app=EdisonMail space=4 opacity=0.95
+          yabai -m rule --add app=Spark space=4 opacity=0.95
 
           yabai -m rule --add app=Finder opacity=0.85
           yabai -m rule --add app=Fantastical manage=off
@@ -94,12 +96,12 @@ in
         lcmd - g : open /Users/wash
         rcmd - z : yabai --restart-service
         rcmd - x : skhd --restart-service
-        lcmd - 1 : yabai -m space --focus 1
-        lcmd - 2 : yabai -m space --focus 2
-        lcmd - 3 : yabai -m space --focus 3
-        lcmd - 4 : yabai -m space --focus 4
-        shift + cmd - 1 : yabai -m window --space 1
-        shift + cmd - 2 : yabai -m window --space 2
+        #lcmd - 1 : yabai -m space --focus 1
+        #lcmd - 2 : yabai -m space --focus 2
+        #lcmd - 3 : yabai -m space --focus 3
+        #lcmd - 4 : yabai -m space --focus 4
+        lshift + cmd - 1 : yabai -m window --space 1
+        lshift + cmd - 2 : yabai -m window --space 2
         lshift + lcmd - 3 : yabai -m window --space 3
         lshift + lcmd - 4 : yabai -m window --space 4
         hyper - r : yabai -m space --rotate 270
