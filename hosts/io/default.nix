@@ -79,7 +79,7 @@ in
           yabai -m rule --add app=Firefox space=2
 
           yabai -m rule --add app=Mailspring space=4 opacity=0.95
-          yabai -m rule --add app=EdisonMail space=4 opacity=0.95
+          yabai -m rule --add app=Email space=4 opacity=0.95
           yabai -m rule --add app=Spark space=4 opacity=0.95
 
           yabai -m rule --add app=Finder opacity=0.85
