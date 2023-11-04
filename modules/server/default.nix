@@ -5,7 +5,7 @@
 }: {
   imports = [
 #    ./resilio.nix
-    ./monit.nix
+#    ./monit.nix
 #    ./syncoid.nix
 #    ./wireguard.nix
   ];

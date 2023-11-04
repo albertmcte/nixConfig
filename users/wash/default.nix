@@ -4,7 +4,7 @@ let
   fetchKeys = username:
     (builtins.fetchurl {
       url = "https://github.com/${username}.keys";
-      sha256 = "003zhmmjpav5z55axrb9j2dsv753yidwpsb556xpc24dr0r9s69q";
+      sha256 = "008hi4glmyawnzvm40ag0ix9frmz44iv48jfk5y1kk8hkh673azv";
       }
   );
 in
