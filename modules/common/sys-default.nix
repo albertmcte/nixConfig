@@ -21,6 +21,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
   networking.networkmanager.enable = true;
   

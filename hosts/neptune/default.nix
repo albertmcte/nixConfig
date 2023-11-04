@@ -20,11 +20,6 @@
   networking.networkmanager.enable = true;
   time.timeZone = "UTC";
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.kernelParams = [ "nohibernate" ];
 
   system.stateVersion = "23.05";
