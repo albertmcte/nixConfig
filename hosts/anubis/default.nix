@@ -5,6 +5,8 @@
     ./hardware-configuration.nix
     ./impermanence.nix  
     ./resilio.nix
+    ./sanoid.nix
+    ./syncoid.nix
     ../../users/wash
     ../../modules/desktop
     ../../modules/server
@@ -16,5 +18,11 @@
   #For ZFS support
   networking.hostId = "fd91c922";
   boot.zfs.extraPools = [ "mercury" ];
+
+  services.plex = {
+    enable = true;
+    openFirewall = true;
+  };
+
   system.stateVersion = "23.05";
 }
