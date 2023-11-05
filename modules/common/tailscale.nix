@@ -47,9 +47,9 @@
     checkReversePath = "loose";
   };
 
-  # for exit node
-  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
-  boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
+# for exit node in NETWORKING CONF
+#  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+#  boot.kernel.sysctl."net.ipv6.conf.all.forwarding" = 1;
 
 #  sops.secrets.tailscale_key = {
 #    sopsFile = ../../hosts/common/secrets.yaml;

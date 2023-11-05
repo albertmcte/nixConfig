@@ -8,8 +8,10 @@
 }:
   {
   imports = [
-    ../../modules/common
     ./hardware-configuration.nix
+    ./router.nix
+    ./unbound.nix
+    ../../modules/common
     ../../users/wash
     ../../modules/server
     # cloudflare
@@ -17,7 +19,7 @@
 
   networking.hostId = "ca0bad48";
   networking.hostName = "neptune";
-  networking.networkmanager.enable = true;
+#  networking.networkmanager.enable = true;
   time.timeZone = "UTC";
 
   boot.kernelParams = [ "nohibernate" ];
