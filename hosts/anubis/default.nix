@@ -14,9 +14,7 @@
   time.timeZone = "Europe/Amsterdam";
 
   #For ZFS support
-  boot.zfs.extraPools = [ "mercury" ];
-
   networking.hostId = "fd91c922";
-
+  boot.zfs.extraPools = [ "mercury" ];
   system.stateVersion = "23.05";
-
+}
