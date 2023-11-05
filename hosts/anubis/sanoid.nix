@@ -13,14 +13,14 @@ services.sanoid = {
 		autoprune = false;
 		autosnap = false;
 	};
-	datasets."mercury/photos".useTemplate = photo;
-	datasets."mercury/homevids".useTemplate = photo;
-	datasets."mercury/mollyimages".useTemplate = photo;
-	datasets."mercury/vids".useTemplate = photo;
-	datasets."mercury/movies".useTemplate = photo;
-	datasets."mercury/music".useTemplate = photo;
-	datasets."mercury/tv".useTemplate = photo;
-	datasets."mercury/dadmusic".useTemplate = photo;
+	datasets."mercury/photos".useTemplate = [ "photo" ];
+	datasets."mercury/homevids".useTemplate = [ "photo" ];
+	datasets."mercury/mollyimages".useTemplate = [ "photo" ];
+	datasets."mercury/vids".useTemplate = [ "photo" ];
+	datasets."mercury/movies".useTemplate = [ "photo" ];
+	datasets."mercury/music".useTemplate = [ "photo" ];
+	datasets."mercury/tv".useTemplate = [ "photo" ];
+	datasets."mercury/dadmusic".useTemplate = [ "photo" ];
 	
   };
 }

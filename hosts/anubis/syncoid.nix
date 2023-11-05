@@ -5,9 +5,9 @@ services.syncoid = {
     user = "wash";
     commonArgs = [ "--no-privilege-elevation" "--skip-parent" "--recursive" ];
     sshKey = "/home/wash/.ssh/id_ed25519";
-    interval = "*-*-* *:15:00";
+    interval = "*-*-* 13:00:00";
     commands."io_backup" = {
-      extraArgs = "--sshport 31225";
+      extraArgs = [ "--sshport 31225" ];
       source = "wash@andromeda:io";
       target = "mercury";
     };
