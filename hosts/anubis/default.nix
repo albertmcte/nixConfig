@@ -4,7 +4,7 @@
     ../../modules/common
     ./hardware-configuration.nix
     ./impermanence.nix  
-    ./resilio.nix
+#    ./resilio.nix
     ./sanoid.nix
     ./syncoid.nix
     ../../users/wash
@@ -18,6 +18,10 @@
   #For ZFS support
   networking.hostId = "fd91c922";
   boot.zfs.extraPools = [ "mercury" ];
+  services.zfs.autoScrub = {
+    enable = true;
+    interval = "monthly";
+  };
 
   services.plex = {
     enable = true;
