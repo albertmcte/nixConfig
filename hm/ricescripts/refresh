@@ -1,9 +1,9 @@
 #!/usr/bin/env nix-shell
 #!nix-shell -i bash -p bash
-#~/.config/ricescripts/generate-dunst-config
-#~/.config/ricescripts/generate-kitty-colors
+~/.config/ricescripts/generate-dunst-config
+~/.config/ricescripts/generate-kitty-colors
 ~/.config/ricescripts/generate-rofi-transparency
 #~/.config/ricescripts/generate-alacritty-colors
-[ "$WM" != "sway" ] && ~/.config/polybar/launch.sh &
+#[ "$WM" != "sway" ] && ~/.config/polybar/launch.sh &
 exit 0
 

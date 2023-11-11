@@ -53,9 +53,9 @@ xrandr --auto &
 exec picom --experimental-backends &
 exec pulseaudio --start &
 #exec seafile-applet &
-exec /home/wash/.local/share/tresorit/tresorit-daemon &
-exec /home/wash/.scripts/restore-theme &
-exec /home/wash/.scripts/kill-nvidia &
+#exec /home/wash/.local/share/tresorit/tresorit-daemon &
+exec /home/wash/.config/ricescripts/restore-theme &
+exec /home/wash/.config/ricescripts/kill-nvidia &
 exec dbus-launch --exit-with-session $WM
 #exec $WM
 
