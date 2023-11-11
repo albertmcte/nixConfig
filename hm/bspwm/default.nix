@@ -7,7 +7,7 @@
     ./bspwm.nix
     ./picom.nix
     ./sxhkd.nix
-#    ./eww.nix
+    ./eww.nix
     ./polybar
   ];
 }
