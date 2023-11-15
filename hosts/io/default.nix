@@ -39,7 +39,7 @@ in
         "font-fira-code-nerd-font"
         "sf-symbols"
         "karabiner-elements"
-        "hiddenbar"
+#        "hiddenbar"
         "bluebubbles"
       ];
     };
