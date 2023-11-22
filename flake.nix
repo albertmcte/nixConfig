@@ -85,6 +85,12 @@
           ./hosts/io
         ];
       };
+      saturn = lib.darwinSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./hosts/io
+        ];
+      };
     };
   };
 }
