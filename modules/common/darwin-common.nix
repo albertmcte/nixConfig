@@ -23,5 +23,7 @@
     finder.AppleShowAllExtensions = true;
     finder.FXEnableExtensionChangeWarning = false;
     loginwindow.GuestEnabled = false;
+    screencapture.disable-shadow = true;
+    screencapture.location = "/Users/wash/Alpha/Screenshots/io/";
   };
 }
