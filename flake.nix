@@ -35,7 +35,7 @@
   let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib // darwin.lib;
-#    systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
+#    systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
 
 #    forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
 #    pkgsFor = nixpkgs.legacyPackages;
@@ -86,6 +86,7 @@
         ];
       };
       saturn = lib.darwinSystem {
+        system = "x86_64-darwin";
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./hosts/io

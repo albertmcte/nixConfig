@@ -14,7 +14,7 @@ in
     inputs.home-manager.darwinModules.home-manager
   ];
   config = {
-    nixpkgs.hostPlatform = "aarch64-darwin";
+    nixpkgs.hostPlatform = "x86_64-darwin";
     environment.shells = [ pkgs.fish ];
     environment.systemPackages = with pkgs; [
       python3
