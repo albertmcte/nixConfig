@@ -80,7 +80,8 @@ in
 
           yabai -m rule --add app=Mailspring space=4 opacity=0.95
           yabai -m rule --add app=Email space=4 opacity=0.95
-          yabai -m rule --add app=Spark space=4 opacity=0.98
+          yabai -m rule --add app=Spark space=4 opacity=0.95
+          yabai -m rule --add app=Mimestream space=4 opacity=0.98
 
           yabai -m rule --add app=Finder opacity=0.85
           yabai -m rule --add app=Fantastical manage=off
