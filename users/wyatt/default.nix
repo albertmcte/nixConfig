@@ -34,7 +34,6 @@ in
         kodi
         _1password-gui
         skypeforlinux
-        mailspring
       ];
     };
   };
