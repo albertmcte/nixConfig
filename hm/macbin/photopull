@@ -1,0 +1,29 @@
+#!/bin/zsh
+
+#if nc -z neptune 31225 2> /dev/null
+#
+#then /opt/homebrew/bin/rsync --exclude 'Lightroom' -av -e 'ssh -p 31225' washatka@neptune:/mercury/photos/ /Users/wash/Pictures >> /Users/wash/bin/logs/photorsync.log &&
+#osascript -e 'display notification "Sync was successful" with title "Photo Pull Success"' ||
+#osascript -e 'display notification "Sync Failed" with title "Photo Pull Failed"'
+#
+#else osascript -e 'display notification "Server not reachable." with title "Photo Pull Failed"' && exit 99
+#
+#fi
+#
+#return 0
+
+if nc -z andromeda 31225 2> /dev/null
+
+then /opt/homebrew/bin/rsync --exclude={'Lightroom','*/.DS_Store','.DS_Store'} -av -e 'ssh -p 31225' wash@andromeda:/io/photos/ /Users/wash/Pictures >> /Users/wash/bin/logs/photorsync.log &&
+osascript -e 'display notification "Sync was successful" with title "Photo Pull Success"' ||
+osascript -e 'display notification "Sync Failed" with title "Photo Pull Failed"'
+
+/opt/homebrew/bin/rsync --delete -av -e 'ssh -p 31225' /Users/wash/Pictures/Lightroom wash@andromeda:/io/photos/ >> /Users/wash/.logs/photorsync.log &&
+osascript -e 'display notification "Lightroom Backup Successful" with title "Lightroom Push Success"' ||
+osascriot -e 'display notification "Lightroom Backup Failed" with title "Lightroom Push Failed"'
+
+else osascript -e 'display notification "Server not reachable." with title "Photo Pull Failed"' && exit 99
+
+fi
+
+return 0

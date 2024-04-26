@@ -18,4 +18,8 @@
 #    youtube-dl
 #    media-downloader #gui haven't tried it
   ];
+  home.file."./bin" = {
+    source = ./macbin;
+    recursive = true;
+  };
 }
