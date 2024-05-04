@@ -48,7 +48,7 @@ in
       package = unstable.pkgs.yabai;
       enableScriptingAddition = true;
       config = {
-        focus_follows_mouse          = "autoraise";
+        focus_follows_mouse          = "autofocus";
         mouse_follows_focus          = "off";
         window_placement             = "second_child";
         window_opacity               = "on";
