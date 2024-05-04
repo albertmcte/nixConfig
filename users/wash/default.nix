@@ -15,7 +15,7 @@ in
     home.username = "wash";
     home.homeDirectory = "/home/wash";
     programs.home-manager.enable = true;
-    home.stateVersion = "23.05";
+    home.stateVersion = "23.11";
     nixpkgs.config.allowUnfree = true;
     imports = [
       ../../hm
@@ -27,10 +27,10 @@ in
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
-      # passwordFile needs to be in a volume marked with `neededForBoot = true`
-#      passwordFile = "/persist/passwords/wash";
-      passwordFile = config.age.secrets.washpw.path;
-#      passwordFile = "config.sops.secrets.wash_pw.path";
+      # hashedPasswordFile needs to be in a volume marked with `neededForBoot = true`
+#      hashedPasswordFile = "/persist/passwords/wash";
+      hashedPasswordFile = config.age.secrets.washpw.path;
+#      hashedPasswordFile = "config.sops.secrets.wash_pw.path";
       shell = pkgs.fish;
     };
   };

@@ -14,7 +14,7 @@ in
     home.username = "wyatt";
     home.homeDirectory = "/home/wyatt";
     programs.home-manager.enable = true;
-    home.stateVersion = "23.05";
+    home.stateVersion = "23.11";
     nixpkgs.config.allowUnfree = true;
     imports = [
       ../../hm
@@ -26,7 +26,7 @@ in
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" ];
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
-      passwordFile = config.age.secrets.wyattpw.path;
+      hashedPasswordFile = config.age.secrets.wyattpw.path;
       shell = pkgs.fish;
       packages = with pkgs; [
         firefox

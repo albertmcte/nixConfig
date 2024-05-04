@@ -14,13 +14,13 @@ in
       name = "wash";
       home = "/Users/wash/";
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
-#      passwordFile = config.age.secrets.washpw.path;
+#      hashedPasswordFile = config.age.secrets.washpw.path;
       shell = pkgs.fish;
     };
   };
   home-manager.users.wash = {
     programs.home-manager.enable = true;
-    home.stateVersion = "23.05";
+    home.stateVersion = "23.11";
     nixpkgs.config.allowUnfree = true;
     imports = [
       ../../hm

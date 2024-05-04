@@ -23,5 +23,5 @@
 #For ZFS support
   networking.hostId = "dc0145aa";
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
