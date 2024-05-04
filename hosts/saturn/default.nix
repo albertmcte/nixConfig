@@ -22,7 +22,7 @@ in
       unstable.eza
       unstable.pyenv
     ];
-#    fonts.fonts = with pkgs; [
+#    fonts.packages = with pkgs; [
 #       recursive
 #       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 #     ];
