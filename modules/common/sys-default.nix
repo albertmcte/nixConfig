@@ -39,10 +39,11 @@ in
 
   services.openssh = {
     enable = true;
+    ports = [ 31225 ];
     settings.PasswordAuthentication = false;
     settings.PermitRootLogin = "no";
     settings.KbdInteractiveAuthentication = false;
-    openFirewall = true;
+    openFirewall = false;
     extraConfig = ''
       AllowTcpForwarding yes
       X11Forwarding no

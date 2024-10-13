@@ -14,8 +14,8 @@
 #  boot.loader.grub.device = "nodev";
 #  boot.loader.grub.efiSupport = true;
 
- boot.loader.systemd-boot.enable = true;
- boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
@@ -35,8 +35,6 @@
       git
     ];
   };
-
-  services.openssh.enable = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
 

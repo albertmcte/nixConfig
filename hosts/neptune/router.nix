@@ -57,7 +57,7 @@ services.kea.dhcp4 = {
         {
           pools = [
             {
-              pool = "10.1.1.5 - 10.1.1.200";
+              pool = "10.1.1.5 - 10.1.1.250";
             }
           ];
           subnet = "10.1.1.0/24";
@@ -92,8 +92,11 @@ networking = {
         address = "10.1.1.1";
         prefixLength = 24;
       }];
-    
     };
+  };
+  firewall.interfaces."enp2s0" = {
+    allowedTCPPorts = [ 31225 ];
+    allowedUDPPorts = [ 31225 ];
   };
 };
 

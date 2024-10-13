@@ -9,4 +9,5 @@
 #    ./syncoid.nix
 #    ./wireguard.nix
   ];
+  services.getty.autologinUser = "wash";
 }
