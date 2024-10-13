@@ -41,6 +41,7 @@ in
         "karabiner-elements"
         "hiddenbar"
         "bluebubbles"
+        "kodi"
       ];
     };
     services.yabai = {
