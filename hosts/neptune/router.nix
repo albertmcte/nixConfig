@@ -92,8 +92,11 @@ networking = {
         address = "10.1.1.1";
         prefixLength = 24;
       }];
-    
     };
+  };
+  firewall.interfaces."enp2s0" = {
+    allowedTCPPorts = [ 31225 ];
+    allowedUDPPorts = [ 31225 ];
   };
 };
 

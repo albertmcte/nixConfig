@@ -4,10 +4,14 @@
   services.xserver.windowManager.bspwm.enable = true;
   services.xserver.displayManager = { 
     defaultSession = "none+bspwm";
-    lightdm = { 
-      enable = true; 
-      greeter.enable = true; 
-    }; 
+    autoLogin = {
+      enable = true;
+      user = "wash";
+    };
+#    lightdm = { 
+#      enable = true; 
+#      greeter.enable = true; 
+#    }; 
   };
   sound.enable = true;
   hardware.pulseaudio.enable = false;

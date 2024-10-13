@@ -13,7 +13,7 @@
   ];
 
   networking.hostName = "anubis";
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "America/New_York";
 
   #For ZFS support
   networking.hostId = "fd91c922";
@@ -23,9 +23,16 @@
     interval = "monthly";
   };
 
-  services.plex = {
-    enable = true;
-    openFirewall = true;
+  services = {
+    plex = {
+      enable = true;
+      openFirewall = true;
+    };
+    nfs.server.enable = true;
+  };
+  networking.firewall.interfaces."enp5s0" = {
+    allowedTCPPorts = [ 2049 31225 ];
+    allowedUDPPorts = [ 31225 ];
   };
 
   system.stateVersion = "23.11";
