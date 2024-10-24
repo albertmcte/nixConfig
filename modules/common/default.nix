@@ -2,10 +2,11 @@
 {
   imports = [
     ./sys-default.nix
-    ./hm.nix
 #    ./noexec.nix
     ./agenix.nix
     ./tailscale.nix
+    inputs.home-manager.nixosModule
+    inputs.sops-nix.nixosModules.sops
   ];
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;

@@ -5,5 +5,9 @@
     common/fish
     common/nvim
   ];
+  home.file."./linuxbin" = {
+    source = ./linuxbin;
+    recursive = true;
+  };
 }
 

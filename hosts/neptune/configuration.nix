@@ -23,9 +23,6 @@
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.kernelParams = [ "nohibernate" ];
 
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
-
   users.users.wash = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.

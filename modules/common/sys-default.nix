@@ -29,12 +29,14 @@ in
     git
     neovim
     unstable.eza
+    rclone
   ];
   
   programs.fish.enable = true;
 
   environment.shells = with pkgs; [
     fish
+    zsh
   ];
 
   services.openssh = {

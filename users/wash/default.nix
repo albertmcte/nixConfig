@@ -12,10 +12,12 @@ in
   users.mutableUsers = false;
 #  sops.secrets.wash_pw.neededForUsers = true;
   home-manager.users.wash = {
-    home.username = "wash";
-    home.homeDirectory = "/home/wash";
+    home = {
+      username = "wash";
+      homeDirectory = "/home/wash";
+      stateVersion = "23.11";
+    };
     programs.home-manager.enable = true;
-    home.stateVersion = "23.11";
     nixpkgs.config.allowUnfree = true;
     imports = [
       ../../hm

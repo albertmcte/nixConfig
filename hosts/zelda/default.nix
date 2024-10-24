@@ -17,7 +17,7 @@
   ];
 
   networking.hostName = "zelda";
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "America/New_York";
   security.sudo.wheelNeedsPassword = false;
 
 #For ZFS support

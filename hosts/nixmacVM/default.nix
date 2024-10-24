@@ -8,7 +8,7 @@
   ];
 
   networking.hostName = "nixmacVM";
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "America/New_York";
 
   #For ZFS support
   networking.hostId = "134d7ce5";
