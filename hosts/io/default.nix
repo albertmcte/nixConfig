@@ -10,7 +10,6 @@ in
     ../../modules/common/darwin-common.nix
     ../../users/darwin-wash
     inputs.agenix.darwinModules.default
-    #    inputs.agenix.homeManagerModules.default
     inputs.home-manager.darwinModules.home-manager
   ];
 
@@ -23,11 +22,6 @@ in
       unstable.eza
       unstable.pyenv
     ];
-#    fonts.packages = with pkgs; [
-#       recursive
-#       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-#     ];
-# these should probably be under home manager
     homebrew = {
       enable = true;
       onActivation.autoUpdate = true;

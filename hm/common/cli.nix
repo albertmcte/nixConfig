@@ -90,9 +90,11 @@
     atuin = {
       enable = true;
       settings = {
+        key_path = config.sops.secrets.atuin_key.path;
         #sync_address = "https://majiy00-shell.fly.dev";
       };
     };
   };
+  sops.secrets.atuin_key.sopsFile = ../../secrets/atuin.yaml;
 };
 }
