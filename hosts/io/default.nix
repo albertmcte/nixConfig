@@ -13,6 +13,8 @@ in
     #    inputs.agenix.homeManagerModules.default
     inputs.home-manager.darwinModules.home-manager
   ];
+  system.stateVersion = "23.11";
+
   config = {
     nixpkgs.hostPlatform = "aarch64-darwin";
     environment.shells = [ pkgs.fish ];
