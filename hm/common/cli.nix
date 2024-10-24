@@ -18,6 +18,7 @@
       killall
       aria2
       meslo-lgs-nf
+      atuin
       nodejs_20     #required for copilot
     ];
     
@@ -81,6 +82,11 @@
         show_program_path = false;
         tree_view = false;
       };
+    };
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      syntaxHighlighting.enable = true;
     };
     };
   };
