@@ -18,7 +18,6 @@
       killall
       aria2
       meslo-lgs-nf
-      atuin
       nodejs_20     #required for copilot
     ];
     
@@ -88,6 +87,12 @@
       enableCompletion = true;
       syntaxHighlighting.enable = true;
     };
+    atuin = {
+      enable = true;
+      settings = {
+        #sync_address = "https://majiy00-shell.fly.dev";
+      };
     };
   };
+};
 }
