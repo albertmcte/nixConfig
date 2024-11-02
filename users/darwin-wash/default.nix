@@ -12,7 +12,7 @@ in
   users.users = {
     wash = {
       name = "wash";
-      home = "/Users/wash/";
+      home = "/Users/wash";
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
 #      hashedPasswordFile = config.age.secrets.washpw.path;
       shell = pkgs.fish;
@@ -27,6 +27,9 @@ in
       ../../hm/darwin.nix
     ];
   };
+  home-manager.sharedModules = [
+    inputs.sops-nix.homeManagerModules.sops
+  ];
 #  age.secrets.washpw.file = ../../secrets/washpw.age;
 
 }

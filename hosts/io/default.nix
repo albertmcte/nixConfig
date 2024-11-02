@@ -12,7 +12,7 @@ in
     inputs.agenix.darwinModules.default
     inputs.home-manager.darwinModules.home-manager
   ];
-
+# hwat
   config = {
     nixpkgs.hostPlatform = "aarch64-darwin";
     environment.shells = [ pkgs.fish ];
@@ -27,7 +27,7 @@ in
       onActivation.autoUpdate = true;
       onActivation.upgrade = true;
       brews = [
-        "cloudflare/cloudflare/cloudflared"
+        "cloudflared"
       ];
       casks = [
         "font-hack-nerd-font"

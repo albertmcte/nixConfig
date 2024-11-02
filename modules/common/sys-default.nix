@@ -23,7 +23,7 @@ in
   boot.zfs.forceImportRoot = false;
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
-  networking.networkmanager.enable = true;
+#  networking.networkmanager.enable = true;
   
   environment.systemPackages = with pkgs; [
     git

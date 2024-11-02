@@ -12,7 +12,11 @@
     ../../modules/server
   ];
 
-  networking.hostName = "anubis";
+  networking = {
+    hostName = "anubis";
+    networkmanager.enable = true;
+  };
+
   time.timeZone = "America/New_York";
 
   #For ZFS support

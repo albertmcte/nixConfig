@@ -95,6 +95,6 @@
       };
     };
   };
-  sops.secrets.atuin_key.sopsFile = ../../secrets/atuin.yaml;
+  sops.secrets.atuin_key.sopsFile = ../../secrets/sopss.yaml;
 };
 }

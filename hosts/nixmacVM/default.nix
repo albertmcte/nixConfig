@@ -7,11 +7,12 @@
     ../../modules/desktop
   ];
 
-  networking.hostName = "nixmacVM";
+  networking = {
+    hostName = "nixmacVM";
+    hostId = "134d7ce5";
+    networkmanager.enable = true;
+  };
   time.timeZone = "America/New_York";
-
-  #For ZFS support
-  networking.hostId = "134d7ce5";
 
   system.stateVersion = "23.11";
 }
