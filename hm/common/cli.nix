@@ -19,6 +19,7 @@
       aria2
       meslo-lgs-nf
       nodejs_20     #required for copilot
+      sops
     ];
     
     home.shellAliases = {
@@ -90,11 +91,15 @@
     atuin = {
       enable = true;
       settings = {
-        key_path = config.sops.secrets.atuin_key.path;
+        key_path = config.age.secrets.atuinKey.path;
+        enter_accept = true;
+#        key_path = config.sops.secrets.atuin_key.path;
         #sync_address = "https://majiy00-shell.fly.dev";
       };
     };
   };
-  sops.secrets.atuin_key.sopsFile = ../../secrets/sopss.yaml;
-};
+   age.secrets.atuinKey.file = ../../secrets/atuinKey.age;
+#   sops.secrets.atuin_key.sopsFile = ../../secrets/sopss.yaml;
+#   sops.secrets.test_secret.sopsFile = ../../secrets/sopss.yaml;
+  };
 }
