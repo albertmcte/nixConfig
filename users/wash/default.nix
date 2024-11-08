@@ -10,7 +10,9 @@ let
 in
 {
   users.mutableUsers = false;
+
 #  sops.secrets.wash_pw.neededForUsers = true;
+  
   home-manager.users.wash = {
     home = {
       username = "wash";
@@ -19,11 +21,17 @@ in
     };
     programs.home-manager.enable = true;
     nixpkgs.config.allowUnfree = true;
+    age = {
+      identityPaths = [ "/home/wash/.ssh/id_ed25519" ];
+      secretsDir = "/home/wash/.agenix/agenix";
+      secretsMountPoint = "/home/wash/.agenix/agenix.d";
+    };
     imports = [
       ../../hm
       ../../hm/desktop.nix
     ];
   };
+  
   users.users = {
     wash = {
       isNormalUser = true;
@@ -36,5 +44,14 @@ in
       shell = pkgs.fish;
     };
   };
+
+#home-manager secrets still not working
+
+  home-manager.sharedModules = [
+    inputs.sops-nix.homeManagerModules.sops
+    inputs.agenix.homeManagerModules.default
+  ];
+
   age.secrets.washpw.file = ../../secrets/washpw.age;
+
 }

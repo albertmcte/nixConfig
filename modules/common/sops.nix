@@ -13,4 +13,9 @@
       ];
     };
   };
+  sops.secrets.test_secret = {
+    path = "/home/wash/.config/test_secret.txt";
+    owner = "wash";
+#    mode = "400";
+  };
 }

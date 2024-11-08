@@ -27,12 +27,16 @@ in
   
   environment.systemPackages = with pkgs; [
     git
-    neovim
     unstable.eza
     rclone
   ];
   
   programs.fish.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   environment.shells = with pkgs; [
     fish
