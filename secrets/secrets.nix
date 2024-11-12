@@ -17,4 +17,6 @@ in
 "syncoidKey.age".publicKeys = [ wash ] ++ [ anubis ];
 "syncoidConf.age".publicKeys = [ wash ] ++ [ anubis ];
 "syncoidKH.age".publicKeys = [ wash ] ++ [ anubis ];
+"pushoverScript.age".publicKeys = [ wash anubis neptune ];
+"atuinKey.age".publicKeys = [ wash ];
 }

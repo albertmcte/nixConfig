@@ -12,21 +12,33 @@ in
   users.users = {
     wash = {
       name = "wash";
-      home = "/Users/wash/";
+      home = "/Users/wash";
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
 #      hashedPasswordFile = config.age.secrets.washpw.path;
       shell = pkgs.fish;
     };
   };
+
   home-manager.users.wash = {
     programs.home-manager.enable = true;
     home.stateVersion = "23.11";
     nixpkgs.config.allowUnfree = true;
+    age = {
+      identityPaths = [ "/Users/wash/.ssh/id_ed25519" ];
+      secretsMountPoint = "/Users/wash/.agenix/agenix.d";
+      secretsDir = "/Users/wash/.agenix/agenix";
+    };
     imports = [
       ../../hm
       ../../hm/darwin.nix
     ];
   };
+
+  home-manager.sharedModules = [
+    inputs.sops-nix.homeManagerModules.sops
+    inputs.agenix.homeManagerModules.default
+  ];
+
 #  age.secrets.washpw.file = ../../secrets/washpw.age;
 
 }

@@ -4,7 +4,10 @@
     common/cli.nix
     common/fish
     common/nvim
-#    common/unstable.nix
   ];
+  home.file."./linuxbin" = {
+    source = ./linuxbin;
+    recursive = true;
+  };
 }
 

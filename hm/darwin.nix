@@ -22,4 +22,10 @@
     source = ./macbin;
     recursive = true;
   };
+  sops = {
+    defaultSopsFile = ../../secrets/sopss.yaml;
+    age.sshKeyPaths = [ 
+      "/Users/wash/.ssh/id_ed25519"
+    ];
+  };
 }

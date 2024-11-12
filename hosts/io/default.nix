@@ -10,9 +10,9 @@ in
     ../../modules/common/darwin-common.nix
     ../../users/darwin-wash
     inputs.agenix.darwinModules.default
-    #    inputs.agenix.homeManagerModules.default
     inputs.home-manager.darwinModules.home-manager
   ];
+# hwat
   config = {
     nixpkgs.hostPlatform = "aarch64-darwin";
     environment.shells = [ pkgs.fish ];
@@ -22,17 +22,12 @@ in
       unstable.eza
       unstable.pyenv
     ];
-#    fonts.packages = with pkgs; [
-#       recursive
-#       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-#     ];
-# these should probably be under home manager
     homebrew = {
       enable = true;
       onActivation.autoUpdate = true;
       onActivation.upgrade = true;
       brews = [
-        "cloudflare/cloudflare/cloudflared"
+        "cloudflared"
       ];
       casks = [
         "font-hack-nerd-font"
@@ -117,5 +112,6 @@ in
                     yabai -m rule --add app=Mailspring space=4 && \ 
         '';
       };
+      system.stateVersion = 5;
     };
 }

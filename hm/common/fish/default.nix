@@ -228,6 +228,7 @@ programs.fish = {
       set -U tide_virtual_env_bg_color                  normal
       set -U tide_virtual_env_color                     00AFAF
       set -U tide_virtual_env_icon          \ue73c
+      atuin init fish | source
 #      ${brew}
     '';
   };
