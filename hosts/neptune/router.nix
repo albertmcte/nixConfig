@@ -36,7 +36,7 @@ services.kea.dhcp4 = {
       option-data = [
         {
           name = "domain-name-servers";
-          data = "1.1.1.1";
+          data = "10.1.1.1";
           always-send = true;
         }
         {
@@ -95,8 +95,8 @@ networking = {
     };
   };
   firewall.interfaces."enp2s0" = {
-    allowedTCPPorts = [ 31225 ];
-    allowedUDPPorts = [ 31225 ];
+    allowedTCPPorts = [ 53 31225 ];
+    allowedUDPPorts = [ 53 31225 ];
   };
 };
 

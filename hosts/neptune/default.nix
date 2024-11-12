@@ -17,9 +17,12 @@
     # cloudflare
   ];
 
-  networking.hostId = "ca0bad48";
-  networking.hostName = "neptune";
-#  networking.networkmanager.enable = true;
+  networking = {
+    hostId = "ca0bad48";
+    hostName = "neptune";
+    networkmanager.enable = false;
+  };
+
   time.timeZone = "UTC";
 
   boot.kernelParams = [ "nohibernate" ];

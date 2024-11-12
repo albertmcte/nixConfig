@@ -23,18 +23,23 @@ in
   boot.zfs.forceImportRoot = false;
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
-  networking.networkmanager.enable = true;
-  
   environment.systemPackages = with pkgs; [
     git
-    neovim
     unstable.eza
+    rclone
   ];
   
-  programs.fish.enable = true;
+  programs = {
+    fish.enable = true;
+    neovim = {
+      enable = true;
+      defaultEditor = true;
+    };
+  };
 
   environment.shells = with pkgs; [
     fish
+    zsh
   ];
 
   services.openssh = {

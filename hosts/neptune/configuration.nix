@@ -7,7 +7,7 @@
     ];
 
   networking.hostName = "neptune";
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = false;
   networking.hostId = "ca0bad48";  
 
 #  boot.loader.grub.enable = true;
@@ -22,9 +22,6 @@
   
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.kernelParams = [ "nohibernate" ];
-
-  # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
 
   users.users.wash = {
     isNormalUser = true;
