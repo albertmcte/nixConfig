@@ -20,10 +20,7 @@
   networking = {
     hostId = "ca0bad48";
     hostName = "neptune";
-<<<<<<< HEAD
     networkmanager.enable = false;
-=======
->>>>>>> refs/remotes/origin/master
   };
 
   time.timeZone = "UTC";

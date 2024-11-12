@@ -23,11 +23,6 @@ in
   boot.zfs.forceImportRoot = false;
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
-<<<<<<< HEAD
-=======
-#  networking.networkmanager.enable = true;
-  
->>>>>>> refs/remotes/origin/master
   environment.systemPackages = with pkgs; [
     git
     unstable.eza
