@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
   {
   imports = [
     ../../modules/common
@@ -32,6 +32,10 @@
       enable = true;
       openFirewall = true;
     };
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+    };
     nfs.server = {
       enable = true;
       # fixed rpc.statd port; for firewall
@@ -41,6 +45,12 @@
       extraNfsdConfig = '''';
     };
   };
+
+  environment.systemPackages = [
+    pkgs.jellyfin
+    pkgs.jellyfin-web
+    pkgs.jellyfin-ffmpeg
+  ];
 
   networking.firewall.interfaces."enp5s0" = {
     allowedTCPPorts = [ 111 2049 4000 4001 4002 20048 31225 ];

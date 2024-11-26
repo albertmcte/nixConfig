@@ -37,11 +37,6 @@ in
     };
   };
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
   environment.shells = with pkgs; [
     fish
     zsh
