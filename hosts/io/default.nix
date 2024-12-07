@@ -27,7 +27,8 @@ in
       onActivation.autoUpdate = true;
       onActivation.upgrade = true;
       brews = [
-        "cloudflared"
+#        "cloudflared"
+        "android-platform-tools"
       ];
       casks = [
         "font-hack-nerd-font"
