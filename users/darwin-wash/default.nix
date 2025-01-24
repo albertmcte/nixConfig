@@ -21,7 +21,7 @@ in
 
   home-manager.users.wash = {
     programs.home-manager.enable = true;
-    home.stateVersion = "23.11";
+    home.stateVersion = "24.11";
     nixpkgs.config.allowUnfree = true;
     age = {
       identityPaths = [ "/Users/wash/.ssh/id_ed25519" ];

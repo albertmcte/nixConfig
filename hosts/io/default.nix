@@ -28,7 +28,6 @@ in
       onActivation.upgrade = true;
       brews = [
 #        "cloudflared"
-        "android-platform-tools"
       ];
       casks = [
         "font-hack-nerd-font"
@@ -38,6 +37,8 @@ in
         "hiddenbar"
         "bluebubbles"
         "kodi"
+        "calibre"
+        "android-platform-tools"
       ];
     };
     services.yabai = {
@@ -51,7 +52,7 @@ in
         window_opacity               = "on";
         window_opacity_duration      = "0.0";
         active_window_opacity        = "1.0";
-        normal_window_opacity        = "1.0"; #trouble transitioning
+        normal_window_opacity        = "0.9"; #trouble transitioning
         window_border                = "off";
         window_topmost               = "on";
         window_shadow                = "on";
@@ -72,12 +73,16 @@ in
       extraConfig = ''
           # rules
           yabai -m rule --add app=iTerm space=1
+          yabai -m rule --add app=kitty space=1
+
           yabai -m rule --add app=Chrome space=2
           yabai -m rule --add app=Firefox space=2
+          yabai -m rule --add app=Edge space=2
 
           yabai -m rule --add app=Mailspring space=4 opacity=0.95
           yabai -m rule --add app=Email space=4 opacity=0.95
           yabai -m rule --add app=Spark space=4 opacity=0.95
+          yabai -m rule --add app=Shortwave space=4 opacity=0.95
           yabai -m rule --add app=Mimestream space=4 opacity=0.98
 
           yabai -m rule --add app=Finder opacity=0.85
