@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 {
   config = {
     home.file.".config/kitty".source = ./kitty;
@@ -20,8 +20,13 @@
       meslo-lgs-nf
       nodejs_20     #required for copilot
       sops
+      nil
+      lua-language-server
+      python312Packages.python-lsp-server
+      bash-language-server
+      yaml-language-server
     ];
-    
+
     home.shellAliases = {
       v = "nvim";
       vim = "nvim";
@@ -49,6 +54,7 @@
     programs = {
       bat = {
         enable = true;
+        # config.theme = "Dracula";
       };
       fzf = {
         enable = true;

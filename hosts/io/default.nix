@@ -12,7 +12,6 @@ in
     inputs.agenix.darwinModules.default
     inputs.home-manager.darwinModules.home-manager
   ];
-# hwat
   config = {
     nixpkgs.hostPlatform = "aarch64-darwin";
     environment.shells = [ pkgs.fish ];
@@ -39,6 +38,8 @@ in
         "kodi"
         "calibre"
         "android-platform-tools"
+        "hammerspoon"
+#        "font-sketchybar-app-font"
       ];
     };
     services.yabai = {
@@ -52,7 +53,7 @@ in
         window_opacity               = "on";
         window_opacity_duration      = "0.0";
         active_window_opacity        = "1.0";
-        normal_window_opacity        = "0.9"; #trouble transitioning
+        normal_window_opacity        = "0.8"; #trouble transitioning
         window_border                = "off";
         window_topmost               = "on";
         window_shadow                = "on";
@@ -68,6 +69,7 @@ in
         left_padding                 = 5;
         right_padding                = 5;
         window_gap                   = 5;
+        external_bar                 = "all:40:0";
       };
 
       extraConfig = ''
@@ -103,8 +105,8 @@ in
         #lcmd - 2 : yabai -m space --focus 2
         #lcmd - 3 : yabai -m space --focus 3
         #lcmd - 4 : yabai -m space --focus 4
-        lshift + cmd - 1 : yabai -m window --space 1
-        lshift + cmd - 2 : yabai -m window --space 2
+        lshift + lcmd - 1 : yabai -m window --space 1
+        lshift + lcmd - 2 : yabai -m window --space 2
         lshift + lcmd - 3 : yabai -m window --space 3
         lshift + lcmd - 4 : yabai -m window --space 4
         hyper - r : yabai -m space --rotate 270
@@ -113,10 +115,17 @@ in
         lcmd - b : yabai -m space --balance
         hyper - f : yabai -m window --toggle native-fullscreen
         hyper - b : yabai -m rule --add app=iTerm space=1 && \
+                    yabai -m rule --add app=kitty space=1 && \
                     yabai -m rule --add app=Chrome space=2 && \
                     yabai -m rule --add app=Firefox space=2 && \
+                    yabai -m rule --add app=Edge space=2 && \
+                    yabai -m rule --add app=Shortwave space=4 && \
                     yabai -m rule --add app=Mailspring space=4 && \ 
         '';
+      };
+      services.sketchybar = {
+        enable = true;
+        package = pkgs.sketchybar;
       };
       system.stateVersion = 5;
     };
