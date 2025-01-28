@@ -21,17 +21,11 @@ vim.keymap.set("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.posit
 -- Diagnostic signs
 -- https://github.com/folke/trouble.nvim/issues/52
 local signs = {
-    Error = "<U+F659> ",
-    Warning = "<U+F529> ",
-    Hint = "<U+F835> ",
-    Information = "<U+F449> "
+    Error = "E",
+    Warning = "W",
+    Hint = "H",
+    Information = " "
 }
--- local signs = {
---     Error = " ",
---     Warning = " ",
---     Hint = " ",
---     Information = " "
--- }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
