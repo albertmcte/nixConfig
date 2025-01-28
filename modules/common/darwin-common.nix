@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ pkgs, ... }: {
   programs.gnupg.agent.enable = true;
 #  programs.zsh.enable = true;
 #  environment.pathsToLink = [ "/share/zsh" ];

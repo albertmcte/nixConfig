@@ -1,4 +1,4 @@
-{ inputs, outputs, pkgs, config, ... }:
+{ inputs, pkgs, ... }:
 let
   fetchKeys = username:
     (builtins.fetchurl {

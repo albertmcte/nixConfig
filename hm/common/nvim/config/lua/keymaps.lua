@@ -24,7 +24,8 @@ vim.api.nvim_set_keymap("n", "ss", ":noh<CR>", {noremap=true})
 vim.keymap.set("n", "<leader>qq", ":q<CR>",
   {silent = true, noremap = true}
 )
-
+-- Comments
+vim.keymap.set("n", "<leader>c", "gcc")
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })

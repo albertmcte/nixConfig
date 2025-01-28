@@ -13,7 +13,7 @@ if [ -f $sysresources ]; then
     xrdb -merge $sysresources
 fi
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+[ -f ~/.Xresources ] && xrdb -merge -I"$HOME" ~/.Xresources
 
 if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
@@ -29,8 +29,8 @@ fi
 
 # start some nice programs
 
-if [ -n "`/etc/X11/chooser.sh`" ]; then
- command="`/etc/X11/chooser.sh`"
+if [ -n "$(/etc/X11/chooser.sh)" ]; then
+  command="$(/etc/X11/chooser.sh)"
 else
  failsafe="yes"
 fi

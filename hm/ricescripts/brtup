@@ -5,6 +5,6 @@ if [ "$cb" == 1.0 ]
 then
   :
 else
-  xrandr --output eDP-1 --brightness $cbp
+  xrandr --output eDP-1 --brightness "$cbp"
 fi
 exit 0
