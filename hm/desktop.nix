@@ -7,7 +7,7 @@
   home.packages = with pkgs; [
     rofi
     kodi
-    cinnamon.nemo
+    nemo
     pywal
     dunst
     firefox

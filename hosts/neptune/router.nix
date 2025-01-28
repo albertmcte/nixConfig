@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ...}: 
+{ config, ...}: 
 {
 boot.kernel.sysctl = {
   # if you use ipv4, this is all you need
@@ -71,6 +71,7 @@ services.kea.dhcp4 = {
 #              ip-address = ip-address;
 #            }
 #          ];
+          id = 1;
         }
       ];
     };
