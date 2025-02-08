@@ -6,7 +6,7 @@ dirSorted=/home/wash/linuxbin/tmpPhotos
 /usr/bin/rclone -v copy onedrive:Pictures/Samsung\ Gallery/ "$dirTemp"
 ra=$?
 
-if [ "$ra" != "0" ] ; then /home/wash/linuxbin/pushover.sh 'S24 Onedrive to Anubis' 'FAILED' > /dev/null 2>&1 && exit 99; fi
+if [ "$ra" != "0" ] ; then /home/wash/linuxbin/pushover.sh 'S25 Onedrive to Anubis' 'FAILED' > /dev/null 2>&1 && exit 99; fi
 
 cp -np "$dirTemp"/**/*(.D) "$dirSorted"
 
@@ -18,6 +18,9 @@ do
                  mkdir -p /mercury/photos/"$(date +"%Y" -r "$file")"/"$(date +"%m" -r "$file")" && cp -np "$file" /mercury/photos/"$(date +"%Y" -r "$file")"/"$(date +"%m" -r "$file")"
         fi
 done
+
 echo "completed at $(date)" >> /home/wash/OneDriveCanary.txt
-/home/wash/linuxbin/pushover.sh 'S24 Onedrive to Anubis' 'SUCCESS' > /dev/null 2>&1
+
+/home/wash/linuxbin/pushover.sh 'S25 Onedrive to Anubis' 'SUCCESS' > /dev/null 2>&1
+
 exit $?

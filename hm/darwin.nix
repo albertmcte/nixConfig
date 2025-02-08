@@ -22,10 +22,10 @@
     source = ./macbin;
     recursive = true;
   };
-#  home.file.".config/sketchybar" = {
-#    source = ./sketchybar;
-#    recursive = true;
-#  };
+ home.file.".config/sketchybar" = {
+   source = ./sketchybar;
+   recursive = true;
+ };
   sops = {
     defaultSopsFile = ../../secrets/sopss.yaml;
     age.sshKeyPaths = [ 

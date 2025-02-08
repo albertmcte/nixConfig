@@ -13,7 +13,6 @@
 #      greeter.enable = true; 
 #    }; 
   };
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   nixpkgs.config.pulseaudio = true;
   security.rtkit.enable = true;
