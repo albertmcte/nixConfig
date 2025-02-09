@@ -6,7 +6,7 @@ services.sanoid = {
 		monthly = 6;
 		daily = 30;
 		hourly = 0;
-		autosnap = false;
+		autosnap = true;
 		autoprune = true;
 	};
 	templates.ignore = {

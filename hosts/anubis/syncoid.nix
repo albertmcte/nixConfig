@@ -1,16 +1,16 @@
 # /usr/sbin/syncoid -r --skip-parent --no-privilege-elevation -sshport=31225 wash@andromeda:io mercury
-{ config, pkgs, options, ... }:
+{ config, options, ... }:
 {
   services.syncoid = {
     enable = true;
-    commonArgs = [ "--skip-parent" "--recursive" ];
-    interval = "*-*-* 13:00:00";
-    commands."io_backup" = {
-      sshKey = config.age.secrets.syncoidKey.path;
-      extraArgs = [ "-sshport=31225" "--sshconfig=/run/agenix/syncoidConf" ];
-      source = "wash@andromeda:io";
-      target = "mercury";
-    };
+    # commonArgs = [ "--skip-parent" "--recursive" ];
+    # interval = "*-*-* 13:00:00";
+    # commands."io_backup" = {
+    #   sshKey = config.age.secrets.syncoidKey.path;
+    #   extraArgs = [ "-sshport=31225" "--sshconfig=/run/agenix/syncoidConf" ];
+    #   source = "wash@andromeda:io";
+    #   target = "mercury";
+    # };
     localTargetAllow = options.services.syncoid.localTargetAllow.default ++ [
       "destroy"
     ];

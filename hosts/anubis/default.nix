@@ -7,6 +7,7 @@
 #    ./resilio.nix
     ./sanoid.nix
     ./syncoid.nix
+    ./systemdservices.nix
     ../../users/wash
     ../../modules/desktop
     ../../modules/server

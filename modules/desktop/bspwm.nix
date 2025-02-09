@@ -2,7 +2,7 @@
 { 
   services.xserver.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
-  services.xserver.displayManager = { 
+  services.displayManager = { 
     defaultSession = "none+bspwm";
     autoLogin = {
       enable = true;
