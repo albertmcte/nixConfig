@@ -32,6 +32,8 @@ in
     git
     unstable.eza
     rclone
+    lzop
+    mbuffer
   ];
   
   programs = {

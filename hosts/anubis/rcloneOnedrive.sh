@@ -1,5 +1,6 @@
 dirTemp=/home/wash/linuxbin/tmpOneDrivePhotos
 dirSorted=/home/wash/linuxbin/tmpPhotos
+
 rclone -v copy onedrive:Pictures/Samsung\ Gallery/ "$dirTemp"
 ra=$?
 
@@ -16,8 +17,15 @@ do
         fi
 done
 
-echo "completed at $(date)" >> /home/wash/OneDriveCanary.txt
+echo "pics grabbed at $(date)" >> /home/wash/OneDriveCanary.txt
 
 /home/wash/linuxbin/pushover.sh 'S25 Onedrive to Anubis' 'SUCCESS' > /dev/null 2>&1
+
+rclone -v copy /mercury/music onedrive:/Music
+rb=$?
+
+if [ "$rb" != "0" ] ; then /home/wash/linuxbin/pushover.sh 'Anubis Music to OneDrive' 'FAILED' > /dev/null 2>&1 && exit 99; fi
+
+echo "Music synced at $(date)" >> /home/wash/OneDriveCanary.txt
 
 exit 0

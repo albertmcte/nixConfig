@@ -1,10 +1,10 @@
-{ inputs, outputs, pkgs, config, ... }:
+{ inputs, pkgs, config, ... }:
 
 let
   fetchKeys = username:
     (builtins.fetchurl {
       url = "https://github.com/${username}.keys";
-      sha256 = "0qi8vf3mkqapzfwpw9qnf6nsxp4s0zrrzg452cnz0d9wm13hfpwx";
+      sha256 = "14wi3yv3pn7nd0rnf0y6yxyi2yihb3p3fspihybzpxzgwclfpha8";
       }
   );
 in
