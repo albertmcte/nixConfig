@@ -4,7 +4,7 @@ dirSorted=/home/wash/linuxbin/tmpPhotos
 rclone -v copy onedrive:Pictures/Samsung\ Gallery/ "$dirTemp"
 ra=$?
 
-if [ "$ra" != "0" ] ; then /home/wash/linuxbin/pushover.sh 'S25 Onedrive to Anubis' 'FAILED' > /dev/null 2>&1 && exit 99; fi
+if [ "$ra" != "0" ] ; then curl -s -F "token=""$(cat "${config.age.secrets.pushover_token.path}")" -F "user=""$(cat "${config.age.secrets.pushover_user.path}")" -F "title=S25 Onedrive to Anubis" -F "message=FAILED" https://api.pushover.net/1/messages.json && exit 99; fi
 
 find "$dirTemp" -type f -exec cp -np {} "$dirSorted" \;
 
@@ -24,7 +24,7 @@ echo "pics grabbed at $(date)" >> /home/wash/OneDriveCanary.txt
 rclone -v copy /mercury/music onedrive:/Music
 rb=$?
 
-if [ "$rb" != "0" ] ; then /home/wash/linuxbin/pushover.sh 'Anubis Music to OneDrive' 'FAILED' > /dev/null 2>&1 && exit 99; fi
+if [ "$rb" != "0" ] ; then curl -s -F "token=""$(cat "${config.age.secrets.pushover_token.path}")" -F "user=""$(cat "${config.age.secrets.pushover_user.path}")" -F "title=Anubis Music to Onedrive" -F "message=FAILED" https://api.pushover.net/1/messages.json && exit 99; fi
 
 echo "Music synced at $(date)" >> /home/wash/OneDriveCanary.txt
 

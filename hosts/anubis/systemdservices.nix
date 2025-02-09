@@ -23,4 +23,6 @@
     };
     script = "${./rcloneOnedrive.sh}";
   };
+  age.secrets.pushover_user.file = ../../secrets/pushover_user.age;
+  age.secrets.pushover_token.file = ../../secrets/pushover_token.age;
 }

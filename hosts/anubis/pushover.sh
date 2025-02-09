@@ -1,9 +1,4 @@
-#!/usr/bin/bash
- 
-# TOKEN INFORMATION 
-_token="$secret"
-_user="$secret"
 
-[[ "$2" != "" ]] && curl -s -F "token=${_token}" -F "user=${_user}" -F "title=$1" -F "message=$2" https://api.pushover.net/1/messages.json
+[[ "$2" != "" ]] && curl -s -F "token="$(cat ${config.age.secrets.pushover_token.path}) -F "user="$(cat ${config.age.secrets.pushover_user.path}) -F "title=$1" -F "message=$2" https://api.pushover.net/1/messages.json
 
 exit 0
