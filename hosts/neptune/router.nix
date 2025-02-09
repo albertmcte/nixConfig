@@ -76,29 +76,32 @@ services.kea.dhcp4 = {
       ];
     };
   };
-
-networking = {
-  nat = { 
-    enable = true;
-    internalInterfaces = [ "enp2s0" ];
-    externalInterface = "enp1s0";
-  };
-
-  interfaces = {
-    enp1s0.useDHCP = true;
-    enp2s0 = 
-    {
-      useDHCP = false;
-      ipv4.addresses = [{
-        address = "10.1.1.1";
-        prefixLength = 24;
-      }];
+  networking = {
+    nat = { 
+      enable = true;
+      internalInterfaces = [ "enp2s0" ];
+      externalInterface = "enp1s0";
+    };
+    interfaces = {
+      enp1s0.useDHCP = true;
+      enp2s0 = {
+        useDHCP = false;
+        ipv4.addresses = [{
+          address = "10.1.1.1";
+          prefixLength = 24;
+        }];
+      };
+    };
+    firewall.interfaces."enp2s0" = {
+      allowedTCPPorts = [ 53 31225 ];
+      allowedUDPPorts = [ 53 31225 ];
+    };
+    dhcpcd = {
+      runHook = ''
+        if [[ $reason =~ BOUND ]]; then curl --silent --output /dev/null $(cat ${config.age.secrets.nextdns_url.path}) && echo "Updated IP on $(date)" >> /home/wash/IPCanary.txt ; fi
+        '';
     };
   };
-  firewall.interfaces."enp2s0" = {
-    allowedTCPPorts = [ 53 31225 ];
-    allowedUDPPorts = [ 53 31225 ];
-  };
-};
+  age.secrets.nextdns_url.file = ../../secrets/nextdns_url.age;
 
 }

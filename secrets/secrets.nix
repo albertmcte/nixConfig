@@ -10,15 +10,16 @@ let
   systems = [ anubis neptune zelda nixmacVM ];
 in
 {
-"tailscale_key.age".publicKeys = users ++ systems;
-"washpw.age".publicKeys = [ wash ] ++ systems;
-"wyattpw.age".publicKeys = users ++ systems;
-"miniIp.age".publicKeys = users ++ systems;
-"syncoidKey.age".publicKeys = [ wash ] ++ [ anubis ];
-"syncoidConf.age".publicKeys = [ wash ] ++ [ anubis ];
-"syncoidKH.age".publicKeys = [ wash ] ++ [ anubis ];
-"pushoverScript.age".publicKeys = [ wash anubis neptune ];
-"pushover_user.age".publicKeys = [ wash anubis neptune ];
-"pushover_token.age".publicKeys = [ wash anubis neptune ];
-"atuinKey.age".publicKeys = [ wash ];
+  "tailscale_key.age".publicKeys = users ++ systems;
+  "washpw.age".publicKeys = [ wash ] ++ systems;
+  "wyattpw.age".publicKeys = users ++ systems;
+  "miniIp.age".publicKeys = users ++ systems;
+  "syncoidKey.age".publicKeys = [ wash ] ++ [ anubis ];
+  "syncoidConf.age".publicKeys = [ wash ] ++ [ anubis ];
+  "syncoidKH.age".publicKeys = [ wash ] ++ [ anubis ];
+  "pushoverScript.age".publicKeys = [ wash anubis neptune ];
+  "pushover_user.age".publicKeys = [ wash anubis neptune ];
+  "pushover_token.age".publicKeys = [ wash anubis neptune ];
+  "atuinKey.age".publicKeys = [ wash ];
+  "nextdns_url.age".publicKeys = [ wash neptune ];
 }
