@@ -13,6 +13,9 @@
     networkmanager.enable = true;
   };
   time.timeZone = "America/New_York";
+  environment.systemPackages = [
+    pkgs.microsoft-edge
+  ];
 
   system.stateVersion = "23.11";
 }

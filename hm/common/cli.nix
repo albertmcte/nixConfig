@@ -25,6 +25,7 @@
       python312Packages.python-lsp-server
       bash-language-server
       yaml-language-server
+      btop
     ];
 
     home.shellAliases = {

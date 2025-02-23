@@ -20,6 +20,7 @@ in
       inputs.agenix.packages.${pkgs.system}.default
       unstable.eza
       unstable.pyenv
+      iina
     ];
     homebrew = {
       enable = true;
