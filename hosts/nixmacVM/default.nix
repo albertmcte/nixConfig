@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
-  {
+{
   imports = [
     ../../modules/common
     ./hardware-configuration.nix
-    ../../users/wash
-    ../../modules/desktop
+    ../../users/wash-test
+    #    ../../modules/desktop
+    ../../modules/hyperwm
   ];
 
   networking = {
@@ -13,9 +13,6 @@
     networkmanager.enable = true;
   };
   time.timeZone = "America/New_York";
-  environment.systemPackages = [
-    pkgs.microsoft-edge
-  ];
 
   system.stateVersion = "23.11";
 }

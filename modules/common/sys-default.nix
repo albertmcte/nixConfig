@@ -34,6 +34,7 @@ in
     rclone
     lzop
     mbuffer
+    microsoft-edge
   ];
   
   programs = {

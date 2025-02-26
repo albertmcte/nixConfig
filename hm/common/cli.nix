@@ -3,7 +3,6 @@
   config = {
     home.file.".config/kitty".source = ./kitty;
     home.packages =  with pkgs; [
-      kitty
       bat
       htop
       curl
@@ -53,6 +52,9 @@
 #    age.secrets.miniIp.file = ../../secrets/miniIp.age;
   
     programs = {
+      kitty = {
+        enable = true;
+      };
       bat = {
         enable = true;
         # config.theme = "Dracula";
