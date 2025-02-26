@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ../../users/wash-test
     #    ../../modules/desktop
-    ../../modules/hyperwm
+    ../../modules/desktop/hyperwm.nix
   ];
 
   networking = {
