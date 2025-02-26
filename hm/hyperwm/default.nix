@@ -4,12 +4,13 @@
     xwayland.enable = true;
     # Optional
     # Whether to enable hyprland-session.target on hyprland startup
-    # systemd.enable = true;
+    systemd.enable = true;
     settings = {
       "$mod" = "SUPER";
     bind =
       [
         "$mod, F, exec, firefox"
+        "SUPER, ENTER, exec, kitty"
         ", Print, exec, grimblast copy area"
       ]
       ++ (
