@@ -8,7 +8,8 @@
     ./sanoid.nix
     ./syncoid.nix
     ./systemdservices.nix
-    ../../users/wash
+    ./autologin.nix
+    ../../users/wash-desktop
     ../../modules/desktop
     ../../modules/server
   ];
@@ -51,6 +52,7 @@
     pkgs.jellyfin
     pkgs.jellyfin-web
     pkgs.jellyfin-ffmpeg
+    # pkgs.makemkv
   ];
 
   networking.firewall.interfaces."enp5s0" = {

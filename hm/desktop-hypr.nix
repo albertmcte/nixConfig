@@ -4,7 +4,9 @@
   ... 
 }: {
   home.packages = with pkgs; [
-    # rofi
+    wofi
+    dolphin
+    microsoft-edge
     # kodi
     # nemo
     # pywal
@@ -29,7 +31,7 @@
   #   recursive = true;
   # };
   imports = [
-    ./hyperwm
+    ./hypr
   ];
 }
 
