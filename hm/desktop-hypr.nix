@@ -23,6 +23,10 @@ home.packages = with pkgs; [
     source = ./wallpapers;
     recursive = true;
   };
+  home.file."${config.xdg.configHome}/waybar" = {
+    source = ./waybar;
+    recursive = true;
+  };
   imports = [
     ./hypr
   ];
