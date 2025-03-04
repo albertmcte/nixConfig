@@ -1,19 +1,20 @@
-{ 
-  config,
-  pkgs, 
-  ... 
-}: {
-  home.packages = with pkgs; [
+{ config, pkgs, ... }:
+{
+home.packages = with pkgs; [
     wofi
-    dolphin
     microsoft-edge
     # kodi
-    # nemo
+    nemo
     # pywal
     # dunst
     # firefox
     _1password-gui
+    swaynotificationcenter
+    wayvnc
   ];
+
+  programs.waybar.enable = true;
+  
   home.file."${config.xdg.configHome}/ricescripts" = {
     source = ./ricescripts;
     recursive = true;
@@ -22,14 +23,6 @@
     source = ./wallpapers;
     recursive = true;
   };
-  # home.file.".xinitrc" = {
-  #   source = ./xinitrc;
-  #   recursive = true;
-  # };
-  # home.file.".Xresources" = {
-  #   source = ./Xresources;
-  #   recursive = true;
-  # };
   imports = [
     ./hypr
   ];

@@ -10,7 +10,9 @@ let
 in {
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    xwayland = {
+      enable = true;
+    };
     systemd.enable = true;
     settings = {
       exec-once = [
@@ -102,9 +104,9 @@ in {
         "$modifier SHIFT,W,exec,web-search"
         "$modifier ALT,W,exec,wallsetter"
         "$modifier SHIFT,N,exec,swaync-client -rs"
-        "$modifier,P,exec,wofi -G --dmenu"
+        "$modifier,P,exec,wofi -G --show run"
         "$modifier,F,exec,${browser}"
-        "$modifier,G,exec,dolphin"
+        "$modifier,G,exec,nemo"
         "$modifier,E,exec,emopicker9000"
         "$modifier,S,exec,screenshootin"
         "$modifier,D,exec,discord"
@@ -247,6 +249,8 @@ in {
       ];
 
       env = [
+        "GDK_SCALE, 2"
+        "XCURSOR_SIZE, 32"
         "NIXOS_OZONE_WL, 1"
         "NIXPKGS_ALLOW_UNFREE, 1"
         "XDG_CURRENT_DESKTOP, Hyprland"
@@ -263,7 +267,7 @@ in {
     };
 
     extraConfig = "
-      monitor=,preferred,auto,auto
+      monitor=,highres,auto,2
       ${extraMonitorSettings}
     ";
   };

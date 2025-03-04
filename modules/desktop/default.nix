@@ -1,11 +1,9 @@
+{ ... }: 
 {
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
-#    ./wayland.nix
-    ./bspwm.nix
+    # ./desktop 
+    # ./wayland.nix
+    ./hyprwm.nix
   ];
 }
 
