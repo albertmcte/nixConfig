@@ -60,6 +60,5 @@
     allowedTCPPorts = [ 111 2049 4000 4001 4002 20048 31225 ];
     allowedUDPPorts = [ 111 2049 4000 4001 4002 20048 31225 ];
   };
-
   system.stateVersion = "23.11";
 }

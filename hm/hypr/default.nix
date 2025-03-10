@@ -267,7 +267,8 @@ in {
     };
 
     extraConfig = "
-      monitor=,highres,auto,2
+      monitor=DP-1,highres,auto,1.666667
+      monitor=HDMI-A-1,highres,auto,1.6
       ${extraMonitorSettings}
     ";
   };
