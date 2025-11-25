@@ -28,7 +28,7 @@ in
     };
     imports = [
       ../../hm
-      ../../hm/desktop-wayland.nix
+      ../../hm/desktop-hypr.nix
     ];
   };
   
