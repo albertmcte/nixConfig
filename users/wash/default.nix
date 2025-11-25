@@ -35,7 +35,7 @@ in
   users.users = {
     wash = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [ "wheel" "networkmanager" "samba"];
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
       # hashedPasswordFile needs to be in a volume marked with `neededForBoot = true`
 #      hashedPasswordFile = "/persist/passwords/wash";
