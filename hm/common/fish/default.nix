@@ -21,7 +21,7 @@ programs.fish = {
     src = pkgs.fetchFromGitHub {
       owner = "IlanCosman";
       repo = "tide";
-      rev = "51b0f37307c7bcfa38089c2eddaad0bbb2e20c64";
+      rev = "c4e3831dc4392979478d3d7b66a68f0274996c85";
       sha256 = "1cnnm0cs5spq2ir7vsb62blgyddjmzspgm2kpmsknskg78a3a8kh";
       };
     }
@@ -147,9 +147,9 @@ programs.fish = {
       set -U tide_jobs_bg_color             normal
       set -U tide_jobs_color                5FAF00
       set -U tide_jobs_icon                 \uf013
-      set -U tide_kubectl_bg_color          normal
-      set -U tide_kubectl_color             326CE5
-      set -U tide_kubectl_icon              \u2388
+      # set -U tide_kubectl_bg_color          normal
+      # set -U tide_kubectl_color             326CE5
+      # set -U tide_kubectl_icon              \u2388
       set -U tide_left_prompt_frame_enabled                false
       set -U tide_left_prompt_items         os\x1epwd\x1egit\x1echaracter
       set -U tide_left_prompt_prefix                
@@ -186,7 +186,7 @@ programs.fish = {
       set -U tide_pwd_icon_unwritable       \uf023
       set -U tide_pwd_markers               \x2ebzr\x1e\x2ecitc\x1e\x2egit\x1e\x2ehg\x1e\x2enode\x2dversion\x1e\x2epython\x2dversion\x1e\x2eruby\x2dversion\x1e\x2eshorten_folder_marker\x1e\x2esvn\x1e\x2eterraform\x1eCargo\x2etoml\x1ecomposer\x2ejson\x1eCVS\x1ego\x2emod\x1epackage\x2ejson
       set -U tide_right_prompt_frame_enabled            false
-      set -U tide_right_prompt_items        status\x1ecmd_duration\x1econtext\x1ejobs\x1enode\x1evirtual_env\x1erustc\x1ejava\x1ephp\x1echruby\x1ego\x1ekubectl\x1etoolbox\x1eterraform\x1eaws\x1enix_shell\x1ecrystal\x1etime
+      set -U tide_right_prompt_items        status\x1ecmd_duration\x1econtext\x1ejobs\x1enode\x1evirtual_env\x1erustc\x1ejava\x1ephp\x1echruby\x1ego\x1etoolbox\x1eterraform\x1eaws\x1enix_shell\x1ecrystal\x1etime
       set -U tide_right_prompt_prefix       \x20
       set -U tide_right_prompt_separator_diff_color                \x20
       set -U tide_right_prompt_separator_same_color                \x20
