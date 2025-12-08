@@ -13,6 +13,7 @@ in
     inputs.home-manager.darwinModules.home-manager
   ];
   config = {
+    ids.gids.nixbld = 30000;
     nixpkgs.hostPlatform = "aarch64-darwin";
     environment.shells = [ pkgs.fish ];
     environment.systemPackages = with pkgs; [
@@ -128,6 +129,6 @@ in
         enable = true;
         package = pkgs.sketchybar;
       };
-      system.stateVersion = 5;
+      system.stateVersion = 6;
     };
 }

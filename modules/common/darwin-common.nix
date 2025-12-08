@@ -2,12 +2,11 @@
   programs.gnupg.agent.enable = true;
 #  programs.zsh.enable = true;
 #  environment.pathsToLink = [ "/share/zsh" ];
-  services.nix-daemon.enable = true;
   nix.package = pkgs.nixVersions.stable;
   nix.settings.cores = 0; # use all cores
   nix.settings.max-jobs = 10; # use all cores
   programs.fish.enable = true;
-
+  system.primaryUser = "wash";
   system.defaults = {
     NSGlobalDomain.AppleShowAllExtensions = true;
     NSGlobalDomain.InitialKeyRepeat = 25;

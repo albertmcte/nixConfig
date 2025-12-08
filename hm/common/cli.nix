@@ -72,7 +72,7 @@
       git = {
         enable = true;
         lfs.enable = true;
-        extraConfig = {
+        settings = {
           commit.gpgSign = false;
           user.name = "Nordyun";
           user.email = "njorthson@proton.me";
