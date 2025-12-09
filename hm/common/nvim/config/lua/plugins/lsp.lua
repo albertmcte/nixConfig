@@ -68,22 +68,22 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 vim.lsp.enable('clangd')
 vim.lsp.config('clangd', {
   on_attach = on_attach,
-  capabilites = capabilities,
+  capabilities = capabilities,
 })
 vim.lsp.enable('rust_analyzer')
 vim.lsp.config('rust_analyzer', {
   on_attach = on_attach,
-  capabilites = capabilities,
+  capabilities = capabilities,
 })
 vim.lsp.enable('pyright')
 vim.lsp.config('pyright', {
   on_attach = on_attach,
-  capabilites = capabilities,
+  capabilities = capabilities,
 })
 vim.lsp.enable('ts_ls')
 vim.lsp.config('ts_ls', {
   on_attach = on_attach,
-  capabilites = capabilities,
+  capabilities = capabilities,
 })
 
 -- Turn on lsp status information
@@ -119,7 +119,7 @@ table.insert(runtime_path, 'lua/?/init.lua')
 --     },
 --   },
 -- }
-
+vim.lsp.enable('lua_ls')
 vim.lsp.config('lua_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -156,6 +156,7 @@ vim.lsp.config('lua_ls', {
     -- },
 --   },
 -- }
+vim.lsp.enable('nil_ls')
 vim.lsp.config('nil_ls', {
   -- Server-specific settings. See `:help lsp-quickstart`
   on_attach = on_attach,

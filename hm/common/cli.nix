@@ -23,6 +23,9 @@
       python312Packages.python-lsp-server
       bash-language-server
       yaml-language-server
+      typescript-language-server
+      rust-analyzer
+      pyright
       btop
     ];
 
