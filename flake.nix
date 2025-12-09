@@ -88,7 +88,7 @@
         ];
       };
       saturn = lib.darwinSystem {
-        system = "x86_64-darwin";
+        stdenv.hostPlatform.system = "x86_64-darwin";
         specialArgs = { inherit inputs outputs; };
         modules = [
           ./hosts/io

@@ -1,7 +1,7 @@
 { pkgs, inputs, ...}:
 let
   unstable = import inputs.nixpkgs-unstable {
-    system = pkgs.system;
+    system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
 in
@@ -18,7 +18,7 @@ in
     environment.shells = [ pkgs.fish ];
     environment.systemPackages = with pkgs; [
       python3
-      inputs.agenix.packages.${pkgs.system}.default
+      inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
       unstable.eza
       unstable.pyenv
     ];

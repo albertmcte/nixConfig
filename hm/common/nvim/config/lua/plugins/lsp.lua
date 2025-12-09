@@ -56,14 +56,35 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'ts_ls' }
+-- local servers = { 'clangd', 'rust_analyzer', 'pyright', 'ts_ls' }
 
-for _, lsp in ipairs(servers) do
-  require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end
+-- for _, lsp in ipairs(servers) do
+--   require('lspconfig')[lsp].setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--   }
+-- end
+
+vim.lsp.enable('clangd')
+vim.lsp.config('clangd', {
+  on_attach = on_attach,
+  capabilites = capabilities,
+})
+vim.lsp.enable('rust_analyzer')
+vim.lsp.config('rust_analyzer', {
+  on_attach = on_attach,
+  capabilites = capabilities,
+})
+vim.lsp.enable('pyright')
+vim.lsp.config('pyright', {
+  on_attach = on_attach,
+  capabilites = capabilities,
+})
+vim.lsp.enable('ts_ls')
+vim.lsp.config('ts_ls', {
+  on_attach = on_attach,
+  capabilites = capabilities,
+})
 
 -- Turn on lsp status information
 require('fidget').setup()
@@ -75,7 +96,31 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-require('lspconfig').lua_ls.setup {
+-- require('lspconfig').lua_ls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     Lua = {
+--       runtime = {
+--         -- Tell the language server which version of Lua you're using (most likely LuaJIT)
+--         version = 'LuaJIT',
+--         -- Setup your lua path
+--         path = runtime_path,
+--       },
+--       diagnostics = {
+--         globals = { 'vim' },
+--       },
+--       workspace = {
+--         library = vim.api.nvim_get_runtime_file('', true),
+--         checkThirdParty = false,
+--       },
+--       -- Do not send telemetry data containing a randomized but unique identifier
+--       telemetry = { enable = false },
+--     },
+--   },
+-- }
+
+vim.lsp.config('lua_ls', {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -97,9 +142,22 @@ require('lspconfig').lua_ls.setup {
       telemetry = { enable = false },
     },
   },
-}
+})
 
-require('lspconfig').nil_ls.setup {
+-- require('lspconfig').nil_ls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     ['nil'] = {
+    --   testSetting = 42,
+    --   formatting = {
+    --     command = { "nixfmt" },
+    --   },
+    -- },
+--   },
+-- }
+vim.lsp.config('nil_ls', {
+  -- Server-specific settings. See `:help lsp-quickstart`
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -107,10 +165,11 @@ require('lspconfig').nil_ls.setup {
       testSetting = 42,
       formatting = {
         command = { "nixfmt" },
-      },
+      }
     },
   },
-}
+})
+
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'sh',

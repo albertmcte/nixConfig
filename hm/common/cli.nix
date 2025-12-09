@@ -17,7 +17,7 @@
       killall
       aria2
       meslo-lgs-nf
-      nodejs_20     #required for copilot
+      nodejs    #required for copilot
       sops
       nil
       lua-language-server
