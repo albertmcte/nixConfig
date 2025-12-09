@@ -18,7 +18,6 @@
       aria2
       meslo-lgs-nf
       nodejs    #required for copilot
-      sops
       nil
       lua-language-server
       python312Packages.python-lsp-server
@@ -103,13 +102,10 @@
         settings = {
           key_path = config.age.secrets.atuinKey.path;
           enter_accept = true;
-#        key_path = config.sops.secrets.atuin_key.path;
 #        sync_address = "https://majiy00-shell.fly.dev";
         };
       };
     };
     age.secrets.atuinKey.file = ../../secrets/atuinKey.age;
-#   sops.secrets.atuin_key.sopsFile = ../../secrets/sopss.yaml;
-#   sops.secrets.test_secret.sopsFile = ../../secrets/sopss.yaml;
   };
 }

@@ -5,7 +5,6 @@
 #    ./noexec.nix
     ./agenix.nix
     ./tailscale.nix
-    ./sops.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 

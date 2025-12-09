@@ -11,8 +11,6 @@ in
 {
   users.mutableUsers = false;
 
-#  sops.secrets.wash_pw.neededForUsers = true;
-  
   home-manager.users.wash = {
     home = {
       username = "wash";
@@ -38,9 +36,7 @@ in
       extraGroups = [ "wheel" "networkmanager" ];
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
       # hashedPasswordFile needs to be in a volume marked with `neededForBoot = true`
-#      hashedPasswordFile = "/persist/passwords/wash";
       hashedPasswordFile = config.age.secrets.washpw.path;
-#      hashedPasswordFile = "config.sops.secrets.wash_pw.path";
       shell = pkgs.fish;
     };
   };
@@ -48,7 +44,6 @@ in
 #home-manager secrets still not working
 
   home-manager.sharedModules = [
-    inputs.sops-nix.homeManagerModules.sops
     inputs.agenix.homeManagerModules.default
   ];
 

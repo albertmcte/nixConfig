@@ -35,7 +35,6 @@ in
   };
 
   home-manager.sharedModules = [
-    inputs.sops-nix.homeManagerModules.sops
     inputs.agenix.homeManagerModules.default
   ];
 
