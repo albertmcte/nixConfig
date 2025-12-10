@@ -1,9 +1,0 @@
-keys:
-  - &admin_wash age10gd937jyd7qlftnls92pela2kzpv4ejgxfrlz3quetnd9qytz9jqmm5l8l
-  - &server_anubis age1hh5aug7aqa2pru9zvgw3f08mjqlp4td4s7gaht7tgxnysykajpzs72w63q
-creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
-    key_groups:
-    - age:
-      - *admin_wash
-      - *server_anubis
