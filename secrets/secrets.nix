@@ -22,4 +22,5 @@ in
   "pushover_token.age".publicKeys = [ wash anubis neptune ];
   "atuinKey.age".publicKeys = [ wash ];
   "nextdns_url.age".publicKeys = [ wash neptune ];
+  "dns_url.age".publicKeys = [ wash neptune ];
 }

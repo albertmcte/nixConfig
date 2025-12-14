@@ -20,6 +20,10 @@ boot.kernel.sysctl = {
   # Better network performance
   "net.core.default_qdisc" = "fq";
   "net.ipv4.tcp_congestion_control" = "bbr";
+
+  # QUIC recommendations testing
+  "net.core.rmem_max" = "7500000";
+  "net.core.wmem_max" = "7500000";
 };
 
 services.kea.dhcp4 = {
