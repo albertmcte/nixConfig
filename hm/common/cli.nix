@@ -4,7 +4,7 @@
     home.file.".config/kitty".source = ./kitty;
     home.packages =  with pkgs; [
       bat
-      htop
+      # htop #move to btop finally
       curl
       fd
       file
@@ -27,6 +27,8 @@
       rust-analyzer
       pyright
       btop
+      claude-code
+      ### TODO add gemini
     ];
 
     home.shellAliases = {
@@ -52,7 +54,7 @@
       "...." = "cd ../../..";
     };
 #    age.secrets.miniIp.file = ../../secrets/miniIp.age;
-  
+
     programs = {
       kitty = {
         enable = true;
@@ -81,16 +83,16 @@
           pull.ff = "only";
         };
       };
-      htop = {
-        enable = true;
-        settings = {
-          hide_userland_threads = true;
-          highlight_base_name = true;
-          shadow_other_users = true;
-          show_program_path = false;
-          tree_view = false;
-        };
-      };
+      # htop = {
+      #   enable = true;
+      #   settings = {
+      #     hide_userland_threads = true;
+      #     highlight_base_name = true;
+      #     shadow_other_users = true;
+      #     show_program_path = false;
+      #     tree_view = false;
+      #   };
+      # };
       zsh = {
         enable = true;
         enableCompletion = true;

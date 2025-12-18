@@ -1,4 +1,4 @@
-{ config, ...}: 
+{ config, ...}:
 {
 boot.kernel.sysctl = {
   # if you use ipv4, this is all you need
@@ -22,8 +22,8 @@ boot.kernel.sysctl = {
   "net.ipv4.tcp_congestion_control" = "bbr";
 
   # QUIC recommendations testing
-  "net.core.rmem_max" = "7500000";
-  "net.core.wmem_max" = "7500000";
+  "net.core.rmem_max" = 7500000;
+  "net.core.wmem_max" = 7500000;
 };
 
 services.kea.dhcp4 = {
@@ -81,7 +81,7 @@ services.kea.dhcp4 = {
     };
   };
   networking = {
-    nat = { 
+    nat = {
       enable = true;
       internalInterfaces = [ "enp2s0" ];
       externalInterface = "enp1s0";

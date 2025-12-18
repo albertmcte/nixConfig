@@ -1,12 +1,11 @@
 { inputs, pkgs, config, ...}:
 {
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  environment.gnome.excludePackages = (with pkgs; [
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
+  environment.gnome.excludePackages = with pkgs; [
     gnome-photos
     gnome-tour
-    ]) ++ (with pkgs.gnome; [
     cheese # webcam tool
     gnome-music
     gedit # text editor
@@ -20,13 +19,12 @@
     yelp # Help view
     gnome-contacts
     gnome-initial-setup
-    ]);
+    ];
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
+    gnome-tweaks
     ];
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   nixpkgs.config.pulseaudio = true;
   security.rtkit.enable = true;
   services.pipewire = {

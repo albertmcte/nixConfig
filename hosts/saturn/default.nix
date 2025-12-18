@@ -10,7 +10,6 @@ in
     ../../modules/common/darwin-common.nix
     ../../users/darwin-wash
     inputs.agenix.darwinModules.default
-    #    inputs.agenix.homeManagerModules.default
     inputs.home-manager.darwinModules.home-manager
   ];
   config = {
@@ -22,11 +21,6 @@ in
       unstable.eza
       unstable.pyenv
     ];
-#    fonts.packages = with pkgs; [
-#       recursive
-#       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-#     ];
-# these should probably be under home manager
     homebrew = {
       enable = true;
       onActivation.autoUpdate = true;
@@ -112,7 +106,7 @@ in
         hyper - b : yabai -m rule --add app=iTerm space=1 && \
                     yabai -m rule --add app=Chrome space=2 && \
                     yabai -m rule --add app=Firefox space=2 && \
-                    yabai -m rule --add app=Mailspring space=4 && \ 
+                    yabai -m rule --add app=Mailspring space=4
         '';
       };
     };

@@ -22,6 +22,7 @@ in
       unstable.eza
       unstable.pyenv
       iina
+      nixfmt-rfc-style
     ];
     homebrew = {
       enable = true;
@@ -122,7 +123,7 @@ in
                     yabai -m rule --add app=Firefox space=2 && \
                     yabai -m rule --add app=Edge space=2 && \
                     yabai -m rule --add app=Shortwave space=4 && \
-                    yabai -m rule --add app=Mailspring space=4 && \ 
+                    yabai -m rule --add app=Mailspring space=4
         '';
       };
       services.sketchybar = {

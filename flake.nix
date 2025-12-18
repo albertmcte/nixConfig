@@ -7,6 +7,7 @@
     nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
     impermanence.url = "github:nix-community/impermanence";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    claude-code.url = "github:sadjow/claude-code-nix";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,25 +30,11 @@
     };
   };
 
-  outputs = {self, darwin, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+  outputs = {self, darwin, nixpkgs, nixpkgs-unstable, home-manager, claude-code, ... }@inputs:
   let
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib // darwin.lib;
-#    systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-
-#    forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
-#    pkgsFor = nixpkgs.legacyPackages;
-    
-#    unstableFor = nixpkgs-unstable.legacyPackages;
-#    forEachUnstable = f: lib.genAttrs systems (sys: f unstableFor.${sys});
   in
-#  let
-#    system = "x86_64-linux";
-#    pkgs = import nixpkgs { inherit system; };
-#    unstable = import nixpkgs-unstable { inherit system; };
-#    specialArgs = { inherit self inputs unstable; };
-#    extraSpecialArgs = specialArgs;
-#  in
   {
     inherit lib;
     nixosConfigurations = {
@@ -80,14 +67,16 @@
       io = lib.darwinSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          ./hosts/io
-        ];
+            ./hosts/io
+            {
+              nixpkgs.overlays = [ claude-code.overlays.default ];
+            }
+          ];
       };
       saturn = lib.darwinSystem {
-        stdenv.hostPlatform.system = "x86_64-darwin";
         specialArgs = { inherit inputs outputs; };
         modules = [
-          ./hosts/io
+          ./hosts/saturn
         ];
       };
     };

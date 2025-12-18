@@ -2,9 +2,9 @@
   imports = [
     ../../modules/common
     ./hardware-configuration.nix
-    ../../users/wash-test
+    ../../users/wash
     #    ../../modules/desktop
-    ../../modules/desktop/hyperwm.nix
+    ../../modules/desktop/hyprwm.nix
   ];
 
   networking = {

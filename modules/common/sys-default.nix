@@ -34,6 +34,7 @@ in
     rclone
     lzop
     mbuffer
+    nixfmt-rfc-style
   ];
   
   programs = {
