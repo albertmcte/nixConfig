@@ -1,4 +1,4 @@
-{ pkgs, inputs, ...}:
+{ pkgs, inputs, ... }:
 let
   unstable = import inputs.nixpkgs-unstable {
     system = pkgs.stdenv.hostPlatform.system;
@@ -42,45 +42,45 @@ in
       package = unstable.pkgs.yabai;
       enableScriptingAddition = true;
       config = {
-        focus_follows_mouse          = "autoraise";
-        mouse_follows_focus          = "off";
-        window_placement             = "second_child";
-        window_opacity               = "on";
-        window_opacity_duration      = "0.0";
-        active_window_opacity        = "1.0";
-        normal_window_opacity        = "1.0"; #trouble transitioning
-        window_border                = "off";
-        window_topmost               = "on";
-        window_shadow                = "on";
-        split_ratio                  = "0.50";
-        auto_balance                 = "on";
-        mouse_modifier               = "fn";
-        mouse_action1                = "move";
-        mouse_action2                = "resize";
-        mouse_drop_action            = "swap";
-        layout                       = "bsp";
-        top_padding                  = 0;
-        bottom_padding               = 5;
-        left_padding                 = 5;
-        right_padding                = 5;
-        window_gap                   = 5;
+        focus_follows_mouse = "autoraise";
+        mouse_follows_focus = "off";
+        window_placement = "second_child";
+        window_opacity = "on";
+        window_opacity_duration = "0.0";
+        active_window_opacity = "1.0";
+        normal_window_opacity = "1.0"; # trouble transitioning
+        window_border = "off";
+        window_topmost = "on";
+        window_shadow = "on";
+        split_ratio = "0.50";
+        auto_balance = "on";
+        mouse_modifier = "fn";
+        mouse_action1 = "move";
+        mouse_action2 = "resize";
+        mouse_drop_action = "swap";
+        layout = "bsp";
+        top_padding = 0;
+        bottom_padding = 5;
+        left_padding = 5;
+        right_padding = 5;
+        window_gap = 5;
       };
 
       extraConfig = ''
-          # rules
-          yabai -m rule --add app=iTerm space=1
-          yabai -m rule --add app=Chrome space=2
-          yabai -m rule --add app=Firefox space=2
+        # rules
+        yabai -m rule --add app=iTerm space=1
+        yabai -m rule --add app=Chrome space=2
+        yabai -m rule --add app=Firefox space=2
 
-          yabai -m rule --add app=Mailspring space=4 opacity=0.95
-          yabai -m rule --add app=Email space=4 opacity=0.95
-          yabai -m rule --add app=Spark space=4 opacity=0.98
+        yabai -m rule --add app=Mailspring space=4 opacity=0.95
+        yabai -m rule --add app=Email space=4 opacity=0.95
+        yabai -m rule --add app=Spark space=4 opacity=0.98
 
-          yabai -m rule --add app=Finder opacity=0.85
-          yabai -m rule --add app=Fantastical manage=off
-          yabai -m rule --add app="System Preferences" manage=off
-          # Any other arbitrary config here
-        '';
+        yabai -m rule --add app=Finder opacity=0.85
+        yabai -m rule --add app=Fantastical manage=off
+        yabai -m rule --add app="System Preferences" manage=off
+        # Any other arbitrary config here
+      '';
     };
     services.skhd = {
       enable = true;
@@ -107,7 +107,7 @@ in
                     yabai -m rule --add app=Chrome space=2 && \
                     yabai -m rule --add app=Firefox space=2 && \
                     yabai -m rule --add app=Mailspring space=4
-        '';
-      };
+      '';
     };
+  };
 }

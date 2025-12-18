@@ -11,4 +11,3 @@
   keyboardLayout = "us";
   consoleKeyMap = "us";
 }
-

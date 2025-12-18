@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   services.polybar.config = {
     "colors" = {
       # One Dark Pro

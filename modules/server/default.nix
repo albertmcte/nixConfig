@@ -1,9 +1,10 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   imports = [
-#    ./resilio.nix
-#    ./monit.nix
-#    ./syncoid.nix
-#    ./wireguard.nix
+    #    ./resilio.nix
+    #    ./monit.nix
+    #    ./syncoid.nix
+    #    ./wireguard.nix
   ];
   services = {
     getty.autologinUser = "wash";

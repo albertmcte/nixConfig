@@ -30,55 +30,64 @@
     };
   };
 
-  outputs = {self, darwin, nixpkgs, nixpkgs-unstable, home-manager, claude-code, ... }@inputs:
-  let
-    inherit (self) outputs;
-    lib = nixpkgs.lib // home-manager.lib // darwin.lib;
-  in
-  {
-    inherit lib;
-    nixosConfigurations = {
-      anubis = lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          ./hosts/anubis
-        ];
+  outputs =
+    {
+      self,
+      darwin,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      claude-code,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib // darwin.lib;
+    in
+    {
+      inherit lib;
+      nixosConfigurations = {
+        anubis = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/anubis
+          ];
+        };
+        neptune = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/neptune
+          ];
+        };
+        zelda = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/zelda
+          ];
+        };
+        nixmacVM = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/nixmacVM
+          ];
+        };
       };
-      neptune = lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          ./hosts/neptune
-        ];
-      };
-      zelda = lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          ./hosts/zelda
-        ];
-      };
-      nixmacVM = lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          ./hosts/nixmacVM
-        ];
-      };
-    };
-    darwinConfigurations = {
-      io = lib.darwinSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
+      darwinConfigurations = {
+        io = lib.darwinSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
             ./hosts/io
             {
               nixpkgs.overlays = [ claude-code.overlays.default ];
             }
           ];
-      };
-      saturn = lib.darwinSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          ./hosts/saturn
-        ];
+        };
+        saturn = lib.darwinSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            ./hosts/saturn
+          ];
+        };
       };
     };
-  };
 }

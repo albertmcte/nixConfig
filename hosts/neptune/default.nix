@@ -6,7 +6,7 @@
   pkgs,
   ...
 }:
-  {
+{
   imports = [
     ./hardware-configuration.nix
     ./router.nix

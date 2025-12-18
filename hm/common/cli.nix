@@ -2,7 +2,7 @@
 {
   config = {
     home.file.".config/kitty".source = ./kitty;
-    home.packages =  with pkgs; [
+    home.packages = with pkgs; [
       bat
       # htop #move to btop finally
       curl
@@ -17,7 +17,7 @@
       killall
       aria2
       meslo-lgs-nf
-      nodejs    #required for copilot
+      nodejs # required for copilot
       nil
       lua-language-server
       python312Packages.python-lsp-server
@@ -47,13 +47,13 @@
       ls = "eza";
       ll = "eza -l --git";
       cat = "bat";
-#      sshminiclear="ssh -p 36767 ${config.age.secrets.miniIp.path}";
-      androsync="TERM=xterm-256color ssh -p 31225 -L 9999:localhost:8384 wash@10.0.0.6";
+      #      sshminiclear="ssh -p 36767 ${config.age.secrets.miniIp.path}";
+      androsync = "TERM=xterm-256color ssh -p 31225 -L 9999:localhost:8384 wash@10.0.0.6";
       ".." = "cd ../";
       "..." = "cd ../..";
       "...." = "cd ../../..";
     };
-#    age.secrets.miniIp.file = ../../secrets/miniIp.age;
+    #    age.secrets.miniIp.file = ../../secrets/miniIp.age;
 
     programs = {
       kitty = {
@@ -107,7 +107,7 @@
         settings = {
           key_path = config.age.secrets.atuinKey.path;
           enter_accept = true;
-#        sync_address = "https://majiy00-shell.fly.dev";
+          #        sync_address = "https://majiy00-shell.fly.dev";
         };
       };
     };

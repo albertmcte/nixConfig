@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   services.sxhkd = {
     enable = true;
     keybindings = {
@@ -6,7 +7,7 @@
       "super + Return" = "kitty";
       "super + p" = "rofi -show drun -theme $HOME/.cache/wal/colors-rofi-dark-trans.rasi -show-icons";
       "super + @space" = "sh $HOME/.config/rofi/powermenu.sh";
-#      "ctrl + super + alt + u" = "kitty sudo nixos-rebuild switch";
+      #      "ctrl + super + alt + u" = "kitty sudo nixos-rebuild switch";
       "Print" = "flameshot gui";
       "XF86AudioRaiseVolume" = "pamixer -i 1";
       "XF86AudioLowerVolume" = "pamixer -d 1";

@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   services.polybar.config = {
     "module/bar" = {
       type = "custom/text";

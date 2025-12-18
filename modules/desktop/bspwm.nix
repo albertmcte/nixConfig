@@ -1,17 +1,22 @@
-{ inputs, pkgs, config, ...}:
-{ 
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
+{
   services.xserver.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
-  services.displayManager = { 
+  services.displayManager = {
     defaultSession = "none+bspwm";
     autoLogin = {
       enable = true;
       user = "wash";
     };
-#    lightdm = { 
-#      enable = true; 
-#      greeter.enable = true; 
-#    }; 
+    #    lightdm = {
+    #      enable = true;
+    #      greeter.enable = true;
+    #    };
   };
   hardware.pulseaudio.enable = false;
   nixpkgs.config.pulseaudio = true;

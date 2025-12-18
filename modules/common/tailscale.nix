@@ -5,15 +5,21 @@
     enable = true;
     useRoutingFeatures = "both";
   };
-  
+
   # create a oneshot job to authenticate to Tailscale
   systemd.services.tailscale-autoconnect = {
     description = "Automatic connection to Tailscale";
 
     # make sure tailscale is running before trying to connect to tailscale
-    after = ["network-pre.target" "tailscale.service"];
-    wants = ["network-pre.target" "tailscale.service"];
-    wantedBy = ["multi-user.target"];
+    after = [
+      "network-pre.target"
+      "tailscale.service"
+    ];
+    wants = [
+      "network-pre.target"
+      "tailscale.service"
+    ];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig.Type = "oneshot";
     script = with pkgs; ''
       # wait for tailscaled to settle
@@ -39,8 +45,8 @@
 
   # Open ports in the firewall.
   networking.firewall = {
-    trustedInterfaces = ["tailscale0"];
-    allowedUDPPorts = [config.services.tailscale.port];
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
     #checkReversePath shouldn't be needed with useRoutingFeatures
     #    checkReversePath = "loose";
   };

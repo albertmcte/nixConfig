@@ -1,7 +1,8 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   services.picom = {
     enable = true;
-#    package = pkgs.unstable.picom-next;
+    #    package = pkgs.unstable.picom-next;
     settings = {
       # Shadows
       shadow = true;
@@ -61,23 +62,33 @@
       detect-client-opacity = true;
       detect-transient = true;
       wintypes = {
-        tooltip = { fade = true; };
-        dock = { shadow = false; };
-        dnd = { shadow = true; };
-        popup_menu = { opacity = 0.8; };
-        dropdown_menu = { opacity = 0.8; };
+        tooltip = {
+          fade = true;
+        };
+        dock = {
+          shadow = false;
+        };
+        dnd = {
+          shadow = true;
+        };
+        popup_menu = {
+          opacity = 0.8;
+        };
+        dropdown_menu = {
+          opacity = 0.8;
+        };
       };
     };
   };
-#  nixpkgs.config = {
-#    packageOverrides = pkgs: {
-#      unstable = import (fetchTarball {
-#       url = https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
-#       sha256 = "0z607san2f8ig52834f2fc3xazk9ss7lsyl12j7c9psn337ypna4";
-#      })
-#      {
-#        config = config.nixpkgs.config;
-#      };
-#    };
-#  };
+  #  nixpkgs.config = {
+  #    packageOverrides = pkgs: {
+  #      unstable = import (fetchTarball {
+  #       url = https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+  #       sha256 = "0z607san2f8ig52834f2fc3xazk9ss7lsyl12j7c9psn337ypna4";
+  #      })
+  #      {
+  #        config = config.nixpkgs.config;
+  #      };
+  #    };
+  #  };
 }

@@ -8,7 +8,7 @@
   pkgs,
   ...
 }:
-  {
+{
   imports = [
     ../../modules/common
     ./hardware-configuration.nix
@@ -21,7 +21,7 @@
   time.timeZone = "America/New_York";
   security.sudo.wheelNeedsPassword = false;
 
-#For ZFS support
+  #For ZFS support
   networking.hostId = "dc0145aa";
 
   system.stateVersion = "23.11";

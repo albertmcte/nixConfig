@@ -6,7 +6,7 @@
   pkgs,
   ...
 }:
-  {
+{
   imports = [
     ../../modules/common
     ./hardware-configuration.nix
@@ -21,7 +21,6 @@
   time.timeZone = "UTC";
 
   boot.zfs.extraPools = [ "mercury" ];
-
 
   fileSystems."/mercury/movies" = {
     device = "/nfs/movies";
@@ -52,7 +51,7 @@
     options = [ "bind,defaults,nofail,x-systemd.requires=zfs-mount.service" ];
   };
 
-  ### Tune max arc size 
+  ### Tune max arc size
   # boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" ];
   ### it waswas 16GB (16821673984)
 
@@ -65,7 +64,6 @@
   #   enable = true;
   #   interval = "OnCalendar=*-*-01 05:00:00";
   # };
-
 
   services.nfs.server.enable = true;
   services.nfs.server.exports = ''

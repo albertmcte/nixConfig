@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-home.packages = with pkgs; [
+  home.packages = with pkgs; [
     wofi
     microsoft-edge
     # kodi
@@ -20,9 +20,19 @@ home.packages = with pkgs; [
         layer = "top";
         position = "top";
         height = 23;
-        modules-left = [ "sway/workspaces" "sway/mode" "wlr/taskbar" ];
+        modules-left = [
+          "sway/workspaces"
+          "sway/mode"
+          "wlr/taskbar"
+        ];
         modules-center = [ "sway/window" ];
-        modules-right = [ "custom/wireguard" "network" "pulseaudio" "cpu" "clock" ];
+        modules-right = [
+          "custom/wireguard"
+          "network"
+          "pulseaudio"
+          "cpu"
+          "clock"
+        ];
         "sway/workspaces" = {
           disable-scroll = true;
           format = "{icon}";
@@ -32,12 +42,12 @@ home.packages = with pkgs; [
             "2:web" = "<U+E745>";
             "3:term" = "<U+F120>";
             "4:email" = "<U+F0E0>";
-          }; 
+          };
         };
       };
     };
   };
-  
+
   home.file."${config.xdg.configHome}/ricescripts" = {
     source = ./ricescripts;
     recursive = true;
@@ -54,4 +64,3 @@ home.packages = with pkgs; [
     ./hypr
   ];
 }
-

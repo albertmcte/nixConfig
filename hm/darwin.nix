@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -13,17 +13,17 @@
     stow
     openssh
     mas
-#    pyenv            #only in unstable, hm problems, moved to system
-#    jq               #don't think i need this
-#    youtube-dl
-#    media-downloader #gui haven't tried it
+    #    pyenv            #only in unstable, hm problems, moved to system
+    #    jq               #don't think i need this
+    #    youtube-dl
+    #    media-downloader #gui haven't tried it
   ];
   home.file."./bin" = {
     source = ./macbin;
     recursive = true;
   };
- home.file.".config/sketchybar" = {
-   source = ./sketchybar;
-   recursive = true;
- };
+  home.file.".config/sketchybar" = {
+    source = ./sketchybar;
+    recursive = true;
+  };
 }

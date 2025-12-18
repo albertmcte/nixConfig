@@ -1,12 +1,18 @@
-{ inputs, outputs, pkgs, config, ... }:
+{
+  inputs,
+  outputs,
+  pkgs,
+  config,
+  ...
+}:
 
 let
-  fetchKeys = username:
+  fetchKeys =
+    username:
     (builtins.fetchurl {
       url = "https://github.com/${username}.keys";
       sha256 = "07m39l23wv0ifxwcr0gsf1iv6sfz1msl6k96brxr253hfp71h18c";
-      }
-  );
+    });
 in
 {
   users.mutableUsers = false;
@@ -24,7 +30,10 @@ in
   users.users = {
     wyatt = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ];
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
       hashedPasswordFile = config.age.secrets.wyattpw.path;
       shell = pkgs.fish;

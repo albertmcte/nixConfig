@@ -1,13 +1,13 @@
 { osConfig, ... }:
 let
-  inherit
-    (import ../../hosts/${osConfig.networking.hostName}/variables.nix)
+  inherit (import ../../hosts/${osConfig.networking.hostName}/variables.nix)
     browser
     terminal
     extraMonitorSettings
     keyboardLayout
     ;
-in {
+in
+{
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland = {
@@ -269,7 +269,9 @@ in {
     extraConfig = "
       monitor=DP-1,highres,auto,1.666667
       monitor=HDMI-A-1,highres,auto,1.6
-      ${extraMonitorSettings}
+      ${
+            extraMonitorSettings
+          }
     ";
   };
 }

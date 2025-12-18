@@ -1,9 +1,8 @@
-{ ... }: 
+{ ... }:
 {
   imports = [
-    # ./desktop 
+    # ./desktop
     # ./wayland.nix
     ./hyprwm.nix
   ];
 }
-

@@ -1,12 +1,17 @@
-{ inputs, pkgs, config, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 
 let
-  fetchKeys = username:
+  fetchKeys =
+    username:
     (builtins.fetchurl {
       url = "https://github.com/${username}.keys";
       sha256 = "07m39l23wv0ifxwcr0gsf1iv6sfz1msl6k96brxr253hfp71h18c";
-      }
-  );
+    });
 in
 {
   users.mutableUsers = false;
@@ -29,11 +34,15 @@ in
       # ../../hm/desktop-x.nix
     ];
   };
-  
+
   users.users = {
     wash = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "samba"];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "samba"
+      ];
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
       # hashedPasswordFile needs to be in a volume marked with `neededForBoot = true`
       hashedPasswordFile = config.age.secrets.washpw.path;
@@ -41,7 +50,7 @@ in
     };
   };
 
-#home-manager secrets still not working
+  #home-manager secrets still not working
 
   home-manager.sharedModules = [
     inputs.agenix.homeManagerModules.default

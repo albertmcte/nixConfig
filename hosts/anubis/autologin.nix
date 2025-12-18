@@ -9,7 +9,7 @@ in
     enable = true;
     settings = {
       initial_session = {
-        command  = "${session}";
+        command = "${session}";
         user = "${username}";
       };
       default_session = {

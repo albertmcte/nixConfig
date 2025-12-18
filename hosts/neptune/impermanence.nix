@@ -3,12 +3,13 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.impermanence.nixosModules.impermanence
   ];
 
-### TODO - break these security settings into seperate module
+  ### TODO - break these security settings into seperate module
 
   fileSystems."/".options = [ "noexec" ];
   fileSystems."/etc/nixos".options = [ "noexec" ];
@@ -18,7 +19,7 @@
     neededForBoot = true;
   };
 
-# always persist these
+  # always persist these
   environment.persistence."/persist" = {
     directories = [
       "/etc/nixos"

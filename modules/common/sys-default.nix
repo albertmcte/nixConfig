@@ -6,7 +6,10 @@ let
   };
 in
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nixpkgs.config.allowUnfree = true;
 
   # Possibly just use 'nixos-install --no-root-passwd'
@@ -15,13 +18,13 @@ in
   # Security
   security.sudo.extraConfig = "Defaults lecture = never";
   nix.settings.allowed-users = [ "@wheel" ];
-  
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
-  
+
   # NOTE
   # ZFS LATEST COMPATIBLE no longer supported, standard nixos kernel **should** be fine
   # PINNED 6.12 until 6.12 LTS is in Nixos (should be on 25.05)
@@ -36,7 +39,7 @@ in
     mbuffer
     nixfmt-rfc-style
   ];
-  
+
   programs = {
     fish.enable = true;
     neovim = {
@@ -69,7 +72,7 @@ in
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [];
-    allowedUDPPorts = [];
+    allowedTCPPorts = [ ];
+    allowedUDPPorts = [ ];
   };
 }

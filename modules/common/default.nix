@@ -1,8 +1,13 @@
-{ inputs, lib, pkgs, ...}:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./sys-default.nix
-#    ./noexec.nix
+    #    ./noexec.nix
     ./agenix.nix
     ./tailscale.nix
     inputs.home-manager.nixosModules.home-manager

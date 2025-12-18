@@ -1,4 +1,9 @@
-{ inputs, pkgs, config, ...}:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 {
   services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
@@ -19,11 +24,11 @@
     yelp # Help view
     gnome-contacts
     gnome-initial-setup
-    ];
+  ];
   programs.dconf.enable = true;
   environment.systemPackages = with pkgs; [
     gnome-tweaks
-    ];
+  ];
   services.pulseaudio.enable = false;
   nixpkgs.config.pulseaudio = true;
   security.rtkit.enable = true;

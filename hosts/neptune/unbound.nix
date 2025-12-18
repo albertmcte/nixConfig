@@ -1,11 +1,14 @@
 { config, ... }:
 {
-services.unbound = {
+  services.unbound = {
     enable = true;
     settings = {
       server = {
-        interface = [ "127.0.0.1" "10.1.1.1" ];
-#        port = "5513";
+        interface = [
+          "127.0.0.1"
+          "10.1.1.1"
+        ];
+        #        port = "5513";
         tls-system-cert = true;
         access-control = [
           "0.0.0.0/0 refuse"
@@ -13,9 +16,12 @@ services.unbound = {
           "10.1.1.0/24 allow"
         ];
 
-#        prefer-ip6 = true;
+        #        prefer-ip6 = true;
 
-        private-domain = [ "local" "lan" ];
+        private-domain = [
+          "local"
+          "lan"
+        ];
         private-address = [
           "10.1.1.0/8"
         ];

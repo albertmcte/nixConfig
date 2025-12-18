@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./wayland-wm
     inputs.hyprland.homeManagerModules.default
@@ -31,7 +38,7 @@
   ];
 
   programs.waybar.package = pkgs.waybar.overrideAttrs (oa: {
-    mesonFlags = (oa.mesonFlags or  [ ]) ++ [ "-Dexperimental=true" ];
+    mesonFlags = (oa.mesonFlags or [ ]) ++ [ "-Dexperimental=true" ];
   });
 
   wayland.windowManager.hyprland = {
@@ -41,8 +48,8 @@
       (import ./monitors.nix {
         inherit lib;
         inherit (config) monitors;
-      }) +
-      (import ./config.nix {
+      })
+      + (import ./config.nix {
         inherit (config) home colorscheme wallpaper;
       });
   };

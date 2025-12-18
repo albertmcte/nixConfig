@@ -1,11 +1,11 @@
 { inputs, pkgs, ... }:
 let
-  fetchKeys = username:
+  fetchKeys =
+    username:
     (builtins.fetchurl {
       url = "https://github.com/${username}.keys";
       sha256 = "07m39l23wv0ifxwcr0gsf1iv6sfz1msl6k96brxr253hfp71h18c";
-      }
-    );
+    });
 in
 {
   environment.shells = [ pkgs.fish ];
@@ -14,7 +14,7 @@ in
       name = "wash";
       home = "/Users/wash";
       openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
-#      hashedPasswordFile = config.age.secrets.washpw.path;
+      #      hashedPasswordFile = config.age.secrets.washpw.path;
       shell = pkgs.fish;
     };
   };
@@ -38,6 +38,6 @@ in
     inputs.agenix.homeManagerModules.default
   ];
 
-#  age.secrets.washpw.file = ../../secrets/washpw.age;
+  #  age.secrets.washpw.file = ../../secrets/washpw.age;
 
 }

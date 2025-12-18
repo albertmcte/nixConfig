@@ -1,25 +1,25 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   networking.hostName = "neptune";
   networking.networkmanager.enable = false;
-  networking.hostId = "ca0bad48";  
+  networking.hostId = "ca0bad48";
 
-#  boot.loader.grub.enable = true;
-#  boot.loader.grub.device = "nodev";
-#  boot.loader.grub.efiSupport = true;
+  #  boot.loader.grub.enable = true;
+  #  boot.loader.grub.device = "nodev";
+  #  boot.loader.grub.efiSupport = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
-  
+
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   boot.kernelParams = [ "nohibernate" ];
 
@@ -36,4 +36,3 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }
-

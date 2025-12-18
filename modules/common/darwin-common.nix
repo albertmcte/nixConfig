@@ -1,7 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.gnupg.agent.enable = true;
-#  programs.zsh.enable = true;
-#  environment.pathsToLink = [ "/share/zsh" ];
+  #  programs.zsh.enable = true;
+  #  environment.pathsToLink = [ "/share/zsh" ];
   nix.package = pkgs.nixVersions.stable;
   nix.settings.cores = 0; # use all cores
   nix.settings.max-jobs = 10; # use all cores
