@@ -11,6 +11,12 @@ in
     "flakes"
   ];
   nixpkgs.config.allowUnfree = true;
+  home-manager.useGlobalPkgs = true;
+  # home-manager.useUserPackages = true;
+  nixpkgs.overlays = [
+    inputs.claude-code.overlays.default
+    inputs.gemini-cli.overlays.default
+  ];
 
   # Possibly just use 'nixos-install --no-root-passwd'
   users.users.root.hashedPassword = "!";

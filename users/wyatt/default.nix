@@ -21,12 +21,22 @@ in
     home.homeDirectory = "/home/wyatt";
     programs.home-manager.enable = true;
     home.stateVersion = "23.11";
-    nixpkgs.config.allowUnfree = true;
+    # nixpkgs.config.allowUnfree = true;
+    age = {
+      identityPaths = [ "/home/wyatt/.ssh/id_ed25519" ];
+      secretsDir = "/home/wyatt/.agenix/agenix";
+      secretsMountPoint = "/home/wyatt/.agenix/agenix.d";
+    };
     imports = [
       ../../hm
       ../../hm/gnome.nix
     ];
   };
+
+  home-manager.sharedModules = [
+    inputs.agenix.homeManagerModules.default
+  ];
+
   users.users = {
     wyatt = {
       isNormalUser = true;

@@ -23,7 +23,7 @@ in
       stateVersion = "23.11";
     };
     programs.home-manager.enable = true;
-    nixpkgs.config.allowUnfree = true;
+    # nixpkgs.config.allowUnfree = true;
     age = {
       identityPaths = [ "/home/wash/.ssh/id_ed25519" ];
       secretsDir = "/home/wash/.agenix/agenix";

@@ -15,6 +15,13 @@ in
   config = {
     ids.gids.nixbld = 30000;
     nixpkgs.hostPlatform = "aarch64-darwin";
+    nixpkgs.config.allowUnfree = true;
+    nixpkgs.overlays = [
+      inputs.claude-code.overlays.default
+      inputs.gemini-cli.overlays.default
+    ];
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
     environment.shells = [ pkgs.fish ];
     environment.systemPackages = with pkgs; [
       python3

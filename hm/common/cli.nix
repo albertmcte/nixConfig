@@ -28,7 +28,7 @@
       pyright
       btop
       claude-code
-      ### TODO add gemini
+      gemini-cli
     ];
 
     home.shellAliases = {

@@ -8,6 +8,7 @@
     impermanence.url = "github:nix-community/impermanence";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     claude-code.url = "github:sadjow/claude-code-nix";
+    gemini-cli.url = "github:iamruinous/gemini-cli-nix";
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +39,7 @@
       nixpkgs-unstable,
       home-manager,
       claude-code,
+      gemini-cli,
       ...
     }@inputs:
     let
@@ -77,9 +79,6 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             ./hosts/io
-            {
-              nixpkgs.overlays = [ claude-code.overlays.default ];
-            }
           ];
         };
         saturn = lib.darwinSystem {
