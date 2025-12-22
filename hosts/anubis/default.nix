@@ -9,6 +9,7 @@
     ./syncoid.nix
     ./systemdservices.nix
     ./autologin.nix
+    ./tailscale.nix
     ../../users/wash-desktop
     ../../modules/desktop
     ../../modules/server

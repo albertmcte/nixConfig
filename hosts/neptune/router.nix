@@ -102,6 +102,8 @@
       allowedTCPPorts = [
         53
         31225
+        # 80
+        # 443
       ];
       allowedUDPPorts = [
         53
@@ -114,6 +116,16 @@
       '';
     };
   };
+  services.cloudflared = {
+    enable = true;
+    tunnels = {
+      "f97e6bff-6565-4e04-9fba-cef5ddb2cc38" = {
+        credentialsFile = "${config.age.secrets.cloudflared-n8n.path}";
+        default = "http_status:404";
+      };
+    };
+  };
+  age.secrets.cloudflared-n8n.file = ../../secrets/cloudflared-n8n.age;
   age.secrets.nextdns_url.file = ../../secrets/nextdns_url.age;
 
 }

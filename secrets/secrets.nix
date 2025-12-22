@@ -49,4 +49,8 @@ in
     wash
     neptune
   ];
+  "cloudflared-n8n.age".publicKeys = [
+    wash
+    neptune
+  ];
 }

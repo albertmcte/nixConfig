@@ -9,7 +9,7 @@
     ./sys-default.nix
     #    ./noexec.nix
     ./agenix.nix
-    ./tailscale.nix
+    # ./tailscale.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
