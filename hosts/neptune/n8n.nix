@@ -32,6 +32,8 @@
       "N8N_PROTOCOL" = "https";
       "N8N_RUNNERS_ENABLED" = "true";
       "NODE_ENV" = "production";
+      "NODES_EXCLUDE" = "[]";
+      "N8N_RESTRICT_FILE_ACCESS_TO" = "/files;/home/node/.n8n-files";
       "TZ" = "America/New_York";
       "WEBHOOK_URL" = "https://n8n.washatka.net/";
     };
