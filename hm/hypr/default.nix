@@ -22,6 +22,11 @@ in
         "killall -q swaync;sleep .5 && swaync"
       ];
 
+      # debug = {
+      #   enable = true;
+      #   disable_logs = false;
+      # };
+
       input = {
         kb_layout = "${keyboardLayout}";
         kb_options = [
@@ -214,8 +219,8 @@ in
         "center, class:^(pavucontrol|org.pulseaudio.pavucontrol|com.saivert.pwvucontrol)$"
         "center, class:([Tt]hunar), title:negative:(.*[Tt]hunar.*)"
         "center, title:^(Authentication Required)$"
-        "idleinhibit fullscreen, class:^(*)$"
-        "idleinhibit fullscreen, title:^(*)$"
+        "idleinhibit fullscreen, class:^(.*)$"
+        "idleinhibit fullscreen, title:^(.*)$"
         "idleinhibit fullscreen, fullscreen:1"
         "float, tag:settings*"
         "float, class:^([Ff]erdium)$"
@@ -267,7 +272,7 @@ in
     };
 
     extraConfig = "
-      monitor=DP-1,highres,auto,1.666667
+      monitor=DP-3,prefered,auto,1
       monitor=HDMI-A-1,highres,auto,1.6
       ${
             extraMonitorSettings

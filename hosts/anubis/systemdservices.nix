@@ -10,7 +10,6 @@
   systemd.services.rcloneOnedrive = {
     enable = true;
     after = [ "network.target" ];
-    wantedBy = [ "default.target" ];
     description = "Monthly photo backup to Onedrive";
     path = [ "/run/current-system/sw" ];
     serviceConfig = {

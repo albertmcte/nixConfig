@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "MesloLGM Nerd Font";
-    font-size: 13px;
+    font-family: "MesloLGM Nerd Font Mono";
+    font-size: 20px;
     min-height: 0;
 }
 
@@ -25,14 +25,17 @@ window#waybar {
     padding: 0 5px;
     background: transparent;
     border-top: 2px solid transparent;
+    color: rgba(197,198,199,0.5);
+}
+#workspaces button.empty {
     color: rgba(197,198,199,0.3);
 }
 #workspaces button.persistent {
     background: transparent;
     border-top: 2px solid transparent;
-    color: rgba(197,198,199,0.1);
+    color: rgba(197,198,199,0.3);
 }
-#workspaces button.focused {
+#workspaces button.active {
     color: rgba(197,198,199,0.7);
     border-top: 2px solid rgba(197,198,199,0.7);
 }

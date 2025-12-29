@@ -88,10 +88,6 @@
         };
       };
     };
-    # samba-wsdd = {
-    # enable = true;
-    # discovery = true;
-    # };
   };
 
   environment.systemPackages = with pkgs; [

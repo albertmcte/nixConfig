@@ -19,30 +19,41 @@
       mainBar = {
         layer = "top";
         position = "top";
-        height = 23;
+        height = 25;
         modules-left = [
-          "sway/workspaces"
-          "sway/mode"
-          "wlr/taskbar"
+          "hyprland/workspaces"
+          "hyprland/submap"
         ];
-        modules-center = [ "sway/window" ];
+        modules-center = [
+          "hyprland/window"
+        ];
         modules-right = [
+          "wlr/taskbar"
           "custom/wireguard"
           "network"
           "pulseaudio"
           "cpu"
           "clock"
         ];
-        "sway/workspaces" = {
+        "hyprland/workspaces" = {
           disable-scroll = true;
           format = "{icon}";
           all-outputs = true;
           format-icons = {
-            "1:code" = "<U+F121>";
-            "2:web" = "<U+E745>";
-            "3:term" = "<U+F120>";
-            "4:email" = "<U+F0E0>";
+            "1" = "";  # code icon
+            "2" = "";  # web icon
+            "3" = "";  # terminal icon
+            "4" = "";  # email icon
+            # "5" = "󱧶";  # file icon
+            # "6" = "󰌳";  # music icon
+            # "7" = "";  # video icon
+            # "8" = "\uf1fc";  # paint icon
+            # "9" = "\uf013";  # settings icon
+            # "10" = "\uf013"; # settings icon
           };
+        };
+        "hyprland/window" = {
+          format = "{title}";
         };
       };
     };
