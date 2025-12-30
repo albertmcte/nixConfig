@@ -1,4 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
+let
+  unstable = import inputs.nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
+in
 {
   imports = [
     ../../modules/common
@@ -41,6 +47,7 @@
   };
 
   services = {
+    lact.enable = true;
     plex = {
       enable = true;
       openFirewall = true;
@@ -98,8 +105,13 @@
     dive # look into docker image layers
     podman-tui # container status
     docker-compose
-    # pkgs.makemkv
+    lact
+    makemkv
+    chromium
+    firefox
   ];
+  systemd.packages = with pkgs; [ lact ];
+  systemd.services.lactd.wantedBy = ["multi-user.target"];
 
   networking.firewall.interfaces."enp5s0" = {
     allowedTCPPorts = [

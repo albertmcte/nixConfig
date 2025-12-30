@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     wofi
-    microsoft-edge
     # kodi
     nemo
     # pywal
