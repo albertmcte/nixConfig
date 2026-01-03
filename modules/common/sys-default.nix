@@ -12,6 +12,7 @@ in
   ];
   nixpkgs.config.allowUnfree = true;
   home-manager.useGlobalPkgs = true;
+  home-manager.extraSpecialArgs = { inherit inputs; };
   # home-manager.useUserPackages = true;
   nixpkgs.overlays = [
     inputs.claude-code.overlays.default
