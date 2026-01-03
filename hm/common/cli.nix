@@ -27,8 +27,7 @@
       rust-analyzer
       pyright
       btop
-      claude-code
-      gemini-cli
+      claude-code # overlay
     ];
 
     home.shellAliases = {
