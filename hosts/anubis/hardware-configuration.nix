@@ -37,6 +37,17 @@
     ];
   };
 
+  fileSystems."/etc/ssh" = {
+    device = "/dev/disk/by-uuid/0309b066-5d6d-4ec4-877c-9864b0124a84";
+    fsType = "btrfs";
+    options = [
+      "subvolid=268"
+      "compress=zstd"
+      "noatime"
+    ];
+    neededForBoot = true;
+  };
+
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/0309b066-5d6d-4ec4-877c-9864b0124a84";
     fsType = "btrfs";
