@@ -20,6 +20,7 @@ in
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "killall -q waybar;sleep .5 && waybar"
         "killall -q swaync;sleep .5 && swaync"
+        # "killall -q hyprpaper;sleep .5 && hyprpaper"
       ];
 
       # debug = {
@@ -107,10 +108,10 @@ in
         "$modifier,Return,exec,${terminal}"
         "$modifier SHIFT,Return,exec,rofi-launcher"
         "$modifier SHIFT,W,exec,web-search"
-        "$modifier ALT,W,exec,wallsetter"
+        "$modifier ALT,W,exec,waytrogen"
         "$modifier SHIFT,N,exec,swaync-client -rs"
         "$modifier,P,exec,wofi -G --show run"
-        "$modifier,F,exec,${browser}"
+        "$modifier,B,exec,${browser}"
         "$modifier,G,exec,nemo"
         "$modifier,E,exec,emopicker9000"
         "$modifier,S,exec,screenshootin"
@@ -272,7 +273,7 @@ in
     };
 
     extraConfig = "
-      monitor=DP-3,prefered,auto,1
+      monitor=DP-3,3840x2160@95.03,auto,1
       monitor=HDMI-A-1,highres,auto,1.6
       ${
             extraMonitorSettings

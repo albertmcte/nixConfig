@@ -23,7 +23,7 @@
     };
     script = "${./rcloneOnedrive.sh}";
   };
-  systemd.user.services.wayvnc-service = {
+  systemd.user.services.wayvnc = {
     enable = true;
     after = [ "graphical-session.target" ];
     partOf = [ "graphical-session.target" ];
@@ -36,6 +36,19 @@
       RestartSec = "5s";
     };
   };
+  # systemd.user.services.maestral = {
+  #   Unit = {
+  #     Description = "Maestral Dropbox client";
+  #     After = [ "network-online.target" ];   
+  #   };
+  #   Service = {
+  #     ExecStart = "${pkgs.maestral}/bin/maestral start --foreground";
+  #     Restart = "on-failure";
+  #     RestartSec = "5s";
+  #   };
+  #     wantedBy = [ "default.target"];
+  # };
+
   age.secrets.pushover_user.file = ../../secrets/pushover_user.age;
   age.secrets.pushover_token.file = ../../secrets/pushover_token.age;
 }

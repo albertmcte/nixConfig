@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   home.packages = with pkgs; [
     wofi
@@ -10,7 +10,47 @@
     _1password-gui
     swaynotificationcenter
     wayvnc
+    maestral
+    maestral-gui
+    hyprpaper
+    waytrogen
+    mpvpaper
   ];
+
+  # Disable the hyprpaper systemd service - we start it via Hyprland exec-once instead
+  # systemd.user.services.hyprpaper.Install.WantedBy = lib.mkForce [ ];
+
+  systemd.user.services = {
+    maestral = {
+      Unit = {
+        Description = "Maestral Dropbox client";
+        After = [ "network-online.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.maestral}/bin/maestral start --foreground";
+        Restart = "on-failure";
+        RestartSec = "5s";
+      };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
+    hyprpaper = {
+      Unit = {
+        Description = "Hyprpaper User Service";
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
+        Restart = "on-failure";
+        RestartSec = "5s";
+      };
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
+  };
+
 
   programs.waybar = {
     enable = true;

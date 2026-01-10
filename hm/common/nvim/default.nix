@@ -7,6 +7,11 @@
 
   programs.neovim = {
     enable = true;
+    extraPackages = with pkgs; [
+      tree-sitter
+      gcc
+      wl-clipboard
+    ];
     extraConfig = ''
       set runtimepath^=~/.config/nvim
       lua dofile('${./config/init.lua}')

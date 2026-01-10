@@ -28,6 +28,13 @@ in
 
   time.timeZone = "America/New_York";
 
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
+  services.blueman.enable = true;
+
   #For ZFS support
   networking.hostId = "fd91c922";
   boot.zfs.extraPools = [ "mercury" ];
@@ -95,6 +102,25 @@ in
         };
       };
     };
+    mpd = {
+      enable = true;
+      musicDirectory = "/mercury/music";
+      extraConfig = ''
+        audio_output {
+          type           "alsa"
+          name           "ALSA Direct Output"
+          device         "hw:0,0"
+          auto_resample  "no"
+          auto_channels  "no"
+          auto_format    "no"
+          dop            "no"   #unless there are DSD files
+        }
+        resampler {
+          plugin         "soxr"
+          quality        "very high"
+        }
+        '';
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -109,6 +135,10 @@ in
     makemkv
     chromium
     firefox
+    insync
+    pamixer
+    pwvucontrol
+    ncmpcpp
   ];
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = ["multi-user.target"];

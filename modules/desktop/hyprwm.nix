@@ -1,5 +1,8 @@
 { ... }:
 {
+  # Enable dconf for GTK applications (needed for apps like waytrogen)
+  programs.dconf.enable = true;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
