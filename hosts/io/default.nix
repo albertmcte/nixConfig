@@ -13,12 +13,12 @@ in
     inputs.home-manager.darwinModules.home-manager
   ];
   config = {
-    ids.gids.nixbld = 30000;
+    nix.enable = false; # for determinate nix install
+    nix.settings.lazy-trees = true;
     nixpkgs.hostPlatform = "aarch64-darwin";
     nixpkgs.config.allowUnfree = true;
     nixpkgs.overlays = [
       inputs.claude-code.overlays.default
-      inputs.gemini-cli.overlays.default
     ];
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
@@ -26,10 +26,12 @@ in
     environment.systemPackages = with pkgs; [
       python3
       inputs.agenix.packages.${stdenv.hostPlatform.system}.default
-      unstable.eza
-      unstable.pyenv
+      eza
+      #unstable.pkg for unstable version
+      pyenv
       iina
       nixfmt-rfc-style
+      # unstable.gemini-cli # npm hash broken in nixpkgs-unstable
     ];
     homebrew = {
       enable = true;

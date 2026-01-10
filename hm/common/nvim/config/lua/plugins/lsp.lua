@@ -168,6 +168,11 @@ vim.lsp.config('nil_ls', {
         command = { "nixfmt" },
       }
     },
+    nix = {
+      flake = {
+        autoArchive = true,
+      },
+    },
   },
 })
 

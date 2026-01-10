@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-VPN=$(scutil --nc list | grep Connected | sed -E 's/.*"(.*)".*/\1/')
+TAILSCALE_STATUS=$(/Applications/Tailscale.app/Contents/MacOS/Tailscale status --json 2>/dev/null | jq -r '.BackendState // empty')
 
-if [[ $VPN != "" ]]; then
+if [[ "$TAILSCALE_STATUS" == "Running" ]]; then
   sketchybar --set vpn \
     drawing=on \
     icon=  \
-    label="$VPN" 
+    label="Tailscale Up" 
 else
   sketchybar --set vpn drawing=off
 fi

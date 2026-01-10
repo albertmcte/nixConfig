@@ -19,7 +19,6 @@ in
   # home-manager.useUserPackages = true;
   nixpkgs.overlays = [
     inputs.claude-code.overlays.default
-    inputs.gemini-cli.overlays.default
   ];
 
   # Possibly just use 'nixos-install --no-root-passwd'
@@ -48,6 +47,7 @@ in
     lzop
     mbuffer
     nixfmt-rfc-style
+    # gemini-cli  ### update to unstable when hashes fixed
   ];
 
   programs = {
