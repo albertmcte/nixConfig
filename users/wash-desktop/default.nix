@@ -31,7 +31,7 @@ in
     };
     imports = [
       ../../hm
-      ../../hm/desktop-hypr.nix
+      ../../hm/hyprland.nix
     ];
   };
 

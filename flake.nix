@@ -9,6 +9,10 @@
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     claude-code.url = "github:sadjow/claude-code-nix";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
     hyprwm-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";

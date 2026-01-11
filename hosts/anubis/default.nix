@@ -55,10 +55,10 @@ in
 
   services = {
     lact.enable = true;
-    plex = {
-      enable = true;
-      openFirewall = true;
-    };
+    # plex = {
+    #   enable = true;
+    #   openFirewall = true;
+    # };
     jellyfin = {
       enable = true;
       openFirewall = true;

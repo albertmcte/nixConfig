@@ -1,7 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, config, inputs, ... }:
 
 let
-  session = "${pkgs.hyprland}/bin/Hyprland";
+  session = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/Hyprland";
   username = "wash";
 in
 {
