@@ -59,7 +59,7 @@ in
       "$modifier,0,workspace,10"
       "$modifier SHIFT,SPACE,movetoworkspace,special"
       "$modifier,SPACE,togglespecialworkspace"
-      "$modifier,Tab,overview:toggle"
+      "$modifier,Tab,hyprexpo:expo,toggle"
       "$modifier SHIFT,1,movetoworkspace,1"
       "$modifier SHIFT,2,movetoworkspace,2"
       "$modifier SHIFT,3,movetoworkspace,3"

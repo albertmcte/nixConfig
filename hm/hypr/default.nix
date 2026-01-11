@@ -19,9 +19,9 @@
     xwayland = {
       enable = true;
     };
-    systemd.enable = true;
+    systemd.enable = false;
     plugins = [
-      inputs.hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
     ];
     settings = {
       exec-once = [

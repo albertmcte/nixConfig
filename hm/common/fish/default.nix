@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ inputs, pkgs, lib, ... }:
 let
   inherit (lib) mkIf;
   inherit (pkgs) stdenv;
@@ -33,9 +33,7 @@ in
       }
     ];
     functions = {
-
-      # Disable greeting
-      # fish_greeting = "";
+      fish_greeting = "";
       sudo = ''
         if test "$argv" = !!
           echo sudo $history[1]
@@ -46,13 +44,14 @@ in
       '';
     };
 
-    # loginShellInit = mkIf (!stdenv.isDarwin) ''
-    #   # Auto-start Hyprland on TTY1 (Linux only)
-    #   if test (tty) = "/dev/tty1"
-    #     # Start Hyprland via systemd to ensure proper session activation
-    #     exec systemctl --user --wait start hyprland-session.target
-    #   end
-    # '';
+    loginShellInit = mkIf (!stdenv.isDarwin) ''
+      # Auto-start Hyprland via uwsm on TTY1 (Linux only)
+      if test (tty) = "/dev/tty1"
+        if uwsm check may-start; then
+          exec uwsm start ${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland
+        end
+      end
+    '';
 
     interactiveShellInit =
       # kitty integration only currently working on linux

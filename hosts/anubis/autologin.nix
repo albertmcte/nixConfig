@@ -1,20 +1,9 @@
-{ pkgs, config, inputs, ... }:
+{ ... }:
 
 let
-  session = "${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/Hyprland";
   username = "wash";
 in
 {
-  services.greetd = {
-    enable = true;
-    settings = {
-      initial_session = {
-        command = "${session}";
-        user = "${username}";
-      };
-      default_session = {
-        command = "${pkgs.util-linux}/sbin/agetty agetty --login-program ${config.services.getty.loginProgram} --autologin ${username} --noclear --keep-baud %I 115200,38400,9600 $TERM";
-      };
-    };
-  };
+  # Autologin on TTY1
+  services.getty.autologinUser = "${username}";
 }

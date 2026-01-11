@@ -1,7 +1,14 @@
 { ... }:
 {
   # Enable dconf for GTK applications (needed for apps like waytrogen)
-  programs.dconf.enable = true;
+
+  programs = {
+    dconf.enable = true;
+    hyprland = {
+      enable = true;
+      withUWSM = true;
+    };
+  };
 
   security.rtkit.enable = true;
   services.pipewire = {
