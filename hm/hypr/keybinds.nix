@@ -85,6 +85,7 @@ in
       ",XF86AudioPrev, exec, playerctl previous"
       ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
       ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
+      ",CONTROL_L&ALT_L&Tab,hyprexpo:expo,toggle"
     ];
 
     bindm = [

@@ -135,10 +135,13 @@ in
     makemkv
     chromium
     firefox
-    insync
+    # insync
     pamixer
     pwvucontrol
     ncmpcpp
+    logiops #mx master mouse
+    whipper
+    picard
   ];
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = ["multi-user.target"];

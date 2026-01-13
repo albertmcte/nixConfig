@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.packages = with pkgs; [
     wofi
@@ -8,8 +8,8 @@
     wayvnc
     maestral
     maestral-gui
-    hyprpaper
     waytrogen
     mpvpaper
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

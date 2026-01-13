@@ -16,6 +16,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     xwayland = {
       enable = true;
     };
@@ -25,11 +26,12 @@
     ];
     settings = {
       exec-once = [
-        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        # "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         # "killall -q waybar;sleep .5 && waybar"
         "killall -q swaync;sleep .5 && swaync"
-        "waytrogen -r"
+        # "waytrogen -r"
+        "awww-daemon"
       ];
     };
   };
