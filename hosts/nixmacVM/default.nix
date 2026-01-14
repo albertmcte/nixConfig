@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ../../modules/common
@@ -28,9 +28,9 @@
   home-manager.users.wash = {
     imports = [ ../../hm/hyprland.nix ];
     wayland.windowManager.hyprland = {
-      package = pkgs.hyprland;
-      portalPackage = pkgs.xdg-desktop-portal-hyprland;
-      plugins = []; # Flake plugins incompatible with nixpkgs hyprland
+      package = lib.mkForce pkgs.hyprland;
+      portalPackage = lib.mkForce pkgs.xdg-desktop-portal-hyprland;
+      plugins = lib.mkForce []; # Flake plugins incompatible with nixpkgs hyprland
     };
   };
 
