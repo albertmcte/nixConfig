@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
 
-COLOR="$GREEN"
-
 sketchybar \
 	--add item vpn q \
 	--set vpn \
-	update_freq=30 \
+	update_freq=15 \
 	updates=on \
-	icon.color="$COLOR" \
-	icon.padding_left=10 \
-	label.color="$COLOR" \
+  icon.drawing=off \
 	label.padding_right=10 \
+  label.padding_left=10 \
 	background.height=26 \
 	background.corner_radius="$CORNER_RADIUS" \
 	background.padding_right=5 \
 	background.border_width="$BORDER_WIDTH" \
-	background.border_color="$COLOR" \
 	background.color="$BAR_BACKGROUND" \
 	background.drawing=on \
-	script="$PLUGIN_DIR/vpn.sh" \
+	script="$PLUGIN_DIR/vpn.sh"

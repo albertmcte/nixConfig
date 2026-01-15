@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.file.".config/nvim" = {
     source = ./config;
@@ -10,6 +10,7 @@
     extraPackages = with pkgs; [
       tree-sitter
       gcc
+    ] ++ lib.optionals pkgs.stdenv.hostPlatform.isLinux [
       wl-clipboard
     ];
     extraConfig = ''

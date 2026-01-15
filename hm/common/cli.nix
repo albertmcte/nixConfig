@@ -20,7 +20,7 @@
       nodejs # required for copilot
       nil
       lua-language-server
-      python312Packages.python-lsp-server
+      # python313Packages.python-lsp-server  #failing on macos
       bash-language-server
       yaml-language-server
       typescript-language-server
