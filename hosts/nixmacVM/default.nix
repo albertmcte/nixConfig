@@ -2,7 +2,7 @@
 {
   imports = [
     ../../modules/common
-    ../../modules/desktop
+    ../../modules/desktop/bspwm.nix
     ./hardware-configuration.nix
     ../../users/wash-vm
   ];

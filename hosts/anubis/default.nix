@@ -14,7 +14,7 @@ in
     ./autologin.nix
     ./tailscale.nix
     ../../users/wash-desktop
-    ../../modules/desktop
+    ../../modules/desktop/hyprwm.nix
     ../../modules/server
   ];
 

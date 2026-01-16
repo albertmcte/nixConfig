@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -17,6 +16,7 @@
     dunst
     firefox
     _1password-gui
+    polybar
   ];
 
   home.file.".xinitrc" = {
@@ -24,6 +24,10 @@
     recursive = true;
   };
   home.file.".Xresources" = {
+    source = ./Xresources;
+    recursive = true;
+  };
+  home.file."." = {
     source = ./Xresources;
     recursive = true;
   };
