@@ -4,6 +4,11 @@
   ...
 }:
 {
+  imports = [
+    ./common/resources.nix
+    ./bspwm
+  ];
+
   home.packages = with pkgs; [
     rofi
     kodi
@@ -13,14 +18,7 @@
     firefox
     _1password-gui
   ];
-  home.file."${config.xdg.configHome}/ricescripts" = {
-    source = ./ricescripts;
-    recursive = true;
-  };
-  home.file."${config.xdg.configHome}/wallpapers" = {
-    source = ./wallpapers;
-    recursive = true;
-  };
+
   home.file.".xinitrc" = {
     source = ./xinitrc;
     recursive = true;
@@ -29,7 +27,4 @@
     source = ./Xresources;
     recursive = true;
   };
-  imports = [
-    ./bspwm
-  ];
 }

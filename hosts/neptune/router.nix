@@ -112,7 +112,7 @@
     };
     dhcpcd = {
       runHook = ''
-        if [[ $reason =~ BOUND ]]; then curl --silent --output /dev/null $(cat ${config.age.secrets.nextdns_url.path}) && echo "Updated IP on $(date)" >> /home/wash/IPCanary.txt ; fi
+        if [[ $reason =~ BOUND ]]; then curl --silent --output /dev/null "$(cat ${config.age.secrets.nextdns_url.path})" && echo "Updated IP on $(date)" >> /home/wash/IPCanary.txt ; fi
       '';
     };
   };

@@ -1,19 +1,10 @@
 {
   inputs,
-  outputs,
   pkgs,
   config,
+  myLib,
   ...
 }:
-
-let
-  fetchKeys =
-    username:
-    (builtins.fetchurl {
-      url = "https://github.com/${username}.keys";
-      sha256 = "07m39l23wv0ifxwcr0gsf1iv6sfz1msl6k96brxr253hfp71h18c";
-    });
-in
 {
   users.mutableUsers = false;
   home-manager.users.wyatt = {
@@ -44,7 +35,7 @@ in
         "wheel"
         "networkmanager"
       ];
-      openssh.authorizedKeys.keyFiles = [ (fetchKeys "albertmcte") ];
+      openssh.authorizedKeys.keyFiles = [ myLib.albertmcteKeys ];
       hashedPasswordFile = config.age.secrets.wyattpw.path;
       shell = pkgs.fish;
       packages = with pkgs; [

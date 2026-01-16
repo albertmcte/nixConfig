@@ -1,9 +1,6 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, myLib, ... }:
 let
-  unstable = import inputs.nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
-  };
+  unstable = myLib.mkUnstable pkgs;
 in
 {
   imports = [

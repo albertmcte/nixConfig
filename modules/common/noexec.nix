@@ -5,6 +5,3 @@
   fileSystems."/srv".options = [ "noexec" ];
   fileSystems."/var/log".options = [ "noexec" ];
 }
-  {
-    nix.allowedUsers = [ "@wheel" ];
-  }
