@@ -9,7 +9,7 @@
     eww
     pamixer
     brightnessctl
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
   # configuration
   home.file.".config/eww" = {

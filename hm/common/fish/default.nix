@@ -1,20 +1,13 @@
 { inputs, pkgs, lib, ... }:
 let
-  inherit (lib) mkIf;
   inherit (pkgs) stdenv;
-  #  hasPackage = pname: lib.any (p: p ? pname && p.pname == pname) config.home.packages;
-  #  hasRipgrep = hasPackage "ripgrep";
-  #  hasExa = hasPackage "exa";
-  #  hasNeovim = config.programs.neovim.enable;
-  #  hasShellColor = config.programs.shellcolor.enable;
-  #  hasKitty = config.programs.kitty.enable;
-  #  shellcolor = "${pkgs.shellcolord}/bin/shellcolor";
   osIcon = (if stdenv.isDarwin then "\\uf179" else "\\uf313");
-  brew = (
-    if stdenv.isDarwin then "set -U fish_user_paths /opt/homebrew/bin $fish_user_paths" else " "
-  );
 in
 {
+  imports = [
+    ./darwin.nix
+    ./linux.nix
+  ];
   programs.fish = {
     enable = true;
     plugins = [
@@ -44,33 +37,7 @@ in
       '';
     };
 
-    loginShellInit = mkIf (!stdenv.isDarwin) ''
-      # Auto-start Hyprland via uwsm on TTY1 (Linux only)
-      if test (tty) = "/dev/tty1"
-        if uwsm check may-start
-          exec uwsm start ${inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland}/bin/start-hyprland
-        end
-      end
-    '';
-
-    interactiveShellInit =
-      # kitty integration only currently working on linux
-      #    ''
-      #      set --global KITTY_INSTALLATION_DIR "${pkgs.kitty}/lib/kitty"
-      #      set --global KITTY_SHELL_INTEGRATION enabled
-      #      source "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_conf.d/kitty-shell-integration.fish"
-      #      set --prepend fish_complete_path "$KITTY_INSTALLATION_DIR/shell-integration/fish/vendor_completions.d"
-      #    '' +
-      ### Add nix binary paths to the PATH
-      # Perhaps someday will be fixed in nix or nix-darwin itself
-      ''
-        if test (uname) = Darwin
-          fish_add_path --prepend --global "$HOME/.nix-profile/bin" /nix/var/nix/profiles/default/bin /run/current-system/sw/bin
-        end
-
-        # Use terminal colors
-      ''
-      + ''
+    interactiveShellInit = ''
               set -U _tide_left_items               os\x1epwd\x1egit\x1echaracter
               set -U _tide_prompt_10737             \x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\uf313\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x40PWD\x40\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b76m\uf1d3\x20\x1b\x5b37m\x1b\x5b38\x3b5\x3b76mmaster\x1b\x5b38\x3b5\x3b196m\x1b\x5b38\x3b5\x3b76m\x1b\x5b38\x3b5\x3b76m\x1b\x5b38\x3b5\x3b196m\x1b\x5b38\x3b5\x3b178m\x20\x2b18\x1b\x5b38\x3b5\x3b178m\x20\x211\x1b\x5b38\x3b5\x3b39m\x1b\x5b38\x3b5\x3b76m\x20\u276f\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b101m\uf252\x2031s\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b180mwash\x40anubis\x1b\x5b38\x3b5\x3b246m\x20\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x5b38\x3b5\x3b66m21\x3a14\x3a15\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm
               set -U _tide_prompt_12861             \x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm\x1e\x1b\x28B\x1b\x5bm\x1b\x28B\x1b\x5bm
@@ -238,7 +205,6 @@ in
               set -U tide_virtual_env_color                     00AFAF
               set -U tide_virtual_env_icon          \ue73c
               atuin init fish | source
-        #      ${brew}
       '';
   };
 }

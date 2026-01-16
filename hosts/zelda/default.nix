@@ -13,7 +13,7 @@
     ../../modules/common
     ./hardware-configuration.nix
     ../../users/wyatt
-    ../../modules/gnome
+    ../../modules/gnome/gnome.nix
   ];
 
   networking.hostName = "zelda";

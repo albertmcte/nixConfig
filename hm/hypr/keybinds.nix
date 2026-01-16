@@ -1,9 +1,6 @@
 { osConfig, ... }:
 let
-  inherit (import ../../hosts/${osConfig.networking.hostName}/variables.nix)
-    browser
-    terminal
-    ;
+  inherit (osConfig.hostVars) browser terminal;
 in
 {
   wayland.windowManager.hyprland.settings = {

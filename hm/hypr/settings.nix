@@ -1,13 +1,8 @@
 { osConfig, ... }:
-let
-  inherit (import ../../hosts/${osConfig.networking.hostName}/variables.nix)
-    keyboardLayout
-    ;
-in
 {
   wayland.windowManager.hyprland.settings = {
     input = {
-      kb_layout = "${keyboardLayout}";
+      kb_layout = osConfig.hostVars.keyboardLayout;
       kb_options = [
         "grp:alt_caps_toggle"
         "caps:super"

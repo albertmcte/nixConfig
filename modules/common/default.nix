@@ -9,6 +9,7 @@
     ./sys-default.nix
     #    ./noexec.nix
     ./agenix.nix
+    ../host-variables.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 

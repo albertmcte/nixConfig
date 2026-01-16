@@ -54,31 +54,29 @@
     }@inputs:
     let
       inherit (self) outputs;
-      lib = nixpkgs.lib // home-manager.lib // darwin.lib;
       myLib = import ./lib { inherit inputs; };
     in
     {
-      inherit lib;
       nixosConfigurations = {
-        anubis = lib.nixosSystem {
+        anubis = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs myLib; };
           modules = [
             ./hosts/anubis
           ];
         };
-        neptune = lib.nixosSystem {
+        neptune = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs myLib; };
           modules = [
             ./hosts/neptune
           ];
         };
-        zelda = lib.nixosSystem {
+        zelda = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs myLib; };
           modules = [
             ./hosts/zelda
           ];
         };
-        nixmacVM = lib.nixosSystem {
+        nixmacVM = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs myLib; };
           modules = [
             ./hosts/nixmacVM
@@ -86,13 +84,13 @@
         };
       };
       darwinConfigurations = {
-        io = lib.darwinSystem {
+        io = darwin.lib.darwinSystem {
           specialArgs = { inherit inputs outputs myLib; };
           modules = [
             ./hosts/io
           ];
         };
-        saturn = lib.darwinSystem {
+        saturn = darwin.lib.darwinSystem {
           specialArgs = { inherit inputs outputs myLib; };
           modules = [
             ./hosts/saturn

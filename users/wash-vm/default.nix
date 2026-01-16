@@ -5,6 +5,6 @@
   # Desktop-specific: add hyprland config
   home-manager.users.wash.imports = [
     ../../hm
-    ../../hm/hypr
+    ../../hm/desktop-x.nix
   ];
 }

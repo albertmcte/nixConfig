@@ -46,7 +46,7 @@
       ls = "eza";
       ll = "eza -l --git";
       cat = "bat";
-      #      sshminiclear="ssh -p 36767 ${config.age.secrets.miniIp.path}";
+      # TODO: Move host-specific aliases to user/host config or use agenix for IPs
       androsync = "TERM=xterm-256color ssh -p 31225 -L 9999:localhost:8384 wash@10.0.0.6";
       ".." = "cd ../";
       "..." = "cd ../..";

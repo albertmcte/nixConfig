@@ -23,7 +23,7 @@
       "super + g" = "nemo --no-desktop";
       "super + m" = "mailspring";
       "super + 0" = "~/.config/ricescripts/theme-switcher";
-      "super + o" = "/home/wash/.local/share/tresorit/tresorit";
+      "super + o" = "${config.home.homeDirectory}/.local/share/tresorit/tresorit";
       # State/flags
       "super + {t,shift + t,f,m}" = "bspc node -t {tiled,pseudo_tiled,floating,fullscreen}";
       "super + {_,shift + }{1-9,0}" = "bspc {desktop -f,node -d} '^{1-9,10}'";

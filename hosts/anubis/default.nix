@@ -25,6 +25,14 @@ in
 
   time.timeZone = "America/New_York";
 
+  # Host-specific variables for Hyprland/desktop
+  hostVars = {
+    browser = "microsoft-edge";
+    terminal = "kitty";
+    keyboardLayout = "us";
+    consoleKeyMap = "us";
+  };
+
   # Bluetooth
   hardware.bluetooth = {
     enable = true;
