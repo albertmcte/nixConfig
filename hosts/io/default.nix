@@ -15,6 +15,7 @@ in
   nix.settings.lazy-trees = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.android_sdk.accept_license = true;
   nixpkgs.overlays = [
     inputs.claude-code.overlays.default
   ];
@@ -28,16 +29,17 @@ in
     pyenv
     iina
     nixfmt-rfc-style
+    jdk17
   ];
 
   homebrew.brews = [
     #        "cloudflared"
   ];
   homebrew.casks = [
-    "kodi"
-    "calibre"
-    "android-platform-tools"
-    "hammerspoon"
+    # "kodi"
+    # "calibre"
+    # "android-platform-tools"
+    # "hammerspoon"
   ];
 
   # io-specific yabai overrides
@@ -61,6 +63,7 @@ in
     lshift + lcmd - 2 : yabai -m window --space 2
     lshift + lcmd - 3 : yabai -m window --space 3
     lshift + lcmd - 4 : yabai -m window --space 4
+    hyper - f : yabai -m window --toggle float
     hyper - b : yabai -m rule --add app=iTerm space=1 && \
                 yabai -m rule --add app=kitty space=1 && \
                 yabai -m rule --add app=Chrome space=2 && \

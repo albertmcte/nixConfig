@@ -1,4 +1,4 @@
-{ pkgs, lib, myLib, ... }:
+{ pkgs, myLib, ... }:
 let
   unstable = myLib.mkUnstable pkgs;
 in
@@ -16,6 +16,9 @@ in
       "karabiner-elements"
       "hiddenbar"
       "bluebubbles"
+      "kodi"
+      "calibre"
+      "hammerspoon"
     ];
   };
 

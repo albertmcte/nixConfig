@@ -3,7 +3,8 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
-    PATH = "$PATH";
+    PATH = "$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools";
+    ANDROID_HOME = "/Users/wash/Library/Android/sdk";
   };
   home.packages = with pkgs; [
     mosh
@@ -13,6 +14,7 @@
     stow
     openssh
     mas
+    gh
     #    pyenv            #only in unstable, hm problems, moved to system
     #    jq               #don't think i need this
     #    youtube-dl
