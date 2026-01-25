@@ -1,6 +1,11 @@
 { lib, ... }:
 {
   options.hostVars = {
+    hyprStart = lib.mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
+      description = "Start hyprland";
+    };
     extraMonitorSettings = lib.mkOption {
       type = lib.types.str;
       default = "";
