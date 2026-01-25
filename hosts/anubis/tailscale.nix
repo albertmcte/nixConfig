@@ -17,20 +17,20 @@
     script = ''
       # Wait for network to be ready (retry up to 30 seconds)
       sleep 10
-      for i in {1..30}; do
-        NETDEV="$(${pkgs.iproute2}/bin/ip -o route get 8.8.8.8 2>/dev/null | ${pkgs.coreutils}/bin/cut -f 5 -d " ")"
-        if [ -n "$NETDEV" ]; then
-          break
-        fi
-        echo "Waiting for network to be ready... ($i/30)"
-        sleep 1
-      done
-
-      if [ -z "$NETDEV" ]; then
-        echo "Failed to determine network device after 30 seconds"
-        exit 1
-      fi
-
+      # for i in {1..30}; do
+      #   NETDEV="$(${pkgs.iproute2}/bin/ip -o route get 8.8.8.8 2>/dev/null | ${pkgs.coreutils}/bin/cut -f 5 -d " ")"
+      #   if [ -n "$NETDEV" ]; then
+      #     break
+      #   fi
+      #   echo "Waiting for network to be ready... ($i/30)"
+      #   sleep 1
+      # done
+      #
+      # if [ -z "$NETDEV" ]; then
+      #   echo "Failed to determine network device after 30 seconds"
+      #   exit 1
+      # fi
+      #
       echo "Configuring GRO settings on $NETDEV"
       ${pkgs.ethtool}/bin/ethtool -K "$NETDEV" rx-udp-gro-forwarding on || true
       ${pkgs.ethtool}/bin/ethtool -K "$NETDEV" rx-gro-list off || true

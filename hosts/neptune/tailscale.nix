@@ -1,39 +1,39 @@
 { config, pkgs, ... }:
 {
-  # enable the tailscale service
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
+    authKeyFile = config.age.secrets.tailscale_key.path;
+    extraUpFlags = [ "--advertise-exit-node" ];
   };
 
-  # create a oneshot job to authenticate to Tailscale
-  systemd.services.tailscale-autoconnect = {
-    description = "Automatic connection to Tailscale";
-
-    # make sure tailscale is running before trying to connect to tailscale
-    after = [
-      "network-pre.target"
-      "tailscale.service"
-    ];
-    wants = [
-      "network-pre.target"
-      "tailscale.service"
-    ];
+  # Optional: ethtool GRO settings for improved performance
+  systemd.services.tailscale-gro = {
+    description = "Configure GRO settings for Tailscale";
+    after = [ "network-online.target" "tailscale.service" ];
+    wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig.Type = "oneshot";
-    script = with pkgs; ''
-      # wait for tailscaled to settle
-      sleep 2
-
-      NETDEV="$(/run/current-system/sw/bin/ip -o route get 8.8.8.8 | cut -f 5 -d " ")"
-      ${pkgs.ethtool}/bin/ethtool -K $NETDEV rx-udp-gro-forwarding on rx-gro-list off
-
-      status="$(${tailscale}/bin/tailscale status -json | ${jq}/bin/jq -r .BackendState)"
-      if [ $status = "Running" ]; then # if so, then do nothing
-        exit 0
-      fi
-      ${tailscale}/bin/tailscale set --advertise-routes=10.1.1.0/24
-      ${tailscale}/bin/tailscale up --authkey $(cat ${config.age.secrets.tailscale_key.path}) --advertise-exit-node
+    script = ''
+      # Wait for network to be ready (retry up to 30 seconds)
+      sleep 10
+      # for i in {1..30}; do
+      #   NETDEV="$(${pkgs.iproute2}/bin/ip -o route get 8.8.8.8 2>/dev/null | ${pkgs.coreutils}/bin/cut -f 5 -d " ")"
+      #   if [ -n "$NETDEV" ]; then
+      #     break
+      #   fi
+      #   echo "Waiting for network to be ready... ($i/30)"
+      #   sleep 1
+      # done
+      #
+      # if [ -z "$NETDEV" ]; then
+      #   echo "Failed to determine network device after 30 seconds"
+      #   exit 1
+      # fi
+      #
+      echo "Configuring GRO settings on $NETDEV"
+      ${pkgs.ethtool}/bin/ethtool -K "$NETDEV" rx-udp-gro-forwarding on || true
+      ${pkgs.ethtool}/bin/ethtool -K "$NETDEV" rx-gro-list off || true
     '';
   };
 
@@ -43,12 +43,9 @@
     ethtool
   ];
 
-  # Open ports in the firewall.
   networking.firewall = {
     trustedInterfaces = [ "tailscale0" ];
     allowedUDPPorts = [ config.services.tailscale.port ];
-    #checkReversePath shouldn't be needed with useRoutingFeatures
-    #    checkReversePath = "loose";
   };
 
   age.secrets.tailscale_key.file = ../../secrets/tailscale_key.age;
