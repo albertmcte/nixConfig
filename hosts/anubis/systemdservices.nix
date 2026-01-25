@@ -4,6 +4,7 @@
     wantedBy = [ "timers.target" ];
     timerConfig = {
       OnCalendar = "*-*~01 22:00";
+      Persistent = true;
       Unit = "rcloneOnedrive.service";
     };
   };
