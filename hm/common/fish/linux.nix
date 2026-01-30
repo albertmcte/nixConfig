@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, osConfig, pkgs, ... }:
 {
-  programs.fish.loginShellInit = lib.mkIf (pkgs.stdenv.isLinux && config.hostVars.hyprStart != null) config.hostVars.hyprStart;
+  programs.fish.loginShellInit = lib.mkIf (pkgs.stdenv.isLinux && osConfig.hostVars.hyprStart != null) osConfig.hostVars.hyprStart;
 }
