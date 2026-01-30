@@ -1,4 +1,4 @@
-{ pkgs, myLib, ... }:
+{ pkgs, myLib, config, ... }:
 let
   unstable = myLib.mkUnstable pkgs;
 in
@@ -70,8 +70,8 @@ in
     enable = true;
     package = pkgs.skhd;
     skhdConfig = ''
-      lcmd - return : open -na /Users/wash/Applications/Home\ Manager\ Apps/kitty.app
-      lcmd - g : open /Users/wash
+      lcmd - return : open -na ${config.hostVars.homeDirectory}/Applications/Home\ Manager\ Apps/kitty.app
+      lcmd - g : open ${config.hostVars.homeDirectory}
       rcmd - z : yabai --restart-service
       rcmd - x : skhd --restart-service
       hyper - r : yabai -m space --rotate 270

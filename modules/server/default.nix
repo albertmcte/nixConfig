@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   services = {
-    getty.autologinUser = "wash";
+    getty.autologinUser = config.hostVars.primaryUser;
     ntopng.enable = true;
   };
   environment.systemPackages = [

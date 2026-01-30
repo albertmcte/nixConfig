@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   inherit (pkgs) stdenv;
   osIcon = (if stdenv.isDarwin then "\\uf179" else "\\uf313");

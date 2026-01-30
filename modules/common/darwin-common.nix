@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
+  imports = [ ../host-variables.nix ];
+
   programs.gnupg.agent.enable = true;
   #  programs.zsh.enable = true;
   #  environment.pathsToLink = [ "/share/zsh" ];
@@ -7,7 +9,7 @@
   nix.settings.cores = 0; # use all cores
   nix.settings.max-jobs = 10; # use all cores
   programs.fish.enable = true;
-  system.primaryUser = "wash";
+  system.primaryUser = config.hostVars.primaryUser;
   system.defaults = {
     NSGlobalDomain.AppleShowAllExtensions = true;
     NSGlobalDomain.InitialKeyRepeat = 25;
@@ -24,6 +26,6 @@
     finder.FXEnableExtensionChangeWarning = false;
     loginwindow.GuestEnabled = false;
     screencapture.disable-shadow = true;
-    screencapture.location = "/Users/wash/Alpha/Screenshots/io/";
+    screencapture.location = "${config.hostVars.homeDirectory}/Dropbox/Screenshots/io/2026/";
   };
 }

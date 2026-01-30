@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  age.secrets = {
+    pushover_token.file = ../secrets/pushover_token.age;
+    pushover_user.file = ../secrets/pushover_user.age;
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";

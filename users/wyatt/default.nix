@@ -7,16 +7,18 @@
 }:
 {
   users.mutableUsers = false;
-  home-manager.users.wyatt = {
-    home.username = "wyatt";
-    home.homeDirectory = "/home/wyatt";
+  home-manager.users.wyatt = { config, ... }: {
+    home = {
+      username = "wyatt";
+      homeDirectory = "/home/wyatt";
+      stateVersion = "23.11";
+    };
     programs.home-manager.enable = true;
-    home.stateVersion = "23.11";
     # nixpkgs.config.allowUnfree = true;
     age = {
-      identityPaths = [ "/home/wyatt/.ssh/id_ed25519" ];
-      secretsDir = "/home/wyatt/.agenix/agenix";
-      secretsMountPoint = "/home/wyatt/.agenix/agenix.d";
+      identityPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
+      secretsDir = "${config.home.homeDirectory}/.agenix/agenix";
+      secretsMountPoint = "${config.home.homeDirectory}/.agenix/agenix.d";
     };
     imports = [
       ../../hm

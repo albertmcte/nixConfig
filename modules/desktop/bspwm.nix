@@ -11,7 +11,7 @@
     defaultSession = "none+bspwm";
     autoLogin = {
       enable = true;
-      user = "wash";
+      user = config.hostVars.primaryUser;
     };
     #    lightdm = {
     #      enable = true;

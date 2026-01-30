@@ -95,7 +95,7 @@
       "80:80/tcp"
       "443:443/tcp"
     ];
-    cmd = [ "--api.insecure=true" "--providers.docker=true" "--providers.docker.exposedbydefault=false" "--entrypoints.web.address=:80" "--entrypoints.web.http.redirections.entryPoint.to=websecure" "--entrypoints.web.http.redirections.entrypoint.scheme=https" "--entrypoints.websecure.address=:443" "--certificatesresolvers.mytlschallenge.acme.tlschallenge=true" "--certificatesresolvers.mytlschallenge.acme.email=grady@washatka.net" "--certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json" ];
+    cmd = [ "--providers.docker=true" "--providers.docker.exposedbydefault=false" "--entrypoints.web.address=:80" "--entrypoints.web.http.redirections.entryPoint.to=websecure" "--entrypoints.web.http.redirections.entrypoint.scheme=https" "--entrypoints.websecure.address=:443" "--certificatesresolvers.mytlschallenge.acme.tlschallenge=true" "--certificatesresolvers.mytlschallenge.acme.email=grady@washatka.net" "--certificatesresolvers.mytlschallenge.acme.storage=/letsencrypt/acme.json" ];
     log-driver = "journald";
     extraOptions = [
       "--network-alias=traefik"

@@ -24,7 +24,7 @@ in
 
   environment.systemPackages = with pkgs; [
     python3
-    inputs.agenix.packages.${stdenv.hostPlatform.system}.default
+    inputs.agenix.packages.${pkgs.stdenv.hostPlatform.system}.default
     eza
     pyenv
     iina

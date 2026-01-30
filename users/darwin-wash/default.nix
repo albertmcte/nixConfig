@@ -10,13 +10,17 @@
     };
   };
 
-  home-manager.users.wash = {
+  home-manager.users.wash = { config, ... }: {
     programs.home-manager.enable = true;
-    home.stateVersion = "24.11";
+    home = {
+      username = "wash";
+      homeDirectory = "/Users/wash";
+      stateVersion = "24.11";
+    };
     age = {
-      identityPaths = [ "/Users/wash/.ssh/id_ed25519" ];
-      secretsMountPoint = "/Users/wash/.agenix/agenix.d";
-      secretsDir = "/Users/wash/.agenix/agenix";
+      identityPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
+      secretsMountPoint = "${config.home.homeDirectory}/.agenix/agenix.d";
+      secretsDir = "${config.home.homeDirectory}/.agenix/agenix";
     };
     imports = [
       ../../hm

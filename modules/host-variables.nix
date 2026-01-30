@@ -1,6 +1,18 @@
-{ lib, ... }:
+{ lib, pkgs, config, ... }:
 {
   options.hostVars = {
+    primaryUser = lib.mkOption {
+      type = lib.types.str;
+      default = "wash";
+      description = "Primary user for this system";
+    };
+    homeDirectory = lib.mkOption {
+      type = lib.types.str;
+      default =
+        let prefix = if pkgs.stdenv.isDarwin then "/Users" else "/home";
+        in "${prefix}/${config.hostVars.primaryUser}";
+      description = "Home directory for the primary user (auto-computed from platform)";
+    };
     hyprStart = lib.mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;

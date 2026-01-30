@@ -8,7 +8,7 @@
 {
   users.mutableUsers = false;
 
-  home-manager.users.wash = {
+  home-manager.users.wash = { config, ... }: {
     home = {
       username = "wash";
       homeDirectory = "/home/wash";
@@ -16,9 +16,9 @@
     };
     programs.home-manager.enable = true;
     age = {
-      identityPaths = [ "/home/wash/.ssh/id_ed25519" ];
-      secretsDir = "/home/wash/.agenix/agenix";
-      secretsMountPoint = "/home/wash/.agenix/agenix.d";
+      identityPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
+      secretsDir = "${config.home.homeDirectory}/.agenix/agenix";
+      secretsMountPoint = "${config.home.homeDirectory}/.agenix/agenix.d";
     };
     imports = [
       ../hm
