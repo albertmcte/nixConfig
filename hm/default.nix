@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     common/cli.nix
@@ -8,7 +8,7 @@
     common/nvim
     ./music
   ];
-  home.file."./linuxbin" = {
+  home.file."./linuxbin" = lib.mkIf pkgs.stdenv.isLinux {
     source = ./linuxbin;
     recursive = true;
   };
