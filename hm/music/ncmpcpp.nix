@@ -1,7 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
 {
   programs.ncmpcpp = {
     enable = true;
+    package = pkgs.ncmpcpp.override {
+      visualizerSupport = true;
+      clockSupport = true;
+    };
 
     settings = {
       # Behavior
@@ -17,36 +21,35 @@
       browser_display_mode = "columns";
       playlist_display_mode = "columns";
 
-      # General Colors
+      # General Colors (using 256-color palette to bypass terminal's 16-color theme)
       colors_enabled = "yes";
-      main_window_color = "white";
-      header_window_color = "cyan";
-      volume_color = "green";
-      statusbar_color = "white";
-      progressbar_color = "cyan";
-      progressbar_elapsed_color = "white";
+      main_window_color = "255";         # white
+      header_window_color = "73";        # cyan
+      volume_color = "114";              # green
+      statusbar_color = "255";           # white
+      progressbar_color = "73";          # cyan
+      progressbar_elapsed_color = "255"; # white
 
-      # Song List
-      song_columns_list_format = "(10)[blue]{l} (30)[green]{t} (30)[magenta]{a} (30)[yellow]{b}";
-      song_list_format = "{$7%a - $9}{$5%t$9}|{$5%f$9}$R{$6%b $9}{$3%l$9}";
+      # Song List (using 256-color palette indices for format strings)
+      song_columns_list_format = "(10)[75]{l} (30)[114]{t} (30)[176]{a} (30)[180]{b}";
+      song_list_format = "{$73%a - $9}{$75%t$9}|{$75%f$9}$R{$176%b $9}{$114%l$9}";
 
       # Current Item
-      current_item_prefix = "$(blue)$r";
+      current_item_prefix = "$(75)$r";
       current_item_suffix = "$/r$(end)";
-      current_item_inactive_column_prefix = "$(cyan)$r";
+      current_item_inactive_column_prefix = "$(73)$r";
 
       # Alternative Interface
       user_interface = "alternative";
-      alternative_header_first_line_format = "$0$aqqu$/a {$6%a$9 - }{$3%t$9}|{$3%f$9} $0$atqq$/a$9";
-      alternative_header_second_line_format = "{{$4%b$9}{ [$8%y$9]}}|{$4%D$9}";
+      alternative_header_first_line_format = "$0$aqqu$/a {$(176)%a$(end) - }{$(114)%t$(end)}|{$(114)%f$(end)} $0$atqq$/a$(end)";
+      alternative_header_second_line_format = "{{$(180)%b$(end)}{ [$(255)%y$(end)]}}|{$(180)%D$(end)}";
 
       # Classic Interface
-      song_status_format = " $6%a $7⟫⟫ $3%t $7⟫⟫ $4%b ";
+      song_status_format = " $(176)%a $(73)⟫⟫ $(114)%t $(73)⟫⟫ $(180)%b ";
 
       # Visualizer
-      visualizer_fifo_path = "/tmp/mpd.fifo";
+      visualizer_data_source = "/tmp/mpd.fifo";
       visualizer_output_name = "my_fifo";
-      visualizer_sync_interval = "60";
       visualizer_type = "spectrum";
       visualizer_in_stereo = "yes";
       visualizer_look = "◆▋";

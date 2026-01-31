@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  pkgs,
   ...
 }:
 
@@ -23,6 +24,9 @@
   boot.extraModulePackages = [ ];
   boot.kernelParams = [ "amdgpu.ppfeaturemask=0xffffffff" ];
 
+  hardware.graphics = {
+    enable = true;
+  };
   #  fileSystems."/" =
   #    { device = "/dev/disk/by-uuid/0309b066-5d6d-4ec4-877c-9864b0124a84";
   #      fsType = "btrfs";

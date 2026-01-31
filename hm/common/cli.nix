@@ -4,7 +4,6 @@
     home.file.".config/kitty".source = ./kitty;
     home.packages = with pkgs; [
       bat
-      # htop #move to btop finally
       curl
       fd
       file
@@ -28,6 +27,7 @@
       pyright
       btop
       claude-code # overlay
+      jq
     ];
 
     home.shellAliases = {

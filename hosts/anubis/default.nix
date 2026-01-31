@@ -120,6 +120,12 @@ in
           auto_format    "no"
           dop            "no"   #unless there are DSD files
         }
+        audio_output {
+          type           "fifo"
+          name           "my_fifo"
+          path           "/tmp/mpd.fifo"
+          format         "44100:16:2"
+        }
         resampler {
           plugin         "soxr"
           quality        "very high"
@@ -132,21 +138,21 @@ in
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
+    jellyfin-media-player
     obsidian
     dive # look into docker image layers
     podman-tui # container status
-    docker-compose
+    docker-compose #needed???
     lact
     makemkv
     chromium
     firefox
-    # insync
     pamixer
     pwvucontrol
     ncmpcpp
-    logiops #mx master mouse
     whipper
     picard
+    arion
   ];
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = ["multi-user.target"];
