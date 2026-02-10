@@ -15,6 +15,8 @@ in
     ./tailscale.nix
     ./upmpdcli.nix
     ./camilladsp.nix
+    ./camillagui.nix
+    ./camillaeq.nix
     ../../users/wash-desktop
     ../../modules/desktop/hyprwm.nix
     ../../modules/server
