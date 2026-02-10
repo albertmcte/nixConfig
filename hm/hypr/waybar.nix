@@ -3,6 +3,7 @@
   programs.waybar = {
     enable = true;
     systemd.enable = true;
+    systemd.target = "graphical-session.target";
     style = "${config.xdg.configHome}/waybar/style.css";
     settings = {
       mainBar = {

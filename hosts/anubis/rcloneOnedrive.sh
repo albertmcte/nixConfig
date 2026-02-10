@@ -1,5 +1,5 @@
-dirTemp=/home/wash/linuxbin/tmpOneDrivePhotos
-dirSorted=/home/wash/linuxbin/tmpPhotos
+dirTemp=/home/wash/bin/tmpOneDrivePhotos
+dirSorted=/home/wash/bin/tmpPhotos
 
 rclone -v copy onedrive:Pictures/Samsung\ Gallery/ "$dirTemp"
 ra=$?
@@ -19,7 +19,7 @@ done
 
 echo "pics grabbed at $(date)" >> /home/wash/OneDriveCanary.txt
 
-/home/wash/linuxbin/pushover.sh 'S25 Onedrive to Anubis' 'SUCCESS' > /dev/null 2>&1
+/home/wash/bin/pushover.sh 'S25 Onedrive to Anubis' 'SUCCESS' > /dev/null 2>&1
 
 rclone -v copy /mercury/music onedrive:/Music
 rb=$?

@@ -22,7 +22,9 @@
       User = "wash";
       Group = "users";
     };
-    script = "${./rcloneOnedrive.sh}";
+    script = ''
+      ${./rcloneOnedrive.sh}
+      '';
   };
   systemd.user.services.wayvnc = {
     enable = true;

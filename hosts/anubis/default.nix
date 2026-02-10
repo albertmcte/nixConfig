@@ -13,6 +13,8 @@ in
     ./systemdservices.nix
     ./autologin.nix
     ./tailscale.nix
+    ./upmpdcli.nix
+    ./camilladsp.nix
     ../../users/wash-desktop
     ../../modules/desktop/hyprwm.nix
     ../../modules/server
@@ -52,14 +54,20 @@ in
     containers.enable = true;
     podman = {
       enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enable = true;
+      dockerSocket.enable = true;
+      defaultNetwork.settings.dns_enabled = true;
     };
-
   };
 
   services = {
     lact.enable = true;
+    immich = {
+      enable = true;
+      port = 2283;
+      host = "0.0.0.0";
+      # mediaLocation = "/mercury/immich/upload";
+      openFirewall = true;
+    };
     # plex = {
     #   enable = true;
     #   openFirewall = true;
@@ -113,12 +121,26 @@ in
       extraConfig = ''
         audio_output {
           type           "alsa"
-          name           "ALSA Direct Output"
+          name           "Bitperfect (Direct)"
           device         "hw:0,0"
           auto_resample  "no"
           auto_channels  "no"
           auto_format    "no"
-          dop            "no"   #unless there are DSD files
+          dop            "no"
+          buffer_time    "200000"
+          period_time    "50000"
+          enabled        "yes"
+        }
+        audio_output {
+          type           "alsa"
+          name           "CamillaDSP EQ"
+          device         "camilladsp"
+          auto_resample  "no"
+          auto_channels  "no"
+          auto_format    "no"
+          buffer_time    "200000"
+          period_time    "50000"
+          enabled        "no"
         }
         audio_output {
           type           "fifo"
@@ -142,7 +164,7 @@ in
     obsidian
     dive # look into docker image layers
     podman-tui # container status
-    docker-compose #needed???
+    docker-client
     lact
     makemkv
     chromium
@@ -152,7 +174,6 @@ in
     ncmpcpp
     whipper
     picard
-    arion
   ];
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = ["multi-user.target"];

@@ -53,4 +53,12 @@ in
     wash
     neptune
   ];
+  "qobuz_user.age".publicKeys = [
+    wash
+    anubis
+  ];
+  "qobuz_pass.age".publicKeys = [
+    wash
+    anubis
+  ];
 }

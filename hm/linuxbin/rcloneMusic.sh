@@ -1,4 +1,4 @@
-rclone -v copy /mercury/music onedrive:/Music
+/run/current-system/sw/bin/rclone -v copy /mercury/music onedrive:/Music
 
 ra=$?
 

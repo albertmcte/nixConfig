@@ -8,7 +8,7 @@
     common/nvim
     ./music
   ];
-  home.file."./linuxbin" = lib.mkIf pkgs.stdenv.isLinux {
+  home.file."./bin" = lib.mkIf pkgs.stdenv.isLinux {
     source = ./linuxbin;
     recursive = true;
   };
