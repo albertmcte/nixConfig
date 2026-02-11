@@ -4,7 +4,8 @@
 
   # Desktop-specific: add hyprland config
   home-manager.users.wash.imports = [
-    ../../hm
     ../../hm/hypr
+    ../../hm/qt.nix
+    ../../hm/music
   ];
 }
