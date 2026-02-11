@@ -14,6 +14,7 @@ in
     ./autologin.nix
     ./tailscale.nix
     ./upmpdcli.nix
+    ./upplay.nix
     ./camilladsp.nix
     ./camillagui.nix
     ./camillaeq.nix

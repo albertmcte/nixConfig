@@ -53,6 +53,7 @@ in
       enable = true;
       defaultEditor = true;
     };
+    mosh.enable = true;
   };
 
   environment.shells = with pkgs; [
@@ -81,5 +82,8 @@ in
     enable = true;
     allowedTCPPorts = [ ];
     allowedUDPPorts = [ ];
+    allowedUDPPortRanges = [
+      { from = 60000; to = 61000; }
+    ];
   };
 }
