@@ -14,12 +14,12 @@ in
     ./autologin.nix
     ./tailscale.nix
     ./upmpdcli.nix
-    ./upplay.nix
     ./camilladsp.nix
     ./camillagui.nix
     ./camillaeq.nix
     ../../users/wash-desktop
     ../../modules/desktop/hyprwm.nix
+    ../../modules/desktop/android.nix
     ../../modules/server
   ];
 
@@ -29,6 +29,8 @@ in
   };
 
   time.timeZone = "America/New_York";
+
+  modules.android.enable = true;
 
   # Host-specific variables for Hyprland/desktop
   hostVars = {

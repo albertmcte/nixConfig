@@ -53,6 +53,8 @@
       visualizer_type = "spectrum";
       visualizer_in_stereo = "yes";
       visualizer_look = "◆▋";
+      visualizer_color = "114, 150, 73, 75, 176, 180";
+      visualizer_spectrum_smooth_look = "yes";
 
       # Navigation
       cyclic_scrolling = "yes";

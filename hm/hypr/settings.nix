@@ -32,7 +32,7 @@
     misc = {
       layers_hog_keyboard_focus = true;
       initial_workspace_tracking = 0;
-      mouse_move_enables_dpms = true;
+      mouse_move_enables_dpms = false;
       key_press_enables_dpms = false;
     };
 

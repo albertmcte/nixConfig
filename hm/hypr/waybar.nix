@@ -19,7 +19,7 @@
         ];
         modules-right = [
           "wlr/taskbar"
-          "custom/wireguard"
+          # "custom/wireguard"
           "network"
           "pulseaudio"
           "cpu"
