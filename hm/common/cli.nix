@@ -26,7 +26,10 @@
       rust-analyzer
       pyright
       btop
-      claude-code # overlay
+      llm-agents.claude-code
+      llm-agents.codex
+      llm-agents.codex-acp
+      llm-agents.gemini-cli
       jq
     ];
 
@@ -56,7 +59,7 @@
 
     programs = {
       kitty = {
-        enable = true;
+        enable = pkgs.stdenv.isLinux;
       };
       bat = {
         enable = true;

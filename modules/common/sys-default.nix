@@ -15,7 +15,7 @@ in
   home-manager.extraSpecialArgs = { inherit inputs; };
   # home-manager.useUserPackages = true;
   nixpkgs.overlays = [
-    inputs.claude-code.overlays.default
+    inputs.llm-agents.overlays.default
   ];
 
   # Possibly just use 'nixos-install --no-root-passwd'
@@ -44,7 +44,6 @@ in
     lzop
     mbuffer
     nixfmt-rfc-style
-    # gemini-cli  ### update to unstable when hashes fixed
   ];
 
   programs = {

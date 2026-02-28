@@ -19,6 +19,7 @@ in
       "kodi"
       "calibre"
       "hammerspoon"
+      "kitty"
     ];
   };
 
@@ -70,7 +71,7 @@ in
     enable = true;
     package = pkgs.skhd;
     skhdConfig = ''
-      lcmd - return : open -na ${config.hostVars.homeDirectory}/Applications/Home\ Manager\ Apps/kitty.app
+      lcmd - return : open -na /Applications/kitty.app
       lcmd - g : open ${config.hostVars.homeDirectory}
       rcmd - z : yabai --restart-service
       rcmd - x : skhd --restart-service

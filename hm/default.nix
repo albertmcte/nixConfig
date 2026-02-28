@@ -2,7 +2,7 @@
 {
   imports = [
     common/cli.nix
-    common/gemini.nix
+    common/mcp.nix
     common/fish
     common/nvim
   ];

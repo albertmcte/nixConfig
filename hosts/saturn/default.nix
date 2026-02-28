@@ -14,7 +14,7 @@ in
   nixpkgs.hostPlatform = "x86_64-darwin";
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
-    inputs.claude-code.overlays.default
+    inputs.llm-agents.overlays.default
   ];
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

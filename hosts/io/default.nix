@@ -17,7 +17,7 @@ in
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.android_sdk.accept_license = true;
   nixpkgs.overlays = [
-    inputs.claude-code.overlays.default
+    inputs.llm-agents.overlays.default
   ];
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -34,6 +34,9 @@ in
 
   homebrew.brews = [
     #        "cloudflared"
+    "ruby"
+    "rustledger"
+    "xcodegen"
   ];
   homebrew.casks = [
     # "kodi"
@@ -56,6 +59,8 @@ in
     yabai -m rule --add app=Spark space=4 opacity=0.95
     yabai -m rule --add app=Shortwave space=4 opacity=0.95
     yabai -m rule --add app=Mimestream space=4 opacity=0.98
+
+    yabai -m rule --add app="System Settings" manage=off
   '';
 
   services.skhd.skhdConfig = ''
