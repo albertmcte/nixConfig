@@ -52,6 +52,25 @@
   #     wantedBy = [ "default.target"];
   # };
 
+  systemd.timers.rsync-flights = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "*-*-* 00/6:00:00"; # every 6 hours
+      Persistent = true;
+      Unit = "rsync-flights.service";
+    };
+  };
+  systemd.services.rsync-flights = {
+    enable = true;
+    description = "Rsync Obsidian flights to n8n-files";
+    serviceConfig = {
+      Type = "oneshot";
+      User = "wash";
+      Group = "users";
+      ExecStart = "${pkgs.rsync}/bin/rsync -a /mercury/alpha/Obsidian/N_Prime/Library/Media/Flights/ /home/wash/n8n-files/trips/";
+    };
+  };
+
   age.secrets.pushover_user.file = ../../secrets/pushover_user.age;
   age.secrets.pushover_token.file = ../../secrets/pushover_token.age;
 }
