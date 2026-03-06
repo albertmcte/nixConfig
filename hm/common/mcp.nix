@@ -21,7 +21,10 @@ in
 {
   home.packages = [ pkgs.uv ];
 
+  home.sessionVariables.UV_PYTHON_PREFERENCE = "only-system";
+
   home.activation.ticktickMcpRepo = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    export UV_PYTHON_PREFERENCE=only-system
     if [ ! -d "${ticktickMcpDir}" ]; then
       ${lib.getExe pkgs.git} clone https://github.com/jacepark12/ticktick-mcp.git "${ticktickMcpDir}"
       ${lib.getExe pkgs.uv} venv "${ticktickMcpDir}/.venv"
