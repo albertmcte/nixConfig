@@ -8,16 +8,24 @@ sketchybar --add item spacer.1 left \
 	icon.drawing=off \
 	width=10
 
-for i in "${!SPACE_ICONS[@]}"; do
-	sid=$((i + 1))
-	sketchybar --add space space.$sid left \
-		--set space.$sid associated_space=$sid \
-		label.drawing=off \
-		icon.padding_left=10 \
-		icon.padding_right=10 \
-		background.padding_left=-5 \
-		background.padding_right=-5 \
-		script="$PLUGIN_DIR/space.sh"
+sketchybar --add event aerospace_workspace_change
+
+IDX=0
+for sid in $(/opt/homebrew/bin/aerospace list-workspaces --all); do
+    LABEL="${SPACE_ICONS[$IDX]:-$sid}"
+    sketchybar --add item space."$sid" left \
+        --subscribe space."$sid" aerospace_workspace_change \
+        --set space."$sid" \
+        updates=on \
+        background.color=0x44ffffff \
+        background.corner_radius=5 \
+        background.height=20 \
+        background.drawing=off \
+        icon.drawing=off \
+        label="$LABEL" \
+        click_script="/opt/homebrew/bin/aerospace workspace $sid" \
+        script="$PLUGIN_DIR/aerospace.sh $sid"
+    IDX=$((IDX + 1))
 done
 
 sketchybar --add item spacer.2 left \
@@ -41,4 +49,4 @@ sketchybar --add item separator left \
 	background.padding_right=15 \
 	label.drawing=off \
 	associated_display=active \
-	icon.color="$YELLOW" # --set separator icon= \
+	icon.color="$YELLOW" # --set separator icon= \

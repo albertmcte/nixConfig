@@ -4,6 +4,7 @@ let
 in
 {
   environment.shells = [ pkgs.fish ];
+  environment.systemPackages = [ pkgs.jankyborders ];
 
   homebrew = {
     enable = true;
@@ -18,68 +19,10 @@ in
       "bluebubbles"
       "kodi"
       "calibre"
-      "hammerspoon"
       "kitty"
     ];
   };
 
-  services.yabai = {
-    enable = true;
-    package = unstable.pkgs.yabai;
-    enableScriptingAddition = true;
-    config = {
-      focus_follows_mouse = "autoraise";
-      mouse_follows_focus = "off";
-      window_placement = "second_child";
-      window_opacity = "on";
-      window_opacity_duration = "0.0";
-      active_window_opacity = "1.0";
-      normal_window_opacity = "1.0";
-      window_border = "off";
-      window_topmost = "on";
-      window_shadow = "on";
-      split_ratio = "0.50";
-      auto_balance = "on";
-      mouse_modifier = "fn";
-      mouse_action1 = "move";
-      mouse_action2 = "resize";
-      mouse_drop_action = "swap";
-      layout = "bsp";
-      top_padding = 0;
-      bottom_padding = 5;
-      left_padding = 5;
-      right_padding = 5;
-      window_gap = 5;
-    };
-
-    extraConfig = ''
-      # Common rules
-      yabai -m rule --add app=iTerm space=1
-      yabai -m rule --add app=Chrome space=2
-      yabai -m rule --add app=Firefox space=2
-
-      yabai -m rule --add app=Mailspring space=4 opacity=0.95
-      yabai -m rule --add app=Email space=4 opacity=0.95
-
-      yabai -m rule --add app=Finder opacity=0.85
-      yabai -m rule --add app=Fantastical manage=off
-      yabai -m rule --add app="System Preferences" manage=off
-    '';
-  };
-
-  services.skhd = {
-    enable = true;
-    package = pkgs.skhd;
-    skhdConfig = ''
-      lcmd - return : open -na /Applications/kitty.app
-      lcmd - g : open ${config.hostVars.homeDirectory}
-      rcmd - z : yabai --restart-service
-      rcmd - x : skhd --restart-service
-      hyper - r : yabai -m space --rotate 270
-      hyper - y : yabai -m space --mirror y-axis
-      hyper - x : yabai -m space --mirror x-axis
-      lcmd - b : yabai -m space --balance
-      hyper - f : yabai -m window --toggle native-fullscreen
-    '';
-  };
+  # aerospace installed via homebrew for now — configure via ~/.aerospace.toml
+  # TODO: move back to services.aerospace once config is dialed in
 }

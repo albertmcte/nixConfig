@@ -2,27 +2,29 @@
 
 source "$HOME/.config/sketchybar/variables.sh" # Loads all defined colors
 
-SPACE_CLICK_SCRIPT="yabai -m space --focus $SID 2>/dev/null"
+FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused 2>/dev/null)
+CURRENT_SID=${NAME##*.} # extract workspace number from item name (space.1 -> 1)
 
-WIN=$(yabai -m query --spaces --space $SID | jq '.windows[0]')
-HAS_WINDOWS="true"
-if [ "$WIN" = "null" ];then
-  HAS_WINDOWS="false"
+# Check if this workspace has windows
+WIN_COUNT=$(aerospace list-windows --workspace "$CURRENT_SID" 2>/dev/null | wc -l | tr -d ' ')
+HAS_WINDOWS="false"
+if [ "$WIN_COUNT" -gt 0 ]; then
+	HAS_WINDOWS="true"
 fi
-if [ "$SELECTED" = "true" ] ;then
-	HAS_WINDOWS="false"
-fi
-sketchybar --set $NAME background.drawing=on icon.highlight=$HAS_WINDOWS
 
-if [ "$SELECTED" = "true" ]; then
+if [ "$FOCUSED_WORKSPACE" = "$CURRENT_SID" ]; then
+	# Active workspace — RED
 	sketchybar --animate tanh 5 --set "$NAME" \
 		icon.color="$RED" \
-		icon.highlight_color="$GREEN" \
-		icon="${SPACE_ICONS[$SID - 1]}" \
-		click_script="$SPACE_CLICK_SCRIPT"
+		icon="${SPACE_ICONS[$CURRENT_SID - 1]}"
+elif [ "$HAS_WINDOWS" = "true" ]; then
+	# Inactive but has windows — GREEN
+	sketchybar --animate tanh 5 --set "$NAME" \
+		icon.color="$GREEN" \
+		icon="${SPACE_ICONS[$CURRENT_SID - 1]}"
 else
+	# Inactive and empty — COMMENT (muted gray)
 	sketchybar --animate tanh 5 --set "$NAME" \
 		icon.color="$COMMENT" \
-		icon="${SPACE_ICONS[$SID - 1]}" \
-		click_script="$SPACE_CLICK_SCRIPT"
+		icon="${SPACE_ICONS[$CURRENT_SID - 1]}"
 fi
