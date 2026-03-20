@@ -29,6 +29,22 @@ in
       _JAVA_AWT_WM_NONREPARENTING = "1";
     };
 
+    # nix-ld provides the dynamic linker and shared libraries that
+    # pre-compiled Android SDK binaries (aapt2, build-tools, emulator, etc.)
+    # expect on a standard Linux system. Without it these binaries fail with
+    # "No such file or directory" because NixOS lacks /lib/ld-linux-*.
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+      zlib
+      libgcc
+      ncurses5
+      stdenv.cc.cc
+      xorg.libX11
+      xorg.libXrender
+      freetype
+      fontconfig
+    ];
+
     hardware.graphics.enable = lib.mkDefault true;
   };
 }

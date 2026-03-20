@@ -1,7 +1,8 @@
 { config, pkgs, ... }:
 {
   config = {
-    home.file.".config/kitty".source = ./kitty;
+    # home.file.".config/kitty".source = ./kitty;
+    # move kitty to stow
     home.packages = with pkgs; [
       bat
       curl
@@ -57,9 +58,6 @@
       kitty = {
         enable = pkgs.stdenv.isLinux; #macos install via homebrew for notifications
       };
-      zellij = {
-        enable = true;
-      };
       bat = {
         enable = true;
         # config.theme = "Dracula";
@@ -110,6 +108,12 @@
           enter_accept = true;
           #        sync_address = "https://majiy00-shell.fly.dev";
         };
+      };
+      zoxide = {
+        enable = true;
+        enableFishIntegration= true;
+        enableNushellIntegration = true;
+        enableZshIntegration = true;
       };
     };
     age.secrets.atuinKey.file = ../../secrets/atuinKey.age;

@@ -29,8 +29,4 @@
     source = ./macbin;
     recursive = true;
   };
-  home.file.".config/sketchybar" = {
-    source = ./sketchybar;
-    recursive = true;
-  };
 }

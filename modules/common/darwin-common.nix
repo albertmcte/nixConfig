@@ -1,4 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, config, myLib, ... }:
+let
+  unstable = myLib.mkUnstable pkgs;
+in
 {
   imports = [ ../host-variables.nix ];
 
@@ -28,4 +31,7 @@
     screencapture.disable-shadow = true;
     screencapture.location = "${config.hostVars.homeDirectory}/Dropbox/Screenshots/io/2026/";
   };
+  environment.systemPackages = [
+    unstable.lua5_5
+  ];
 }

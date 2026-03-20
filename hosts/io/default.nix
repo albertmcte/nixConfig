@@ -38,6 +38,7 @@ in
   homebrew.brews = [
     #        "cloudflared"
     "anomalyco/tap/opencode"
+    "acsandmann/tap/rift"
     "ruby"
     "rustledger"
     "supabase"
@@ -46,6 +47,7 @@ in
   homebrew.casks = [
     "nikitabobko/tap/aerospace"
     "wezterm"
+    "font-jetbrains-mono"
     # "kodi"
     # "calibre"
     # "android-platform-tools"
