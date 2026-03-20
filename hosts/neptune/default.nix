@@ -6,7 +6,6 @@
     ./hardware-configuration.nix
     ./router.nix
     ./unbound.nix
-    ./n8n.nix
     ./tailscale.nix
     ../../modules/common
     ../../users/wash

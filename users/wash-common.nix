@@ -31,6 +31,9 @@
       "wheel"
       "networkmanager"
     ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKisWeKbt3/lZL4HdPCTM9gXFsu+jkLg62ymJEQQpkN+ molly@Mollys-MacBook-Pro.local"
+    ];
     openssh.authorizedKeys.keyFiles = [ myLib.albertmcteKeys ];
     hashedPasswordFile = config.age.secrets.washpw.path;
     shell = pkgs.fish;

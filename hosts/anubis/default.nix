@@ -17,6 +17,7 @@ in
     ./camilladsp.nix
     ./camillagui.nix
     ./camillaeq.nix
+    ./n8n.nix
     ../../users/wash-desktop
     ../../modules/desktop/hyprwm.nix
     ../../modules/desktop/android.nix
